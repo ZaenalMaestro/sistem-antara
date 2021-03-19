@@ -7,57 +7,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- login form css -->
   <link rel="stylesheet" href="/css/login.css">
-  <title>Login</title>
+
+  <title>PPI FIKOM UMI - Login</title>
 </head>
 
 <body>
   <section>
     <div class="container">
+
+      <!-- ==== form login ==== -->
       <div class="user signinBx">
         <div class="imgBx"><img src="img/img_3115.jpg" alt="img_3115.jpg"></div>
         <div class="formBx">
+
+          <!-- ==== form ==== -->
           <form action="">
             <h2>Login</h2>
-            <input type="text" name="stambuk" class="stambuk" placeholder="Stambuk" maxlength="11">
-            <input type="password" name="password" placeholder="Password" maxlength="50">
-            <input type="submit" value="Login">
+            <!-- ==== stambuk ==== -->
+            <div class="input-container">
+              <input type="text" name="stambuk-login" class="validasi-stambuk" id="stambuk-login" placeholder="Stambuk"
+                maxlength="11">
+            </div>
+
+            <!-- ==== password ==== -->
+            <div class="input-container">
+              <input type="password" name="password-login" id="password-login" placeholder="Password" maxlength="50">
+            </div>
+
+            <!-- ==== tombol login ==== -->
+            <input type="submit" value="Login" id="tombol-login">
+
+            <!-- ==== link ke form registrasi ==== -->
             <p class="signup">belum ada akun? silahkan <a href="" class="link-pindah-form">registrasi</a></p>
           </form>
+          <!-- ==== end form ==== -->
+
         </div>
       </div>
+      <!-- ==== end form login ==== -->
+
+      <!-- ==== form registrasi ==== -->
       <div class="user signupBx">
         <div class="formBx">
+
+          <!-- ==== form ==== -->
           <form action="">
             <h2>registrasi</h2>
             <!-- ==== stambuk ==== -->
-            <input type="text" name="stambuk" class="stambuk-registrasi" placeholder="Stambuk" maxlength="11">
+            <div class="input-container">
+              <input type="text" name="stambuk-registrasi" id="stambuk-registrasi" class="validasi-stambuk"
+                placeholder="Stambuk" maxlength="11">
+            </div>
 
             <!-- ==== nama ==== -->
-            <input type="text" name="nama" placeholder="Nama" maxlength="30">
+            <div class="input-container">
+              <input type="text" name="nama-registrasi" id="nama-registrasi" placeholder="Nama" maxlength="30">
+            </div>
 
-            <!-- ==== nama ==== -->
-            <select name="semester">
-              <option>Semester</option>
-              <?php for($i = 1; $i <15; $i++) : ?>
-              <option value="1"><?= $i ?></option>
-              <?php endfor; ?>
-            </select>
+            <!-- ==== pilih semester ==== -->
+            <div class="input-container">
+              <select name="semester-registrasi" id="semster-registrasi">
+                <option>Semester</option>
+                <?php for($i = 1; $i <15; $i++) : ?>
+                <option value="1"><?= $i ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
 
             <!-- ==== password ==== -->
-            <input type="password" name="password" id="" placeholder="Password" maxlength="50">
+            <div class="input-container">
+              <input type="password" name="password-registrasi" id="password-registrasi" placeholder="Password"
+                maxlength="50">
+            </div>
 
             <!-- ==== konfirmasi password ==== -->
-            <input type="password" name="konfirmasiPassword" id="" placeholder="Konfirmasi Password" maxlength="50">
-
+            <div class="input-container">
+              <input type="password" name="konfirmasi-password-registrasi" id="konfirmasi-password-registrasi"
+                placeholder="Konfirmasi Password" maxlength="50">
+            </div>
             <!-- ==== tombol registrasi ==== -->
-            <input type="submit" value="Registrasi">
+            <input type="submit" value="Registrasi" id="tombol-registrasi">
+            <!-- ==== link ke form login ==== -->
             <p class="signup">Telah punya akun? silahkan <a href="" class="link-pindah-form">Login</a></p>
           </form>
+          <!-- ==== end form ==== -->
+
         </div>
         <div class="imgBx"><img src="img/bg5.jpg" alt="img_3115.jpg"></div>
       </div>
+      <!-- ==== end form registrasi ==== -->
+
     </div>
   </section>
+  <script src="/js/login-function.js"></script>
   <script src="/js/login.js"></script>
 </body>
 

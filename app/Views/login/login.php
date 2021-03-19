@@ -31,7 +31,7 @@
 
             <!-- ==== password ==== -->
             <div class="input-container">
-              <input type="password" name="password-login" id="password-login" placeholder="Password" maxlength="50">
+              <input type="password" name="password-login" id="password-login" placeholder="Password" maxlength="30">
             </div>
 
             <!-- ==== tombol login ==== -->
@@ -66,10 +66,10 @@
 
             <!-- ==== pilih semester ==== -->
             <div class="input-container">
-              <select name="semester-registrasi" id="semster-registrasi">
-                <option>Semester</option>
+              <select name="semester-registrasi" id="semester-registrasi">
+                <option value="">Semester</option>
                 <?php for($i = 1; $i <15; $i++) : ?>
-                <option value="1"><?= $i ?></option>
+                <option value="<?= $i ?>"><?= $i ?></option>
                 <?php endfor; ?>
               </select>
             </div>
@@ -77,13 +77,13 @@
             <!-- ==== password ==== -->
             <div class="input-container">
               <input type="password" name="password-registrasi" id="password-registrasi" placeholder="Password"
-                maxlength="50">
+                maxlength="30">
             </div>
 
             <!-- ==== konfirmasi password ==== -->
             <div class="input-container">
               <input type="password" name="konfirmasi-password-registrasi" id="konfirmasi-password-registrasi"
-                placeholder="Konfirmasi Password" maxlength="50">
+                placeholder="Konfirmasi Password" maxlength="30">
             </div>
             <!-- ==== tombol registrasi ==== -->
             <input type="submit" value="Registrasi" id="tombol-registrasi">

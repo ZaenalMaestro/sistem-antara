@@ -192,7 +192,8 @@ section .container .user .formBx form .input-container.error-message[data-error]
   font-size: 0.85em;
   color: #c92432;
   display: block;
-  margin: 10px 0;
+  margin-top: -3px;
+  margin-bottom: 5px;
 }
 
 

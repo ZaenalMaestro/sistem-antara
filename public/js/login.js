@@ -1,18 +1,31 @@
 // animasi pindah form
 document.addEventListener('click', e => {
-  e.preventDefault();
+  e.preventDefault();  
   if (e.target.classList.contains('link-pindah-form')) {
     const container = document.querySelector('.container')
     container.classList.toggle('active')
+
+    // hapus pesan error saat pindah form
+    removeErrorMessageMoveForm()
+
+    // hapus inputan saat pindah form
+    removeInputMoveForm()
   }
 })
+
 
 // mengatur hanya nomor yg bisa dimasukkan di form stambuk
 document.querySelectorAll('.validasi-stambuk').forEach(stb => {
   stb.addEventListener('keypress', event => {
-    const input = String.fromCharCode(event.which)
-    if (!(/[0-9]/.test(input))) event.preventDefault()
+    filterChartInput(event, /^[0-9]+$/)
   })
+})
+
+// mengatur hanya huruf yg bisa dimasukkan di form stambuk
+document.querySelector('#nama-registrasi').addEventListener('keypress', event => {
+  // const input = String.fromCharCode(event.which)
+  // if (!(/^[A-Za-z .']+$/.test(input))) event.preventDefault()
+  filterChartInput(event, /^[A-Za-z .']+$/)
 })
 
 
@@ -25,34 +38,32 @@ removeErrorMessage()
 document.getElementById('tombol-login').addEventListener('click', () => {
   const stambuk = document.getElementById('stambuk-login')
   const password = document.getElementById('password-login')
-  
-  // validasi stambuk login
-  if (stambuk.value === '') showErrorMessage(stambuk, 'Stambuk tidak boleh kosong !')    
-  else if (stambuk.value !== '13020160068') showErrorMessage(stambuk, 'Stambuk tidak valid !')    
-  
-  // validasi password login
-  if (password.value === '') showErrorMessage(password, 'Password tidak boleh kosong !')
-  else if (password.value !== '1234qwerty') showErrorMessage(password, 'Password tidak valid !')
 
-  // menghapus pesan error saat inputan diperbaharui
-  removeErrorMessage()  
+  // login jika valid
+  if (loginFormValidation(stambuk, password)) window.location.href = '/mahasiswa'
+
+  // hapus pesan error saat inputan diperbaharui
+  removeErrorMessage()
+  
 })
 
 // validasi input ketika tombol login diklik
 document.getElementById('tombol-registrasi').addEventListener('click', () => {
-  const stambuk = document.getElementById('stambuk-login')
-  const password = document.getElementById('password-login')
-  
-  // validasi stambuk login
-  if (stambuk.value === '') showErrorMessage(stambuk, 'Stambuk tidak boleh kosong !')    
-  else if (stambuk.value !== '13020160068') showErrorMessage(stambuk, 'Stambuk tidak valid !')    
-  
-  // validasi password login
-  if (password.value === '') showErrorMessage(password, 'Password tidak boleh kosong !')
-  else if (password.value !== '1234qwerty') showErrorMessage(password, 'Password tidak valid !')
+  const stambuk = document.getElementById('stambuk-registrasi')
+  const nama = document.getElementById('nama-registrasi')
+  const semester = document.getElementById('semester-registrasi')
+  const password = document.getElementById('password-registrasi')
+  const konfirmasi_password = document.getElementById('konfirmasi-password-registrasi')
 
+  // return false => registrasi tidak valid
+  // return true => registrasi valid
+  const inputValid = registrationFormValidation(stambuk, nama, semester, password, konfirmasi_password)
+
+  // registrasi berhasil jika semua inputan valid (true)
+  if (inputValid) alert('registrasi berhasil')
+  
   // menghapus pesan error saat inputan diperbaharui
-  removeErrorMessage()  
+  removeErrorMessage()
 })
 
 

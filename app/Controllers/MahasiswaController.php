@@ -34,4 +34,10 @@ class MahasiswaController extends BaseController
 		$data = ['activeURL'=> 'peraturan'];
 		return view('mahasiswa/peraturan', $data);
 	}
+
+	public function daftarPPI()
+	{
+		$data = ['activeURL'=> 'home'];
+		return view('mahasiswa/daftarppi', $data);
+	}
 }

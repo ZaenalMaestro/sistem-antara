@@ -2,8 +2,8 @@
 document.addEventListener('click', e => {
   e.preventDefault();  
   if (e.target.classList.contains('link-pindah-form')) {
-    const container = document.querySelector('.container')
-    container.classList.toggle('active')
+    // untuk menjalankan fitur pindah form
+    toggleForm()
 
     // hapus pesan error saat pindah form
     removeErrorMessageMoveForm()
@@ -12,7 +12,6 @@ document.addEventListener('click', e => {
     removeInputMoveForm()
   }
 })
-
 
 // mengatur hanya nomor yg bisa dimasukkan di form stambuk
 document.querySelectorAll('.validasi-stambuk').forEach(stb => {
@@ -23,16 +22,12 @@ document.querySelectorAll('.validasi-stambuk').forEach(stb => {
 
 // mengatur hanya huruf yg bisa dimasukkan di form stambuk
 document.querySelector('#nama-registrasi').addEventListener('keypress', event => {
-  // const input = String.fromCharCode(event.which)
-  // if (!(/^[A-Za-z .']+$/.test(input))) event.preventDefault()
   filterChartInput(event, /^[A-Za-z .']+$/)
 })
 
 
 // menjalankan fungsi remove error message
 removeErrorMessage()
-
-
 
 // validasi input ketika tombol login diklik
 document.getElementById('tombol-login').addEventListener('click', () => {
@@ -60,7 +55,10 @@ document.getElementById('tombol-registrasi').addEventListener('click', () => {
   const inputValid = registrationFormValidation(stambuk, nama, semester, password, konfirmasi_password)
 
   // registrasi berhasil jika semua inputan valid (true)
-  if (inputValid) alert('registrasi berhasil')
+  if (inputValid) {
+    alert('registrasi berhasil')
+    toggleForm()
+  }
   
   // menghapus pesan error saat inputan diperbaharui
   removeErrorMessage()

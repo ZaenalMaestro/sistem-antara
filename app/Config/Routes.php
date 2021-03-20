@@ -35,6 +35,7 @@ $routes->setAutoRoute(false);
 
 // routes dashboard mahasiswa
 $routes->get('/mahasiswa', 'MahasiswaController::index');
+$routes->get('/mahasiswa/daftarppi', 'MahasiswaController::daftarPPI');
 $routes->get('/mahasiswa/data', 'MahasiswaController::data');
 $routes->get('/mahasiswa/matakuliah', 'MahasiswaController::matakuliah');
 $routes->get('/mahasiswa/peraturan', 'MahasiswaController::peraturan');

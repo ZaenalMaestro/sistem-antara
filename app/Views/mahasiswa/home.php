@@ -9,7 +9,7 @@
       <div class="card-body">
         <h1 class="card-title text-center">11:38:11</h1>
         <p class="card-text">Batas pendaftaram sampai <span class="text-bold">28 Desember 2022</p>
-        <a href="#" class="btn btn-success">Daftar PPI</a>
+        <a href="/mahasiswa/daftarppi" class="btn btn-success">Daftar PPI</a>
       </div>
     </div>
   </div>

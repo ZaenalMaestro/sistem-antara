@@ -182,3 +182,9 @@ function filterChartInput(event, regex) {
   const input = String.fromCharCode(event.which)
   if (!(regex.test(input))) event.preventDefault()
 }
+
+// untuk menjalankan fitur pindah form
+function toggleForm(){
+  const container = document.querySelector('.container')
+  container.classList.toggle('active')
+}

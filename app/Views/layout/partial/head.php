@@ -13,6 +13,9 @@
   <link href="/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/mystyle.css">
+
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/demo/demo.css" rel="stylesheet" />
 </head>

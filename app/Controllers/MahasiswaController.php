@@ -40,4 +40,12 @@ class MahasiswaController extends BaseController
 		$data = ['activeURL'=> 'home'];
 		return view('mahasiswa/daftarppi', $data);
 	}
+
+	public function editMatakuliah()
+	{
+		$data = ['activeURL'=> 'data'];
+		return view('mahasiswa/editmatakuliah', $data);
+	}
+
+	
 }

@@ -5,7 +5,15 @@
   <div class="col-md-12">
     <div class="card ">
       <div class="card-header">
-        <h3 class="card-title">Mohon tunggu konfirmasi</h3>
+        <div class="row">
+          <div class="col-md-9">
+            <h3 class="card-title">Matakuliah di programkan</h3>
+          </div>
+          <div class="col">
+            <a href="/mahasiswa/editmatakuliah" class="btn btn-info btn-sm">Ubah Matakuliah</a>
+          </div>
+        </div>
+        
       </div>
       <div class="card-body">
         <div class="table-responsive ps">
@@ -21,6 +29,9 @@
                 <th class="text-info text-left">
                   SKS
                 </th>
+                <th class="text-info text-center">
+                  status
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -34,6 +45,9 @@
                 <td>
                   2
                 </td>
+                <td class="text-center">
+                  <span class="badge badge-warning badge-md">menunggu</span>
+                </td>
               </tr>
               <tr>
                 <td>
@@ -44,6 +58,9 @@
                 </td>
                 <td>
                   2
+                </td>
+                <td class="text-center">
+                  <span class="badge badge-warning badge-md">menunggu</span>
                 </td>
               </tr>
             </tbody>

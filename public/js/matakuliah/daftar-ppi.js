@@ -1,60 +1,71 @@
-// mengambil jumlah matakuliah yang dipilih
-
-const pilihJumlahMatakuliah = document.querySelector('#pilih-jumlah-matakuliah')
-pilihJumlahMatakuliah.addEventListener('change', function () {
-  const jumlahMatakuliah = this.value  
-  updateJumlahInputMatakuliah(jumlahMatakuliah)  
+// pilih matakuliah
+document.querySelectorAll('.matakuliah-terpilih').forEach(row => {
+  row.addEventListener('click', function () {
+    const sks = this.getAttribute('data-sks')
+    const matakuliah = this.getAttribute('data-matakuliah')
+    tambahkanMatakuliah(matakuliah, sks)
+    row.remove()
+  })
 })
 
-// untuk menampilkan input pilih matakuliah secara dinamis
-function updateJumlahInputMatakuliah(jumlahMatakuliah) {
-  const pilihMatakuliah = document.querySelector('.pilih-matakuliah')
-  const tombolSubmit = document.querySelector('.tombol-daftar-ppi')
-  let formInputMatakuliah = ''
-  if (jumlahMatakuliah == 0) {
-    tombolSubmit.classList.replace('d-block', 'd-none')
-    pilihMatakuliah.innerHTML = ''
-  } else {
-    tombolSubmit.classList.replace('d-none', 'd-block')
 
-    formInputMatakuliah += `<h4 class="mt-3 mb-2">Pilih Matakuliah</h4>`
-    for (let i = 1 ; i <= jumlahMatakuliah; i++) {
-      formInputMatakuliah += `
-        <div class="input-container" id="${i}">
-            <select name="semester-registrasi" id="semester-registrasi" style="width: 95%;">
-              <option value="">Pilih matakuliah</option>
-              <?php for($i = 1; $i <9; $i++) : ?>
-              <option value="<?= $i ?>">Javascript</option>
-              <option value="<?= $i ?>">Express js</option>
-              <?php endfor; ?>
-            </select>
-            <button data-id="${i}" type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon ml-2 hapus-input">
-              <i class="tim-icons icon-simple-remove"></i>
-            </button>
-          </div>
-        `;
-    }
-    // update ui form pilih matakuliah
-    pilihMatakuliah.innerHTML = formInputMatakuliah
+// menambahkan matakuliah ke table matakuliah ppi terpilih
+function tambahkanMatakuliah(matakuliahTerpilih, jumlahSks) {
+  let table = document.getElementById('table-belanja-matakuliah-ppi')
+  const tombolSimpanMatakuliah = document.querySelector('.tombol-simpan-matakuliah')
+
+  let sksDiprogramkan = document.querySelector('.total-sks')
+  let totalSks = sksMaksimal(jumlahSks)
+
+  // set nilai UI sks diprogramkan
+  sksDiprogramkan.innerHTML = totalSks
+
+  // jika tampilan ui sks diprogramkan > 16 ubah jadi 16
+  if (totalSks > 16) {
+    sksDiprogramkan.innerHTML = 16
   }
+
+  // jika telah ada matakuliah diprogramkan tombol programmkan matakuliah
+  if (table.rows.length > 0) tombolSimpanMatakuliah.classList.replace('d-none', 'd-block')
+
+  if (totalSks <=16) {
+      // tambah baris baru
+    let row = table.insertRow()
+
+    // tambah colom
+    let nomor = row.insertCell(0)
+    let matakuliah = row.insertCell(1)
+    let sks = row.insertCell(2)
+    let aksi = row.insertCell(3)
+
+    // isi data
+    nomor.innerHTML = nomorDinamis()
+    matakuliah.innerHTML = matakuliahTerpilih
+    sks.innerHTML = jumlahSks
+
+    const tombol = `
+      <button type="button" class="btn btn-warning btn-sm batalkan-matakuliah" style="margin-left:65px" data-matakuliah="${matakuliahTerpilih}" data-sks="${jumlahSks}">batalkan</button>
+    `
+    aksi.innerHTML = tombol
+  }
+
+  
 }
 
-
-// hapus inputan matakuliah saat tombol hapus diklik
-document.addEventListener('click', e => {
-  const btnHapusInput = e.target.parentElement.classList.contains('hapus-input')
-  if (btnHapusInput) {
-    // jika user konfirmasi untuk hapus maka hapus inpuatan
-    if (confirm('yakin hapus inputan ?')) {
-      const id = e.target.parentElement.getAttribute('data-id')
-      document.getElementById(id).remove()
-      const input = document.querySelectorAll('.input-container')
-      console.log(input.length)
-      if (input.length == 1) {
-        console.log('oke')
-        document.querySelector('.tombol-daftar-ppi').classList.replace('d-block', 'd-none')
-        document.querySelector('.pilih-matakuliah').innerHTML = ''
-      }
-    }    
+// menghitung jumlah total sks
+const sksMaksimal = ((jumlahSks) => {
+  let sks = 0
+  return function (jumlahSks) {
+    if (sks <= 16) sks = sks + parseInt(jumlahSks)    
+    return sks
   }
-})
+})()
+
+
+
+const nomorDinamis = (function () {
+  let nomor = 0
+  return function () {
+    return nomor +=1
+  }
+})()

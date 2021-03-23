@@ -1,24 +1,34 @@
-// pilih matakuliah
-document.querySelectorAll('.matakuliah-terpilih').forEach(row => {
-  row.addEventListener('click', function () {
-    const sks = this.getAttribute('data-sks')
-    const matakuliah = this.getAttribute('data-matakuliah')
+// // pilih matakuliah
+// document.querySelectorAll('.matakuliah-terpilih').forEach(row => {
+//   row.addEventListener('click', function () {
+//     const sks = this.getAttribute('data-sks')
+//     const matakuliah = this.getAttribute('data-matakuliah')
+//     tambahkanMatakuliah(matakuliah, sks)
+//     row.remove()
+//   })
+// })
+
+
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('matakuliah-terpilih')) {
+    const sks = e.target.getAttribute('data-sks')
+    const matakuliah = e.target.getAttribute('data-matakuliah')
     tambahkanMatakuliah(matakuliah, sks)
-    row.remove()
-  })
+    e.target.remove()
+  }
 })
 
 
 // menambahkan matakuliah ke table matakuliah ppi terpilih
 function tambahkanMatakuliah(matakuliahTerpilih, jumlahSks) {
-  let table = document.getElementById('table-belanja-matakuliah-ppi')
+  let table = document.getElementById('table-belanja-matakuliah-ppi').getElementsByTagName('tbody')[0]
   const tombolSimpanMatakuliah = document.querySelector('.tombol-simpan-matakuliah')
 
   let sksDiprogramkan = document.querySelector('.total-sks')
-  let totalSks = sksMaksimal(jumlahSks)
+  let totalSks = jumlahkanSks(jumlahSks)
 
-  // set nilai UI sks diprogramkan
-  sksDiprogramkan.innerHTML = totalSks
+  // // set nilai UI sks diprogramkan
+  // sksDiprogramkan.innerHTML = totalSks
 
   // jika tampilan ui sks diprogramkan > 16 ubah jadi 16
   if (totalSks > 16) {
@@ -26,40 +36,46 @@ function tambahkanMatakuliah(matakuliahTerpilih, jumlahSks) {
   }
 
   // jika telah ada matakuliah diprogramkan tombol programmkan matakuliah
-  if (table.rows.length > 0) tombolSimpanMatakuliah.classList.replace('d-none', 'd-block')
+  if (totalSks > 0) tombolSimpanMatakuliah.classList.replace('d-none', 'd-block')
 
   if (totalSks <=16) {
       // tambah baris baru
     let row = table.insertRow()
 
     // tambah colom
-    let nomor = row.insertCell(0)
-    let matakuliah = row.insertCell(1)
-    let sks = row.insertCell(2)
-    let aksi = row.insertCell(3)
+    // let nomor = row.insertCell(0)
+    let matakuliah = row.insertCell(0)
+    let sks = row.insertCell(1)
+    let aksi = row.insertCell(2)
 
     // isi data
-    nomor.innerHTML = nomorDinamis()
+    // nomor.innerHTML = nomorDinamis()
     matakuliah.innerHTML = matakuliahTerpilih
     sks.innerHTML = jumlahSks
 
     const tombol = `
-      <button type="button" class="btn btn-warning btn-sm batalkan-matakuliah" style="margin-left:65px" data-matakuliah="${matakuliahTerpilih}" data-sks="${jumlahSks}">batalkan</button>
+      <button type="button" class="btn btn-warning btn-sm batalkan-matakuliah" data-matakuliah="${matakuliahTerpilih}" data-sks="${jumlahSks}">batalkan</button>
     `
     aksi.innerHTML = tombol
-  }
-
-  
+  }  
 }
 
+
 // menghitung jumlah total sks
-const sksMaksimal = ((jumlahSks) => {
-  let sks = 0
-  return function (jumlahSks) {
-    if (sks <= 16) sks = sks + parseInt(jumlahSks)    
-    return sks
-  }
-})()
+function jumlahkanSks (sks){
+  let total_sks = getClass('total-sks').innerHTML
+  total_sks = parseInt(total_sks)
+
+  const jumlah_sks = total_sks + parseInt(sks)
+  updateSks(jumlah_sks)
+
+  return jumlah_sks
+}
+
+function updateSks(jumlah_sks) {
+  getClass('total-sks').innerHTML = jumlah_sks
+  hilangkanTombolSimopan(jumlah_sks)
+}
 
 
 

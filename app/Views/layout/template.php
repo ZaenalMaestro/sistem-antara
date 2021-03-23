@@ -17,7 +17,7 @@
       <div class="main-panel" data="blue">
         <?= $this->include('layout/partial/navbar') ?>
         
-        <div class="content">
+        <div class="content">          
           <?= $this->renderSection('content') ?>
         </div>
         <?= $this->include('layout/partial/footer') ?>

@@ -1,9 +1,7 @@
 <!--   Core JS Files   -->
-<script src="/js/core/jquery.min.js"></script>
 <script src="/js/core/popper.min.js"></script>
 <script src="/js/core/bootstrap.min.js"></script>
 <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<script src="/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
 <script src="/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
@@ -119,12 +117,5 @@
         $('body').removeClass('white-content');
       });
     });
-  });
-</script>
-<script>
-  $(document).ready(function () {
-    // Javascript method's body can be found in assets/js/demos.js
-    demo.initDashboardPageCharts();
-
   });
 </script>

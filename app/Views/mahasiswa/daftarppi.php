@@ -10,7 +10,7 @@
         <div class="table-responsive ps">
 
           <!-- ==== tabel matakuliah ==== -->
-          <table class="table tablesorter table-matakuliah-ppi" id="">
+          <table class="table tablesorter table-matakuliah-ppi" id="matkul-ppi" width="100%">
             <thead class="text-info">
               <tr>
                 <!-- <th class="text-info">
@@ -85,8 +85,16 @@
 
 </div>
 
+<script src="/js/jquery.js"></script>
+<script src="/js/dataTables.js"></script>
+<script src="/js/dataTables.bootstrap4.js"></script>
 <script src="/js/matakuliah/get-element.js"></script>
 <script src="/js/matakuliah/daftar-ppi.js"></script>
 <script src="/js/matakuliah/submit-matkul-ppi.js"></script>
 <script src="/js/matakuliah/batalkan-matkul-ppi.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#matkul-ppi').DataTable();
+  })
+</script>
 <?= $this->endSection() ?>

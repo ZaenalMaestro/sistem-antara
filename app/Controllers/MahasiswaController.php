@@ -7,7 +7,10 @@ class MahasiswaController extends BaseController
 	// menampilkan halaman dashboard mahasiswa - home
 	public function index()
 	{
-		$data = ['activeURL'=> 'home'];
+		$data = [
+			'activeURL'=> 'home',
+			'page'=> 'Home'
+		];
 		return view('mahasiswa/home', $data);
 	}
 
@@ -15,7 +18,10 @@ class MahasiswaController extends BaseController
 	// meanmpilkan matakuliah yang telah dibelanjakan namun belum dikonfirmasi 
 	public function data()
 	{
-		$data = ['activeURL'=> 'data'];
+		$data = [
+			'activeURL'=> 'data',
+			'page' => 'Data'
+		];
 		return view('mahasiswa/data', $data);
 	}
 
@@ -23,7 +29,10 @@ class MahasiswaController extends BaseController
 	// matakuliah ppi yang telah dikonfirmasi prodi
 	public function matakuliah()
 	{
-		$data = ['activeURL'=> 'matakuliah'];
+		$data = [
+			'activeURL'=> 'matakuliah',
+			'page'=> 'Matakuliah'
+		];
 		return view('mahasiswa/matakuliah', $data);
 	}
 
@@ -31,19 +40,28 @@ class MahasiswaController extends BaseController
 	// untuk menampilkan peraturan yang dibuat oleh prodi
 	public function peraturan()
 	{
-		$data = ['activeURL'=> 'peraturan'];
+		$data = [
+			'activeURL'=> 'peraturan',
+			'page'=> 'Peraturan'
+		];
 		return view('mahasiswa/peraturan', $data);
 	}
 
 	public function daftarPPI()
 	{
-		$data = ['activeURL'=> 'home'];
+		$data = [
+			'activeURL'=> 'home',
+			'page' => 'Home / Daftar PPI'
+		];
 		return view('mahasiswa/daftarppi', $data);
 	}
 
 	public function editMatakuliah()
 	{
-		$data = ['activeURL'=> 'data'];
+		$data = [
+			'activeURL'=> 'data',
+			'page'=> 'Data / Edit Matakuliah PPI'
+		];
 		return view('mahasiswa/editmatakuliah', $data);
 	}
 

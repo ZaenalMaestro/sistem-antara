@@ -4,7 +4,6 @@ btn_simpan.addEventListener('click', simpanMatakuliah)
 // simpan matakuliah
 function simpanMatakuliah() {
   console.log(getMatkulTerpilih())
-  alert('BErhasil tersimpan')
 }
 
 // mengambil data matakuliah PPI yang dipilih

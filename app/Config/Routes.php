@@ -41,6 +41,22 @@ $routes->get('/mahasiswa/data', 'MahasiswaController::data');
 $routes->get('/mahasiswa/matakuliah', 'MahasiswaController::matakuliah');
 $routes->get('/mahasiswa/peraturan', 'MahasiswaController::peraturan');
 
+// routes dashboard BEM
+$routes->get('/bem', 'BemController::index');
+$routes->get('/bem/daftarppi', 'BemController::daftarPPI');
+$routes->get('/bem/detail', 'BemController::detailMahasiswa');
+$routes->get('/bem/data', 'BemController::data');
+$routes->get('/bem/matakuliah', 'BemController::matakuliah');
+$routes->get('/bem/peraturan', 'BemController::peraturan');
+
+// routes dashboard Prodi
+// $routes->get('/prodi', 'MahasiswaController::index');
+// $routes->get('/prodi/daftarppi', 'MahasiswaController::daftarPPI');
+// $routes->get('/prodi/editmatakuliah', 'MahasiswaController::editMatakuliah');
+// $routes->get('/prodi/data', 'MahasiswaController::data');
+// $routes->get('/prodi/matakuliah', 'MahasiswaController::matakuliah');
+// $routes->get('/prodi/peraturan', 'MahasiswaController::peraturan');
+
 // routes login 
 $routes->get('/login', 'LoginController::login');
 $routes->get('/registration', 'LoginController::registration');

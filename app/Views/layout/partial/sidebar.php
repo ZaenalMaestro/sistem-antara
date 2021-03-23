@@ -3,13 +3,13 @@
   <div class="sidebar-wrapper">
     <div class="logo">
       <a href="javascript:void(0)" class="simple-text logo-normal">
-        Menu Mahasiswa
+        Menu
       </a>
     </div>
     <ul class="nav">
     <!-- ============= home ============ -->
       <li class="<?= ($activeURL == 'home') ? 'active' : '' ?>">
-        <a href="/mahasiswa">
+        <a href="<?= $URL['home'] ?>">
           <i class="tim-icons icon-chart-pie-36"></i>
           <p>Home</p>
         </a>
@@ -17,7 +17,7 @@
 
       <!-- ============= data ============ -->
       <li class="<?= ($activeURL == 'data') ? 'active' : '' ?>">
-        <a href="/mahasiswa/data">
+        <a href="<?= $URL['data'] ?>">
           <i class="tim-icons icon-atom"></i>
           <p>Data</p>
         </a>
@@ -25,7 +25,7 @@
 
       <!-- ============= matakuliah ============ -->
       <li class="<?= ($activeURL == 'matakuliah') ? 'active' : '' ?>">
-        <a href="/mahasiswa/matakuliah">
+        <a href="<?= $URL['matakuliah'] ?>">
           <i class="tim-icons icon-bullet-list-67"></i>
           <p>Matakuliah</p>
         </a>
@@ -33,7 +33,7 @@
 
       <!-- ============= peraturan ============ -->
       <li class="<?= ($activeURL == 'peraturan') ? 'active' : '' ?>">
-        <a href="/mahasiswa/peraturan">
+        <a href="<?= $URL['peraturan'] ?>">
           <i class="tim-icons icon-alert-circle-exc"></i>
           <p>Peraturan</p>
         </a>

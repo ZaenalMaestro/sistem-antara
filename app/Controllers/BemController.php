@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class MahasiswaController extends BaseController
+class BemController extends BaseController
 {	
 	// menampilkan halaman dashboard mahasiswa - home
 	public function index()
@@ -10,55 +10,55 @@ class MahasiswaController extends BaseController
 		$data = [
 			'activeURL'=> 'home',
 			'page'=> 'Home',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/home', $data);
+		return view('bem/home', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa - data
+	// menampilkan halaman dashboard bem - data
 	// meanmpilkan matakuliah yang telah dibelanjakan namun belum dikonfirmasi 
 	public function data()
 	{
 		$data = [
 			'activeURL'=> 'data',
 			'page' => 'Data',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/data', $data);
+		return view('bem/data', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa - matakuliah
+	// menampilkan halaman dashboard bem - matakuliah
 	// matakuliah ppi yang telah dikonfirmasi prodi
 	public function matakuliah()
 	{
 		$data = [
 			'activeURL'=> 'matakuliah',
 			'page'=> 'Matakuliah',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/matakuliah', $data);
+		return view('bem/matakuliah', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa -> peraturan
+	// menampilkan halaman dashboard bem -> peraturan
 	// untuk menampilkan peraturan yang dibuat oleh prodi
 	public function peraturan()
 	{
 		$data = [
 			'activeURL'=> 'peraturan',
 			'page'=> 'Peraturan',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/peraturan', $data);
+		return view('bem/peraturan', $data);
 	}
 
-	public function daftarPPI()
+	public function detailMahasiswa()
 	{
 		$data = [
-			'activeURL'=> 'home',
-			'page' => 'Home / Daftar PPI',
-			'URL'=> $this->sidebarMahasiswa
+			'activeURL'=> 'data',
+			'page' => 'Data / Detail Mahasiswa PPI',
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/daftarppi', $data);
+		return view('bem/detailMahasiswa', $data);
 	}
 
 	public function editMatakuliah()
@@ -66,8 +66,10 @@ class MahasiswaController extends BaseController
 		$data = [
 			'activeURL'=> 'data',
 			'page'=> 'Data / Edit Matakuliah PPI',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarBem
 		];
-		return view('mahasiswa/editmatakuliah', $data);
-	}	
+		return view('bem/editmatakuliah', $data);
+	}
+
+	
 }

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class MahasiswaController extends BaseController
+class ProdiController extends BaseController
 {	
 	// menampilkan halaman dashboard mahasiswa - home
 	public function index()
@@ -55,8 +55,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'home',
-			'page' => 'Home / Daftar PPI',
-			'URL'=> $this->sidebarMahasiswa
+			'page' => 'Home / Daftar PPI'
 		];
 		return view('mahasiswa/daftarppi', $data);
 	}
@@ -65,9 +64,10 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page'=> 'Data / Edit Matakuliah PPI',
-			'URL'=> $this->sidebarMahasiswa
+			'page'=> 'Data / Edit Matakuliah PPI'
 		];
 		return view('mahasiswa/editmatakuliah', $data);
-	}	
+	}
+
+	
 }

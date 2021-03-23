@@ -28,6 +28,26 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+	protected $sidebarMahasiswa = [
+		'home' => '/mahasiswa',
+		'data' => '/mahasiswa/data',
+		'matakuliah' => '/mahasiswa/matakuliah',
+		'peraturan' => '/mahasiswa/peraturan',
+	];
+
+	// url sidebar prodi
+	protected $sidebarProdi = [
+		'home' => '/prodi',
+		'data' => '/prodi/data',
+		'matakuliah' => '/prodi/matakuliah',
+		'peraturan' => '/prodi/peraturan',
+	];
+	protected $sidebarBem = [
+		'home' => '/bem',
+		'data' => '/bem/data',
+		'matakuliah' => '/bem/matakuliah',
+		'peraturan' => '/bem/peraturan',
+	];
 
 	/**
 	 * Constructor.
@@ -37,13 +57,14 @@ class BaseController extends Controller
 	 * @param LoggerInterface   $logger
 	 */
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
-	{
+	{		
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
-		// E.g.: $this->session = \Config\Services::session();
+		// E.g.: $this->session = \Config\Services::session();		
+		
 	}
 }

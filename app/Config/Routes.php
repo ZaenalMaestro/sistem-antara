@@ -64,7 +64,7 @@ $routes->get('/registration', 'LoginController::registration');
 
 // routes login API
 $routes->get('/api/login', 'API/LoginApiController::login');
-$routes->post('/api/regsitrasi', 'API/LoginController::registrasi');
+$routes->post('/api/registrasi', 'API/LoginApiController::registrasi');
 
 /*
  * --------------------------------------------------------------------

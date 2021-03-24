@@ -16,28 +16,24 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     => CSRF::class,
-		'toolbar'  => DebugToolbar::class,
-		'honeypot' => Honeypot::class,
+		'csrf'     	=> CSRF::class,
+		'toolbar'  	=> DebugToolbar::class,
+		'honeypot' 	=> Honeypot::class,
+		'cors' 			=> \App\Filters\Cors::class
 	];
 
-	/**
-	 * List of filter aliases that are always
-	 * applied before and after every request.
-	 *
-	 * @var array
-	 */
+	// Always applied before every request
 	public $globals = [
 		'before' => [
-			// 'honeypot',
+			'cors'
+			//'honeypot'
 			// 'csrf',
 		],
 		'after'  => [
 			'toolbar',
-			// 'honeypot',
+			//'honeypot'
 		],
 	];
-
 	/**
 	 * List of filter aliases that works on a
 	 * particular HTTP method (GET, POST, etc.).

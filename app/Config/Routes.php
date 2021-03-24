@@ -56,9 +56,15 @@ $routes->get('/prodi/matakuliah', 'ProdiController::matakuliah');
 $routes->get('/prodi/peraturan', 'ProdiController::peraturan');
 
 // routes login 
+// $routes->get('/login', 'LoginAPI/LoginController::login');
 $routes->get('/login', 'LoginController::login');
 $routes->get('/registration', 'LoginController::registration');
 
+// ================ RESTFULL API ================
+
+// routes login API
+$routes->get('/api/login', 'API/LoginApiController::login');
+$routes->post('/api/regsitrasi', 'API/LoginController::registrasi');
 
 /*
  * --------------------------------------------------------------------

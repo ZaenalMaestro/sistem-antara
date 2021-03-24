@@ -3,74 +3,99 @@
 <?= $this->section('content') ?>
 <div class="row">
   <div class="col-md-12">
-  <h3 class="card-title">Peraturan PPI</h3>
-    <div class="accordion" id="accordionExample">
-      <div class="card mb-1">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link text-info" type="button" data-toggle="collapse" data-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              <i class="tim-icons icon-minimal-down mr-1"></i>
-              Peraturan 1
-            </button>
-          </h2>
+    <div class="card ">
+      <div class="card-header">
+        <div class="row mb-3">
+          <div class="col-md-9">
+            <h4 class="card-title">Peraturan PPI</h4>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahMatakuliah">Tambah
+              Peraturan</button>
+          </div>
         </div>
+      </div>
+      <div class="card-body">
+        <!-- ==== table peraturan ==== -->
+        <div class="table-responsive ps">
+          <table class="table tablesorter " id="matkul-ppi">
+            <thead class="text-info">
+              <tr>
+                <th class="text-info text-center">
+                  #
+                </th>
+                <th class="text-info text-left">
+                  Peraturan
+                </th>
+                <th class="text-info text-center">
+                  Aksi
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">
+                  1
+                </td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-8">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Voluptatem quam consectetur minima
+                      doloremque repellat ratione temporibus commodi accusamus in eaque? Eos
+                      aut blanditiis recusandae est excepturi iste explicabo maiores dolore!
+                    </div>
+                  </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body text-secondary text-justify mx-4">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-            proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-            aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card mb-1">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed text-info" type="button" data-toggle="collapse"
-              data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              <i class="tim-icons icon-minimal-down mr-1"></i>
-              Peraturan 2
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body text-secondary text-justify mx-4">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-            proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-            aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0">
-            <button class="btn btn-link collapsed text-info" type="button" data-toggle="collapse"
-              data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <i class="tim-icons icon-minimal-down mr-1"></i>
-              Peraturan 3
-            </button>
-          </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body text-secondary text-justify mx-4">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-            moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-            proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-            aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
+                </td>
+                <td class="text-center">
+                  <button class="btn btn-warning btn-sm">Ubah</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- ==== end table peraturan ==== -->
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- === Modal ==== -->
+<div class="modal modal-black fade" id="tambahMatakuliah" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Tambah Peraturan</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <i class="tim-icons icon-simple-remove"></i>
+        </button>
+      </div>
+      <!-- ==== form ==== -->
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukkan peraturan..." autofocus></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm">Simpan</button>
+        </div>
+      </form>
+      <!-- ==== end form ==== -->
+    </div>
+  </div>
+</div>
+
+<!-- ==== script ==== -->
 <script src="/js/jquery.js"></script>
+<script src="/js/dataTables.js"></script>
+<script src="/js/dataTables.bootstrap4.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#matkul-ppi').DataTable();
+  })
+</script>
 <?= $this->endSection() ?>

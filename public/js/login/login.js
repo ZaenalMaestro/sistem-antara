@@ -31,11 +31,11 @@ removeErrorMessage()
 
 // validasi input ketika tombol login diklik
 document.getElementById('tombol-login').addEventListener('click', () => {
-  const stambuk = document.getElementById('stambuk-login')
+  const username = document.getElementById('username')
   const password = document.getElementById('password-login')
 
   // login jika valid
-  if (loginFormValidation(stambuk, password)) window.location.href = '/mahasiswa'
+  if (loginFormValidation(username, password)) window.location.href = '/mahasiswa'
 
   // hapus pesan error saat inputan diperbaharui
   removeErrorMessage()

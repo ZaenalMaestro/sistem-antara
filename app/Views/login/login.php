@@ -26,8 +26,7 @@
             <h2>Login</h2>
             <!-- ==== stambuk ==== -->
             <div class="input-container">
-              <input type="text" name="stambuk-login" class="validasi-stambuk" id="stambuk-login" placeholder="Stambuk"
-                maxlength="11">
+              <input type="text" name="username" id="username" placeholder="Username" maxlength="25">
             </div>
 
             <!-- ==== password ==== -->

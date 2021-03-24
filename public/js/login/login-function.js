@@ -1,20 +1,20 @@
 // validasi form login
-function loginFormValidation(stambuk, password) {
+function loginFormValidation(username, password) {
   let validasi = {
-    stambuk: true,
+    username: true,
     password: true
   }
 
-  // validasi stambuk login
-  if (stambuk.value === '') {
-    showErrorMessage(stambuk, 'Stambuk tidak boleh kosong !')
-    validasi.stambuk = false
-  } else if (stambuk.value !== '13020160068') {
-    showErrorMessage(stambuk, 'Stambuk tidak valid !')
-    validasi.stambuk = false
-  } else[
-    validasi.stambuk = true
-  ]
+  // validasi username login
+  if (username.value === '') {
+    showErrorMessage(username, 'Username tidak boleh kosong !')
+    validasi.username = false
+  } else if (username.value !== '13020160068') {
+    showErrorMessage(username, 'Username tidak valid !')
+    validasi.username = false
+  } else{
+    validasi.username = true
+  }
   
   // validasi password login
   if (password.value === '') {
@@ -145,7 +145,7 @@ function removeErrorMessageMoveForm() {
 
 // hapus inputan saat pindah form
 function removeInputMoveForm() {
-  const stambuk = document.getElementById('stambuk-login')
+  const username = document.getElementById('username')
   const password = document.getElementById('password-login')
 
   const stambuk_registrasi = document.getElementById('stambuk-registrasi')
@@ -155,7 +155,7 @@ function removeInputMoveForm() {
   const konfirmasi_password = document.getElementById('konfirmasi-password-registrasi')
 
   // hapus data form login
-  stambuk.value = ''
+  username.value = ''
   password.value = ''
 
   // hapus data form registrasi

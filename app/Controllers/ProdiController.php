@@ -4,70 +4,60 @@ namespace App\Controllers;
 
 class ProdiController extends BaseController
 {	
-	// menampilkan halaman dashboard mahasiswa - home
+	// menampilkan halaman dashboard prodi - home
 	public function index()
 	{
 		$data = [
 			'activeURL'=> 'home',
 			'page'=> 'Home',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarProdi
 		];
-		return view('mahasiswa/home', $data);
+		return view('prodi/home', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa - data
+	// menampilkan halaman dashboard prodi - data
 	// meanmpilkan matakuliah yang telah dibelanjakan namun belum dikonfirmasi 
 	public function data()
 	{
 		$data = [
 			'activeURL'=> 'data',
 			'page' => 'Data',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarProdi
 		];
-		return view('mahasiswa/data', $data);
+		return view('prodi/data', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa - matakuliah
+	// menampilkan halaman dashboard prodi - matakuliah
 	// matakuliah ppi yang telah dikonfirmasi prodi
 	public function matakuliah()
 	{
 		$data = [
 			'activeURL'=> 'matakuliah',
 			'page'=> 'Matakuliah',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarProdi
 		];
-		return view('mahasiswa/matakuliah', $data);
+		return view('prodi/matakuliah', $data);
 	}
 
-	// menampilkan halaman dashboard mahasiswa -> peraturan
+	// menampilkan halaman dashboard prodi -> peraturan
 	// untuk menampilkan peraturan yang dibuat oleh prodi
 	public function peraturan()
 	{
 		$data = [
 			'activeURL'=> 'peraturan',
 			'page'=> 'Peraturan',
-			'URL'=> $this->sidebarMahasiswa
+			'URL'=> $this->sidebarProdi
 		];
-		return view('mahasiswa/peraturan', $data);
+		return view('prodi/peraturan', $data);
 	}
 
-	public function daftarPPI()
-	{
-		$data = [
-			'activeURL'=> 'home',
-			'page' => 'Home / Daftar PPI'
-		];
-		return view('mahasiswa/daftarppi', $data);
-	}
-
-	public function editMatakuliah()
+	public function detailMahasiswa()
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page'=> 'Data / Edit Matakuliah PPI'
+			'page' => 'Data / Detail Mahasiswa PPI',
+			'URL'=> $this->sidebarProdi
 		];
-		return view('mahasiswa/editmatakuliah', $data);
-	}
-
-	
+		return view('prodi/detailMahasiswa', $data);
+	}	
 }

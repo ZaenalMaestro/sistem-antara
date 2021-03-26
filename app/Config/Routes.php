@@ -63,7 +63,7 @@ $routes->get('/registration', 'LoginController::registration');
 // ================ RESTFULL API ================
 
 // routes login API
-$routes->get('/api/login', 'API/LoginApiController::login');
+$routes->post('/api/login', 'API/LoginApiController::login');
 $routes->post('/api/registrasi', 'API/LoginApiController::registrasi');
 
 /*

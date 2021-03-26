@@ -6,33 +6,27 @@ use CodeIgniter\Model;
 
 class LoginModel extends Model
 {
-  protected $db;
   protected $table = 'login';
-  protected $primaryKey = 'id_login';
   protected $allowedFields = ['username', 'nama', 'semester', 'password'];
 
-	public function  __construct()
-	{
-    $this->db = \Config\Database::connect();
-	}
   
-  // hitung jumlah username
-  public function jumlahUsername($username) {
-    $sql = "SELECT COUNT(username) as jumlah FROM login WHERE username = $username";    
-    $baris = $this->db->query($sql)->getRow();
+  // cek apakah stambuk telah terdaftar
+  public function findUsername ($stambuk)
+  {
+    // get jumlah username berdasarkan stambuk
+    $username = $this->db->table($this->table)
+                    ->where('username', $stambuk)
+                    ->countAllResults(); 
 
-		return (int) $baris->jumlah;
+    // true = jika username ditemukan
+    // false = username tidak ditemukan
+    return ($username > 0) ? true : false;
   }
 
   // simpan data mahasiswa
-  public function saveMahasiswa($mahasiswa){
-    $stambuk = $mahasiswa['stambuk'];
-    $nama = $mahasiswa['nama'];
-    $semester = $mahasiswa['semester'];
-    $status_ppi = 'belum diterima';
-
-    $sql = "INSERT INTO mahasiswa VALUES ($stambuk, '$nama', $semester, '$status_ppi')";    
-    $row = $this->db->query($sql);
-    return $row->resultID;
+  public function saveMahasiswa($mahasiswa)
+  {
+    $query = $this->db->table('mahasiswa')->insert($mahasiswa);
+    return $query ? true : false;
   }
 }

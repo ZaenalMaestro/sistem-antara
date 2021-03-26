@@ -16,10 +16,10 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     	=> CSRF::class,
-		'toolbar'  	=> DebugToolbar::class,
-		'honeypot' 	=> Honeypot::class,
-		'cors' 			=> \App\Filters\Cors::class
+		'csrf'     			=> CSRF::class,
+		'toolbar'  			=> DebugToolbar::class,
+		'honeypot' 			=> Honeypot::class,
+		'cors' 					=> \App\Filters\Cors::class
 	];
 
 	// Always applied before every request

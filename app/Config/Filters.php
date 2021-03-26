@@ -19,7 +19,10 @@ class Filters extends BaseConfig
 		'csrf'     			=> CSRF::class,
 		'toolbar'  			=> DebugToolbar::class,
 		'honeypot' 			=> Honeypot::class,
-		'cors' 					=> \App\Filters\Cors::class
+		'cors' 					=> \App\Filters\Cors::class,
+		'check_token' 	=> \App\Filters\Auth::class,
+		'validasi_user' 	=> \App\Filters\ValidasiUser::class,
+		'validasi_login' 	=> \App\Filters\ValidasiLogin::class,
 	];
 
 	// Always applied before every request

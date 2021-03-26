@@ -63,8 +63,13 @@ $routes->get('/registration', 'LoginController::registration');
 // ================ RESTFULL API ================
 
 // routes login API
-$routes->post('/api/login', 'API/LoginApiController::login');
-$routes->post('/api/registrasi', 'API/LoginApiController::registrasi');
+$routes->post('/api/login', 'API/LoginApiController::login', ['filter' => 'validasi_login']);
+$routes->post('/api/registrasi', 'API/LoginApiController::registrasi', ['filter' => 'validasi_user']);
+
+// routes mahasiswa API
+$routes->get('/api/mahasiswa', 'API/MahasiswaApiController::matakuliahPPI', ['filter' => 'check_token']);
+
+
 
 /*
  * --------------------------------------------------------------------

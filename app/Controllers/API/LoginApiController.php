@@ -17,24 +17,12 @@ class LoginApiController extends ResourceController
 	// menangani login user
 	public function login()
 	{		
+		// get request json
 		$request = $this->request->getJSON();
 		$username = $request->username;
-		$password = $request->password;
-
-		// jika username telah terdaftar
-		$usernameExist = $this->model->findUsername($username);
-		if (!$usernameExist) {
-			return $this->sendResponse('Username tidak valid !', 401);			
-		}
 
 		// get data user berdasarkan username
 		$user = $this->model->where('username', $username)->first();
-		$correctpassowrd = password_verify($password, $user['password']);
-
-		// jika password salah
-		if (!$correctpassowrd) {
-			return $this->sendResponse('Password tidak valid !', 401);
-		}
 
 		// buat JSON Web Token
 		$key = "bem_fikom_umi";
@@ -83,13 +71,6 @@ class LoginApiController extends ResourceController
 			"semester" 		=> $semester,
 			"status_PPi" 	=> "belum diterima"
 		];
-
-		
-		// jika username telah terdaftar
-		$usernameExist = $this->model->findUsername($stambuk);
-		if ($usernameExist) {
-			return $this->sendResponse('Stambuk telah terdaftar !', 409);
-		}
 
 		// simpan registari mahasiswa
 		$simpan_registrasi = $this->model->save($registrasi);

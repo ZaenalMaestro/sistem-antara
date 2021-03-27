@@ -11,6 +11,16 @@ class MahasiswaApiController extends ResourceController
 	public function  __construct()
 	{
 		$this->model = new MahasiswaModel();
+
+    // get token
+    $this->request = service('request');
+    $token = $this->request->getServer('HTTP_AUTHORIZATION');
+    $token = explode(" ", $token)[1];
+
+    // decode JWT
+    JWT::$leeway      = 60;
+    $decode           = JWT::decode($token, 'bem_fikom_umi', ['HS256']);
+    $this->mahasiswa  = $decode->user;
 	}
 
   // kirim matakuliah yang diprogramkan 
@@ -64,17 +74,9 @@ class MahasiswaApiController extends ResourceController
   // belanja matakuliah PPI
   public function belanjaMatakuliah()
   {
-    // get token
-    $token = $this->request->getServer('HTTP_AUTHORIZATION');
-    $token = explode(" ", $token)[1];
-
-    // decode JWT
-    JWT::$leeway  = 60;
-    $decode       = JWT::decode($token, 'bem_fikom_umi', ['HS256']);
-
-    // get satmbuk dan matakuliah yang dibelanjakan
+    // get stambuk dan matakuliah yang dibelanjakan
     $request            = $this->request->getJSON();
-    $stambuk            = $decode->user->username;
+    $stambuk            = $this->mahasiswa->username;
     $belanja_matakuliah = $request->belanja_matakuliah;
     
     // simpan matakuliah
@@ -95,5 +97,33 @@ class MahasiswaApiController extends ResourceController
 
     // jika berhasil tersimpan
     return $this->respond($response, 200);        
+  }
+
+  // ubah matakuliah yang telah diprogramkan belanja matakuliah PPI
+  public function ubahMatakuliah()
+  {
+    // var_dump($this->mahasiswa->username);die;
+    // get stambuk dan matakuliah yang dibelanjakan
+    $request            = $this->request->getJSON();
+    $stambuk            = $this->mahasiswa->username;
+    $belanja_matakuliah = $request->belanja_matakuliah;
+    // ubah matakuliah
+    $berubah = $this->model->ubahMatakuliahPPI($belanja_matakuliah, $stambuk);
+    
+    $response = [
+      "pesan"       => "matakuliah berhasil diubah",
+      "status_code" => 200
+    ];
+
+    // jika matakuliah gagal diubah
+    if (!$berubah) {
+      $response["pesan"]        = "matakuliah gagal diubah";
+      $response["status_code"]  = 400;
+      
+      return $this->respond($response, 400);    
+    }
+
+    // jika berhasil tersimpan
+    return $this->respond($response, 200);  
   }
 }

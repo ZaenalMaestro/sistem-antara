@@ -42,4 +42,17 @@ class MahasiswaModel extends Model
     }
   }
 
+  // ubah matakuliah PPI
+  public function ubahMatakuliahPPI($belanja_matakuliah, $stambuk)
+  {
+    // hapus matakuliah ygn telah diprogramkan sebelumnya
+    $terhapus = $this->db->table('belanja_matakuliah')->where('stambuk', $stambuk)->delete();
+    
+    // jika data gagal terhapus
+    if (!$terhapus) {
+      return false;
+    }
+    // simpan ulang matakuliah yg baru
+    return $this->simpanMatakuliah($belanja_matakuliah, $stambuk);
+  }
 }

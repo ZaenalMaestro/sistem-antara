@@ -68,7 +68,7 @@ $routes->post('/api/registrasi', 'API/LoginApiController::registrasi', ['filter'
 
 // routes mahasiswa API
 $routes->post('/api/mahasiswa', 'API/MahasiswaApiController::belanjaMatakuliah', ['filter' => 'mahasiswa_auth']);
-// $routes->put('/api/mahasiswa', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
+$routes->put('/api/mahasiswa', 'API/MahasiswaApiController::ubahMatakuliah', ['filter' => 'mahasiswa_auth']);
 $routes->get('/api/mahasiswa/matakuliah', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
 $routes->get('/api/mahasiswa/data', 'API/MahasiswaApiController::matakuliahDiprogramkan', ['filter' => 'mahasiswa_auth']);
 

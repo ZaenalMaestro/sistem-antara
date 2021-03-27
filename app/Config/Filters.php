@@ -16,11 +16,13 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $aliases = [
-		'csrf'     			=> CSRF::class,
-		'toolbar'  			=> DebugToolbar::class,
-		'honeypot' 			=> Honeypot::class,
-		'cors' 					=> \App\Filters\Cors::class,
-		'check_token' 	=> \App\Filters\Auth::class,
+		'csrf'     				=> CSRF::class,
+		'toolbar'  				=> DebugToolbar::class,
+		'honeypot' 				=> Honeypot::class,
+		'cors' 						=> \App\Filters\Cors::class,
+		'mahasiswa_auth' 	=> \App\Filters\MahasiswaAuth::class,
+		'bem_auth' 				=> \App\Filters\BemAuth::class,
+		'prodi_auth' 			=> \App\Filters\ProdiAuth::class,
 		'validasi_user' 	=> \App\Filters\ValidasiUser::class,
 		'validasi_login' 	=> \App\Filters\ValidasiLogin::class,
 	];

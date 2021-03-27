@@ -67,8 +67,15 @@ $routes->post('/api/login', 'API/LoginApiController::login', ['filter' => 'valid
 $routes->post('/api/registrasi', 'API/LoginApiController::registrasi', ['filter' => 'validasi_user']);
 
 // routes mahasiswa API
-$routes->get('/api/mahasiswa', 'API/MahasiswaApiController::matakuliahPPI', ['filter' => 'check_token']);
+$routes->post('/api/mahasiswa', 'API/MahasiswaApiController::belanjaMatakuliah', ['filter' => 'mahasiswa_auth']);
+// $routes->put('/api/mahasiswa', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
+$routes->get('/api/mahasiswa/matakuliah', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
+$routes->get('/api/mahasiswa/data', 'API/MahasiswaApiController::matakuliahDiprogramkan', ['filter' => 'mahasiswa_auth']);
 
+
+// route peraturan dan mataukuliah PPI API
+$routes->get('/api/ppi/matakuliah', 'API/PPIApiController::matakuliahPPI');
+$routes->get('/api/ppi/peraturan', 'API/PPIApiController::peraturanPPI');
 
 
 /*

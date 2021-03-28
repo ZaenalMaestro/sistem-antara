@@ -72,6 +72,20 @@ $routes->put('/api/mahasiswa', 'API/MahasiswaApiController::ubahMatakuliah', ['f
 $routes->get('/api/mahasiswa/matakuliah', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
 $routes->get('/api/mahasiswa/data', 'API/MahasiswaApiController::matakuliahDiprogramkan', ['filter' => 'mahasiswa_auth']);
 
+// routes BEM API
+// route bem - mahasiswa
+$routes->get('/api/bem', 'API/BemApiController::jumlahMahasiswaPPI', ['filter' => 'bem_auth']);
+$routes->get('/api/bem/mahasiswa', 'API/BemApiController::mahasiswaPPI', ['filter' => 'bem_auth']);
+$routes->get('/api/bem/mahasiswa/(:num)', 'API/BemApiController::detaiMahasiswaPPI', ['filter' => 'bem_auth']);
+// route bem - matakuliah
+$routes->post('/api/bem/matakuliah', 'API/BemApiController::tambahMatakuliahPPI', ['filter' => 'bem_auth']);
+$routes->put('/api/bem/matakuliah', 'API/BemApiController::ubahMatakuliahPPI', ['filter' => 'bem_auth']);
+// route bem - peraturan
+$routes->get('/api/bem/peraturan', 'API/BemApiController::tampilPeraturan', ['filter' => 'bem_auth']);
+$routes->post('/api/bem/peraturan', 'API/BemApiController::tambahPeraturan', ['filter' => 'bem_auth']);
+$routes->put('/api/bem/peraturan', 'API/BemApiController::ubahPeraturan', ['filter' => 'bem_auth']);
+$routes->delete('/api/bem/peraturan', 'API/BemApiController::hapusPeraturan', ['filter' => 'bem_auth']);
+
 
 // route peraturan dan mataukuliah PPI API
 $routes->get('/api/ppi/matakuliah', 'API/PPIApiController::matakuliahPPI');

@@ -126,4 +126,29 @@ class MahasiswaApiController extends ResourceController
     // jika berhasil tersimpan
     return $this->respond($response, 200);  
   }
+
+  // hapus matakuliah yang diprogramkan
+  public function batalkanMatakuliah()
+  {
+    $id_matakuliah = $this->request->getJsonVar('id_matakuliah');
+
+    $matakuliah_dibatalkan = $this->model->batalkanMatakuliah($id_matakuliah); 
+
+    $response = [
+      "pesan"       => "matakuliah berhasil dibatalkan",
+      "status_code" => 200
+    ];
+
+    // jika matakuliah gagal diubah
+    if (!$matakuliah_dibatalkan) {
+      $response["pesan"]        = "matakuliah gagal dibatalkan";
+      $response["status_code"]  = 400;
+      
+      return $this->respond($response, 400);    
+    }
+
+    // jika berhasil tersimpan
+    return $this->respond($response, 200);  
+
+  }
 }

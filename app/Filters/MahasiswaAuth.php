@@ -28,7 +28,7 @@ class MahasiswaAuth implements FilterInterface
       $token = explode(" ", $token)[1];
 
       JWT::$leeway = 60;
-      $docode = JWT::decode($token, 'bem_fikom_umi', ['HS256']);
+      $docode = JWT::decode($token, 'bem_fikom_umi', ['HS256']);      
 
       // validasi role
       if ($docode->user->role !== 'mahasiswa'){

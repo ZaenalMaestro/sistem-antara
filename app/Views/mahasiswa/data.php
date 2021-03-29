@@ -34,35 +34,8 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-                <td class="text-center">
-                  <span class="badge badge-warning badge-md">menunggu</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  2
-                </td>
-                <td>
-                  Matematika Diskrit
-                </td>
-                <td>
-                  2
-                </td>
-                <td class="text-center">
-                  <span class="badge badge-warning badge-md">menunggu</span>
-                </td>
-              </tr>
+            <tbody class="daftar-matakuliah">
+              <!-- ==== daftar matakuliah ==== -->
             </tbody>
           </table>
         </div>
@@ -70,5 +43,8 @@
     </div>
   </div>
 </div>
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
+<script src="/js/mahasiswa/data.js"></script>
 <?= $this->endSection() ?>

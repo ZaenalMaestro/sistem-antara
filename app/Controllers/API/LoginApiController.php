@@ -39,7 +39,7 @@ class LoginApiController extends ResourceController
 		];
 
 		$jwt = JWT::encode($payload, $key);
-		return $this->sendResponse('Login berhasil !', 200, $jwt);
+		return $this->sendResponse('Login berhasil !', 200, $jwt, $user['role']);
 
 	}
 
@@ -87,7 +87,7 @@ class LoginApiController extends ResourceController
 	}
 
 	// kirim respond
-	public function sendResponse(string $message = '', int $code, string $jwt = '') {
+	public function sendResponse(string $message = '', int $code, string $jwt = '', $role = '') {
 		
 		$response = [ 
 			"pesan" 			=> $message,
@@ -95,6 +95,10 @@ class LoginApiController extends ResourceController
 		];
 		if ($jwt) { 
 			$response['jwt'] = $jwt; 
+		}
+
+		if ($role) {
+			$response['role'] = $role; 
 		}
 		return $this->respond($response, $code);
 	}

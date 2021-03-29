@@ -35,7 +35,26 @@ document.getElementById('tombol-login').addEventListener('click', () => {
   const password = document.getElementById('password-login')
 
   // login jika valid
-  if (loginFormValidation(username, password)) window.location.href = '/mahasiswa'
+  if (loginFormValidation(username, password))
+  {
+    // kirim request login ke server
+    axios.post('/api/login', {
+      username: username.value,
+      password: password.value
+    })
+      .then(function (response) {
+      // simpan respons login - jwt dan role
+      const login = {
+        role: response.data.role,
+        jwt: response.data.jwt,
+      }
+    
+    window.localStorage.setItem('login', JSON.stringify(login));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   // hapus pesan error saat inputan diperbaharui
   removeErrorMessage()

@@ -9,9 +9,6 @@ function loginFormValidation(username, password) {
   if (username.value === '') {
     showErrorMessage(username, 'Username tidak boleh kosong !')
     validasi.username = false
-  } else if (username.value !== '13020160068') {
-    showErrorMessage(username, 'Username tidak valid !')
-    validasi.username = false
   } else{
     validasi.username = true
   }
@@ -19,9 +16,6 @@ function loginFormValidation(username, password) {
   // validasi password login
   if (password.value === '') {
     showErrorMessage(password, 'Password tidak boleh kosong !')
-    validasi.password = false
-  } else if (password.value !== '1234qwerty') {
-    showErrorMessage(password, 'Password tidak valid !')
     validasi.password = false
   } else{
     validasi.password = true

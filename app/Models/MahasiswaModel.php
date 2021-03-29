@@ -55,4 +55,10 @@ class MahasiswaModel extends Model
     // simpan ulang matakuliah yg baru
     return $this->simpanMatakuliah($belanja_matakuliah, $stambuk);
   }
+
+  public function batalkanMatakuliah($id_matakuliah)
+  {
+    $result = $this->db->table('belanja_matakuliah')->where('id_belanja_matakuliah', $id_matakuliah)->delete();
+    return $result ? true : false;
+  }
 }

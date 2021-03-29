@@ -88,10 +88,10 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
-<script src="/js/matakuliah/get-element.js"></script>
-<script src="/js/matakuliah/daftar-ppi.js"></script>
-<script src="/js/matakuliah/update-matkul-ppi.js"></script>
-<script src="/js/matakuliah/batalkan-matkul-ppi.js"></script>
+<script src="/js/mahasiswa/matakuliah/get-element.js"></script>
+<script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
+<script src="/js/mahasiswa/matakuliah/update-matkul-ppi.js"></script>
+<script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
 <script>
   $(document).ready(function(){
     $('#matkul-ppi').DataTable();

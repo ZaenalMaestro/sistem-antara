@@ -15,4 +15,8 @@
   </div>
 </div>
 <script src="/js/jquery.js"></script>
+<script>
+const tes = window.localStorage.getItem('name');
+console.log(tes)
+</script>
 <?= $this->endSection() ?>

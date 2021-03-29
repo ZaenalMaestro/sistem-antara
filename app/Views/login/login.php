@@ -100,6 +100,8 @@
     </div>
   </section>
   
+  <script src="/js/axios/dist/axios.min.js"></script>
+  <script src="/js/dom-selector.js"></script>
   <script src="/js/login/login-function.js"></script>
   <script src="/js/login/login.js"></script>
 </body>

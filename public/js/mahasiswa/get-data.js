@@ -1,5 +1,6 @@
 // get data user yang login JWT
 const login = JSON.parse(localStorage.getItem('login'))
+console.log(login)
 const config = {
   headers: { Authorization: `Bearer ${login.jwt}`}
 }

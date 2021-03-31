@@ -32,7 +32,7 @@ class PPIApiController extends ResourceController
     // kirimkan response ke user
     $response = [
       "status_code"     => 200,
-      "daftar_matakuliah"  => $result
+      "daftar_peraturan"  => $result
     ];
     return $this->respond($response, 200);    
   }

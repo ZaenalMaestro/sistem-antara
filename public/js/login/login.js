@@ -48,8 +48,13 @@ document.getElementById('tombol-login').addEventListener('click', () => {
         role: response.data.role,
         jwt: response.data.jwt,
       }
-    
-    window.localStorage.setItem('login', JSON.stringify(login));
+      
+      // simpan token dan role ke local storage
+      window.localStorage.setItem('login', JSON.stringify(login));
+
+        // jika role mahasiswa
+        // redirect ke URL: /mahasiswa        
+        if (response.data.role === 'mahasiswa') return window.location.href = '/mahasiswa'
     })
     .catch(function (error) {
       console.log(error);

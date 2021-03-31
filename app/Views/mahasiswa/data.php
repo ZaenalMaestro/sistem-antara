@@ -43,8 +43,10 @@
     </div>
   </div>
 </div>
+
+<!-- ==== script ==== -->
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
-<script src="/js/mahasiswa/data.js"></script>
+<script src="/js/mahasiswa/get-data.js"></script>
 <?= $this->endSection() ?>

@@ -18,7 +18,7 @@
 
       <!-- ==== form login ==== -->
       <div class="user signinBx">
-        <div class="imgBx"><img src="img/img_3115.jpg" alt="img_3115.jpg"></div>
+        <div class="imgBx"><img src="img/login-fikom.jpg" alt="login-fikom.jpg"></div>
         <div class="formBx">
 
           <!-- ==== form ==== -->
@@ -93,7 +93,7 @@
           <!-- ==== end form ==== -->
 
         </div>
-        <div class="imgBx"><img src="img/bg5.jpg" alt="img_3115.jpg"></div>
+        <div class="imgBx"><img src="img/registrasi-fikom.jpg" alt="registrasi-fikom.jpg"></div>
       </div>
       <!-- ==== end form registrasi ==== -->
 

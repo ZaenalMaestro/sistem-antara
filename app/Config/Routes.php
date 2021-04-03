@@ -72,6 +72,7 @@ $routes->put('/api/mahasiswa', 'API/MahasiswaApiController::ubahMatakuliah', ['f
 $routes->delete('/api/mahasiswa', 'API/MahasiswaApiController::batalkanMatakuliah', ['filter' => 'mahasiswa_auth']);
 $routes->get('/api/mahasiswa/matakuliah', 'API/MahasiswaApiController::matakuliahDikonfirmasi', ['filter' => 'mahasiswa_auth']);
 $routes->get('/api/mahasiswa/data', 'API/MahasiswaApiController::matakuliahDiprogramkan', ['filter' => 'mahasiswa_auth']);
+$routes->get('/api/mahasiswa/data/edit', 'API/MahasiswaApiController::matakuliahBelumprogramkan', ['filter' => 'mahasiswa_auth']);
 
 // routes BEM API
 // route bem - mahasiswa

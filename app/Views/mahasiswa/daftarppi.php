@@ -21,25 +21,8 @@
                 <th class="text-info text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="pilih-matakuliah">
-                <!-- <td>1</td> -->
-                <td>Java Lanjut</td>
-                <td>2</td>
-                <td class="text-center javascript">
-                  <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="javascript"
-                    data-sks="2">programkan</button>
-                </td>
-              </tr>
-              <tr class="pilih-matakuliah">
-                <!-- <td>1</td> -->
-                <td>Java</td>
-                <td>1</td>
-                <td class="text-center java">
-                  <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="java"
-                    data-sks="1">programkan</button>
-                </td>
-              </tr>
+            <tbody class="matakuliah-ppi">
+              
             </tbody>
           </table>
         </div>
@@ -85,16 +68,14 @@
 
 </div>
 
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
 <script src="/js/mahasiswa/matakuliah/get-element.js"></script>
+<script src="/js/mahasiswa/get-all-matakuliah-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/submit-matkul-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
-<script>
-  $(document).ready(function(){
-    $('#matkul-ppi').DataTable();
-  })
-</script>
 <?= $this->endSection() ?>

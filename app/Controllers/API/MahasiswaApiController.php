@@ -74,11 +74,12 @@ class MahasiswaApiController extends ResourceController
   // belanja matakuliah PPI
   public function belanjaMatakuliah()
   {
-    // get stambuk dan matakuliah yang dibelanjakan
     $request            = $this->request->getJSON();
+    // return $this->respond($request);
+    // get stambuk dan matakuliah yang dibelanjakan
     $stambuk            = $this->mahasiswa->username;
     $belanja_matakuliah = $request->belanja_matakuliah;
-    
+
     // simpan matakuliah
     $tersimpan = $this->model->simpanMatakuliah($belanja_matakuliah, $stambuk);
 
@@ -149,6 +150,24 @@ class MahasiswaApiController extends ResourceController
 
     // jika berhasil tersimpan
     return $this->respond($response, 200);  
+  }
 
+  /*
+  menampilkan semua matakuliah yg dilengkapi status matakuliah
+
+  id_matakuliah": "1",
+  "matakuliah": "Basi Data II",
+  "sks": "3",
+  "status": "belum_diprogramkan" or "status": "telah_diprogramkan"
+  */ 
+  public function matakuliahBelumprogramkan()
+  {
+    $stambuk            = $this->mahasiswa->username;
+    $matakuliah = $this->model->matakuliahBelumDiprogramkan($stambuk);
+    $output = [
+      "status_code" => 200,
+      "matakuliah_mahasiswa" => $matakuliah
+    ];
+    return $this->respond($output, 200);
   }
 }

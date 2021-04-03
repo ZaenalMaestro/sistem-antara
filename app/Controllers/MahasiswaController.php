@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 class MahasiswaController extends BaseController
 {	
 	// menampilkan halaman dashboard mahasiswa - home

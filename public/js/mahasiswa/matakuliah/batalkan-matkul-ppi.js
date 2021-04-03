@@ -1,13 +1,13 @@
+window.onload = () => {
+  document.addEventListener('click', batalkanMatkul)
+}
 
-
-document.addEventListener('click', batalkanMatkul)
 
 function batalkanMatkul(e) {
   if (e.target.classList.contains('batalkan-matakuliah')) {
     const row = e.target.parentElement.parentElement
     const matakuliah = e.target.getAttribute('data-matakuliah')
     const sks = e.target.getAttribute('data-sks')
-
     // kuramgi jumlah sks jika tombol batalkan diklik
     kurangiSks(sks)
 
@@ -25,10 +25,12 @@ function batalkanMatkul(e) {
 
 function tampilkanTombolProgramkan(matakuliah, sks) {
   const tombol_programkan_matkul = `
+  <div class="${matakuliah.replace(/\s/g, "-")}">
     <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="${matakuliah}" data-sks="${sks}">programkan</button>
-  `;
+  </div>`;
 
-  const kolom_aksi = (getClass(matakuliah))
+  let class_matakuliah = matakuliah.replace(/\s/g, "-")
+  const kolom_aksi = getClass(class_matakuliah)
   kolom_aksi.innerHTML = tombol_programkan_matkul;
 }
 

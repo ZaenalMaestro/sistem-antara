@@ -1,6 +1,5 @@
 // get data user yang login JWT
 const login = JSON.parse(localStorage.getItem('login'))
-console.log(login)
 const config = {
   headers: { Authorization: `Bearer ${login.jwt}`}
 }
@@ -28,7 +27,7 @@ function isiTableMatakuliah(matakuliah)
       <td>${matkul.matakuliah}</td>
       <td>${matkul.sks}</td>
       <td class="text-center">
-        <span class="badge badge-warning badge-md">menunggu</span>
+        <span class="badge badge-warning badge-md">${matkul.status_ppi}</span>
       </td>
     </tr>`
   });

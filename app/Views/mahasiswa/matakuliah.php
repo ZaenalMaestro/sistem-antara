@@ -33,5 +33,8 @@
   </div>
 </div>
 
-c
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/mahasiswa/get-matakuliah.js"></script>
 <?= $this->endSection() ?>

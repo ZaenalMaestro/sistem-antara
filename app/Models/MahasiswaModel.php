@@ -13,33 +13,24 @@ class MahasiswaModel extends Model
   // berdasarkan stambuk mahsiswa
   public function getMatakuliahPPIMahasiswa($stambuk, $status)
   {
-    $sql_query = "SELECT matakuliah, sks FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk and status_ppi = '$status'";
+    $sql_query = "SELECT matakuliah, sks, status_ppi FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk and status_ppi = '$status'";
     return $this->db->query($sql_query)->getResultArray();
   }
 
-  // simpan matakuliah yang dibelanjakan
+  // belanja matakuliah yang dibelanjakan - batch (daftar matakuliah lebih dari 1)
   function simpanMatakuliah($belanja_matakuliah, $stambuk)
   {
-    $jumlah_matakuliah  = count($belanja_matakuliah);
-    $index              = 0;
-
     foreach($belanja_matakuliah as $matakuliah){
-      $matakuliahPPI = [
+      $matakuliahPPI[] = [
         "stambuk" 	  => $stambuk,
-        "matakuliah" 	=> $matakuliah->matakuliah,
-        "sks" 			  => $matakuliah->sks
+        "matakuliah" 	=> $matakuliah[0],
+        "sks" 			  => $matakuliah[1]
       ];
-
-      // kembalikan nilai true
-      // jika matakuliah terakhir berhasil
-      if (++$index == $jumlah_matakuliah) {
-        $result = $this->db->table('belanja_matakuliah')->insert($matakuliahPPI);
-        return $result ? true : false;
-      }  
-
-      // simpan matakuliah
-      $this->db->table('belanja_matakuliah')->insert($matakuliahPPI);
     }
+
+    // simpan matakuliah
+    $result = $this->db->table('belanja_matakuliah')->insertBatch($matakuliahPPI);
+    return $result ? true : false;
   }
 
   // ubah matakuliah PPI
@@ -60,5 +51,22 @@ class MahasiswaModel extends Model
   {
     $result = $this->db->table('belanja_matakuliah')->where('id_belanja_matakuliah', $id_matakuliah)->delete();
     return $result ? true : false;
+  }
+
+  public function matakuliahBelumDiprogramkan($stambuk)
+  {
+    $daftar_matakuliah_ppi = $this->db->table('daftar_matakuliah')->get()->getResultArray();
+    $matakuliah_diprogramkan = $this->db->table('belanja_matakuliah')->where('stambuk', $stambuk)->get()->getResultArray();
+    $data = [];
+    foreach($daftar_matakuliah_ppi as $daftar_matakuliah) {
+      $daftar_matakuliah['status'] = 'belum_diprogramkan';
+      foreach ($matakuliah_diprogramkan as $matkul_mahasiswa) {
+        if ($daftar_matakuliah['matakuliah'] == $matkul_mahasiswa['matakuliah']) {
+          $daftar_matakuliah['status'] = 'telah_diprogramkan';
+        }
+      }
+      $data [] = $daftar_matakuliah;
+    }
+    return $data;
   }
 }

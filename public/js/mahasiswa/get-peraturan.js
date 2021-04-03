@@ -3,7 +3,9 @@ axios.get('/api/ppi/peraturan')
   .then(function (response) {
     // handle success
     const daftar_peraturan = response.data.daftar_peraturan
-    isiDaftarPeraturan(daftar_peraturan)    
+    
+    // console.log(daftar_peraturan)
+    isiDaftarPeraturan(daftar_peraturan)
   })
   .catch(function (error) {
     // handle error
@@ -11,23 +13,36 @@ axios.get('/api/ppi/peraturan')
   })
 
 function isiDaftarPeraturan(daftar_peraturan)
-{  
-  const table_matakuliah = getSelector('.matakuliah-terkonfirmasi')
-  let table_body = ''
+{
+  const table_matakuliah = getSelector('.daftar-peraturan')
+  let peraturan = ''
 
   // jika tidak ada matakuliah yang dikonfirmasi
-  if (!matakuliah) {
+  if (!daftar_peraturan) {
     return table_matakuliah.innerHTML = '<tr><td class="text-center" colspan="3">Belum ada matakuliah yang dikonfirmasi oleh prodi</td></tr>'
   }
 
-  matakuliah.forEach((matkul, nomor)=> {
-    table_body += `
-    <tr>
-      <td>${++nomor}</td>
-      <td>${matkul.matakuliah}</td>
-      <td>${matkul.sks}</td>
-    </tr>`
+  daftar_peraturan.forEach((peraturan_ppi, nomor) => {
+    peraturan += `
+    <div class="card mb-1">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link text-info" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              <i class="tim-icons icon-minimal-down mr-1"></i>
+              Peraturan ${++nomor}
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body text-secondary text-justify mx-4">
+            ${peraturan_ppi.peraturan}
+          </div>
+        </div>
+      </div>`
   });
+
   // isi table matakuliah yang telah dikonfirmasi oleh prodi
-  table_matakuliah.innerHTML = table_body
+  table_matakuliah.innerHTML = peraturan
 }

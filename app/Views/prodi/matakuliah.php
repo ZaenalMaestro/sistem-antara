@@ -29,9 +29,6 @@
                 <th class="text-info text-left">
                   SKS
                 </th>
-                <th class="text-info text-center">
-                  Aksi
-                </th>
               </tr>
             </thead>
             <tbody>
@@ -45,8 +42,71 @@
                 <td>
                   2
                 </td>
-                <td class="text-center">
-                  <button class="btn btn-warning btn-sm">Ubah</button>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Java Lanjut
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
             </tbody>

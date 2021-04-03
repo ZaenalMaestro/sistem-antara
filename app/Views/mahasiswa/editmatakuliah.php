@@ -21,25 +21,8 @@
                 <th class="text-info text-center">Aksi</th>
               </tr>
             </thead>
-            <tbody>
-              <tr class="pilih-matakuliah">
-                <!-- <td>1</td> -->
-                <td>Java Lanjut</td>
-                <td>2</td>
-                <td class="text-center javascript">
-                  <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="javascript"
-                    data-sks="2">programkan</button>
-                </td>
-              </tr>
-              <tr class="pilih-matakuliah">
-                <!-- <td>1</td> -->
-                <td>Java</td>
-                <td>1</td>
-                <td class="text-center java">
-                  <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="java"
-                    data-sks="1">programkan</button>
-                </td>
-              </tr>
+            <tbody class="body-matkul">
+            <!-- daftar matakuliah -->
             </tbody>
           </table>
         </div>
@@ -67,13 +50,13 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="text-left">
+            <tbody class="text-left daftar-matakuliah">
             </tbody>
           </table>
         </div>
         <div class="row">
           <div class="col">
-            <button type="submit" class="btn btn-info btn-sm d-none tombol-simpan-matakuliah">Simpan Matakuliah</button>
+            <button type="submit" class="btn btn-info btn-sm d-block tombol-simpan-matakuliah">Ubah Matakuliah</button>
           </div>
           <div class="col">
             <h4 class="text-right mt-1">Total SKS : <span class="text-info total-sks">0</span></h4>
@@ -85,6 +68,10 @@
 
 </div>
 
+<!-- ==== script ==== -->
+<script src="/js/sweetalert2.js"></script>
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
@@ -92,9 +79,6 @@
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/update-matkul-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
-<script>
-  $(document).ready(function(){
-    $('#matkul-ppi').DataTable();
-  })
-</script>
+<script src="/js/mahasiswa/get-all-matakuliah-ppi-edit.js"></script>
+<script src="/js/mahasiswa/get-all-matakuliah-ppi-mahasiswa.js"></script>
 <?= $this->endSection() ?>

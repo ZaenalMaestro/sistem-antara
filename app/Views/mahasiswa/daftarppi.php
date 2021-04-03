@@ -78,4 +78,12 @@
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/submit-matkul-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
+<!-- ==== global helper ==== -->
+<script src="/js/global-helper.js"></script>
+
+<!-- ==== redirect ke halaman home jika telah belanja matakuliah ==== -->
+<script src="/js/mahasiswa/helper.js"></script>
+<script>
+  redirectJikaTelahBelanjaMatakuliah('/mahasiswa')
+</script>
 <?= $this->endSection() ?>

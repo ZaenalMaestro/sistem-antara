@@ -32,13 +32,3 @@ $(document).ready(function () {
 
    });
 });
-
-// {/* <tr class="pilih-matakuliah">
-//                 <!-- <td>1</td> -->
-//                 <td>Java Lanjut</td>
-//                 <td>2</td>
-//                 <td class="text-center javascript">
-//                   <button type="button" class="btn btn-info btn-sm matakuliah-terpilih" data-matakuliah="javascript"
-//                     data-sks="2">programkan</button>
-//                 </td>
-//               </tr> */}

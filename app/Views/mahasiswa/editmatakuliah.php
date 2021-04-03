@@ -81,4 +81,10 @@
 <script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-edit.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-mahasiswa.js"></script>
+
+<!-- ==== redirect ke halaman data jika matakuliah telah dikonfirmasi oleh prodi ==== -->
+<script src="/js/mahasiswa/helper.js"></script>
+<script>
+  redirectJikaMatakuliahTelahDikonfirmasi('/mahasiswa/data')
+</script>
 <?= $this->endSection() ?>

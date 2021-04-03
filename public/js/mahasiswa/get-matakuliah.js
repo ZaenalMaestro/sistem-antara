@@ -8,12 +8,12 @@ const body = {key: 'value'}
 axios.get('/api/mahasiswa/matakuliah', config)
   .then(function (response) {
     // handle success
-    const matakuliah = response.data.matakuliah_diprogramkan
+    const matakuliah = response.data.matakuliah_diterima
     isiTableMatakuliah(matakuliah)    
   })
   .catch(function (error) {
-    // handle error
-    console.log(error);
+    // redirect kehalaman login jika user belum diautorisasi
+    redirectTo('/login')
   })
 
 function isiTableMatakuliah(matakuliah)

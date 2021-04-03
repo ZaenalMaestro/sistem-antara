@@ -8,17 +8,23 @@ axios.get('/api/mahasiswa/data', config)
   .then(function (response) {
     // handle success
     const matakuliah = response.data.matakuliah_diprogramkan
-    isiTableMatakuliah(matakuliah)    
+    if(matakuliah[0].status_ppi === 'diterima') getSelector('.btn-ubah-matakuliah').remove()
+    isiTableMatakuliah(matakuliah)
   })
   .catch(function (error) {
-    // handle error
-    console.log(error);
+    // jika belum login redirect kehalaman login or token expire or tidak ada token
+    redirectTo('/login')
   })
 
 function isiTableMatakuliah(matakuliah)
 {  
   const table_matakuliah = getSelector('.daftar-matakuliah')
   let table_body = ''
+
+  // jika tidak ada matakuliah yang dikonfirmasi
+  if (!matakuliah) {
+    return table_matakuliah.innerHTML = '<tr><td class="text-center" colspan="3">Matakuliah Telah dikonfirmasi oleh prodi</td></tr>'
+  }
 
   matakuliah.forEach((matkul, nomor)=> {
     table_body += `
@@ -27,7 +33,7 @@ function isiTableMatakuliah(matakuliah)
       <td>${matkul.matakuliah}</td>
       <td>${matkul.sks}</td>
       <td class="text-center">
-        <span class="badge badge-warning badge-md">${matkul.status_ppi}</span>
+        <span class="badge badge-${matkul.status_ppi == 'diterima' ? 'success' : 'warning'} badge-md">${matkul.status_ppi}</span>
       </td>
     </tr>`
   });

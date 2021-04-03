@@ -8,8 +8,8 @@ axios.get('/api/ppi/peraturan')
     isiDaftarPeraturan(daftar_peraturan)
   })
   .catch(function (error) {
-    // handle error
-    console.log(error);
+    // redirect kehalaman login jika user belum diautorisasi
+    redirectTo('/login')
   })
 
 function isiDaftarPeraturan(daftar_peraturan)
@@ -27,7 +27,7 @@ function isiDaftarPeraturan(daftar_peraturan)
     <div class="card mb-1">
         <div class="card-header" id="headingOne">
           <h2 class="mb-0">
-            <button class="btn btn-link text-info" type="button" data-toggle="collapse" data-target="#collapseOne"
+            <button class="btn btn-link text-info" type="button" data-toggle="collapse" data-target="#collapseOne${peraturan_ppi.id_peraturan}"
               aria-expanded="true" aria-controls="collapseOne">
               <i class="tim-icons icon-minimal-down mr-1"></i>
               Peraturan ${++nomor}
@@ -35,7 +35,7 @@ function isiDaftarPeraturan(daftar_peraturan)
           </h2>
         </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div id="collapseOne${peraturan_ppi.id_peraturan}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body text-secondary text-justify mx-4">
             ${peraturan_ppi.peraturan}
           </div>

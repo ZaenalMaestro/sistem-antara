@@ -37,7 +37,7 @@ class MahasiswaApiController extends ResourceController
 
     // get data user uesrname (stambuk mahasiswa)
     $stambuk = $decode->user->username;
-    $result = $this->model->getMatakuliahPPIMahasiswa($stambuk, 'belum diterima');
+    $result = $this->model->getMatakuliahPPIMahasiswa($stambuk);
 
     // kirimkan response ke user
     $response = [

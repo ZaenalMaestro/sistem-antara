@@ -11,9 +11,9 @@ class MahasiswaModel extends Model
 
   // get matakuliah yang telah dikonfirmasi prodi
   // berdasarkan stambuk mahsiswa
-  public function getMatakuliahPPIMahasiswa($stambuk, $status)
+  public function getMatakuliahPPIMahasiswa($stambuk)
   {
-    $sql_query = "SELECT matakuliah, sks, status_ppi FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk and status_ppi = '$status'";
+    $sql_query = "SELECT matakuliah, sks, status_ppi FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk";
     return $this->db->query($sql_query)->getResultArray();
   }
 

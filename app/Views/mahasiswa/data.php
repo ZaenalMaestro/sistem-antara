@@ -10,7 +10,7 @@
             <h3 class="card-title">Matakuliah di programkan</h3>
           </div>
           <div class="col">
-            <a href="/mahasiswa/editmatakuliah" class="btn btn-info btn-sm">Ubah Matakuliah</a>
+            <a href="/mahasiswa/editmatakuliah" class="btn btn-info btn-sm btn-ubah-matakuliah">Ubah Matakuliah</a>
           </div>
         </div>
         
@@ -49,4 +49,6 @@
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-data.js"></script>
+<!-- ==== global helper ==== -->
+<script src="/js/global-helper.js"></script>
 <?= $this->endSection() ?>

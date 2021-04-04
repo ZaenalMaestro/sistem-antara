@@ -69,12 +69,24 @@
 </div>
 
 <!-- ==== script ==== -->
+<!-- ==== global helper ==== -->
+<script src="/js/global-helper.js"></script>
+
+
 <script src="/js/sweetalert2.js"></script>
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
+
+<!-- ==== redirect ke halaman data jika matakuliah telah dikonfirmasi oleh prodi ==== -->
+<script>
+  redirectJikaMatakuliahTelahDikonfirmasi('/mahasiswa/data')
+  // redirect kehalaman mahasiswa jika pendaftaran telah tutup
+  redirectJikaPendaftaranTutup('/data')
+</script>
+
 <script src="/js/mahasiswa/matakuliah/get-element.js"></script>
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/update-matkul-ppi.js"></script>
@@ -82,9 +94,5 @@
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-edit.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-mahasiswa.js"></script>
 
-<!-- ==== redirect ke halaman data jika matakuliah telah dikonfirmasi oleh prodi ==== -->
-<script src="/js/mahasiswa/helper.js"></script>
-<script>
-  redirectJikaMatakuliahTelahDikonfirmasi('/mahasiswa/data')
-</script>
+
 <?= $this->endSection() ?>

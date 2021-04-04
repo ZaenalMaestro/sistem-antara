@@ -8,6 +8,7 @@ axios.get('/api/ppi/peraturan')
     isiDaftarPeraturan(daftar_peraturan)
   })
   .catch(function (error) {
+    console.log(error)
     // redirect kehalaman login jika user belum diautorisasi
     redirectTo('/login')
   })

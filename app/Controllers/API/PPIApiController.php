@@ -36,4 +36,11 @@ class PPIApiController extends ResourceController
     ];
     return $this->respond($response, 200);    
   }
+
+  
+  // get jadwal ppi
+  public function jadwalPPI(){
+    $jadwal_ppi = $this->model->getJadwalPPI();
+    return $this->respond($jadwal_ppi, 200);
+  }
 }

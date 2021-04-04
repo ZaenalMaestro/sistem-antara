@@ -104,6 +104,10 @@
   <script src="/js/dom-selector.js"></script>
   <script src="/js/login/login-function.js"></script>
   <script src="/js/login/login.js"></script>
+  <script src="/js/global-helper.js"></script>
+  <script>
+    cekLogin()
+  </script>
 </body>
 
 </html>

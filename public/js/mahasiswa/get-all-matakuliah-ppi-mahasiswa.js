@@ -1,10 +1,11 @@
-// get data user yang login JWT
-const login = JSON.parse(localStorage.getItem('login'))
-console.log(login)
+const token = getTokenLocalStorage()
+
 const config = {
-   headers: { Authorization: `Bearer ${login.jwt}`}
+   headers: { Authorization: `Bearer ${token.jwt}`}
 }
-const body = {key: 'value'}
+
+const body = { key: 'value' }
+
 axios.get('/api/mahasiswa/data', config)
    .then(function (response) {
     // handle success

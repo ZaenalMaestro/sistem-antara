@@ -1,4 +1,6 @@
 <!--   Core JS Files   -->
+<script src="/js/global-helper.js"></script>
+<script src="/js/dom-selector.js"></script>
 <script src="/js/core/popper.min.js"></script>
 <script src="/js/core/bootstrap.min.js"></script>
 <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -9,6 +11,13 @@
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="/demo/demo.js"></script>
 <script>
+  // ==== logout =====
+  const btnLogout = getSelector('.logout')
+  btnLogout.addEventListener('click', () => {
+    logout()
+  })
+
+
   $(document).ready(function () {
     $().ready(function () {
       $sidebar = $('.sidebar');

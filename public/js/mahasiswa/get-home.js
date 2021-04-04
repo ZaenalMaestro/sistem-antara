@@ -1,24 +1,25 @@
-// get data user yang login JWT
-const login = JSON.parse(localStorage.getItem('login'))
+const token = getTokenLocalStorage()
+
 const config = {
-  headers: { Authorization: `Bearer ${login.jwt}`}
+  headers: { Authorization: `Bearer ${token.jwt}`}
 }
-const body = {key: 'value'}
 axios.get('/api/mahasiswa/data', config)
   .then(function (response) {
     // handle success
-    
-    // hapus tombol belanja matakuliah jika ada matakuliah
-    // yang telah dibelanjakan
+    // hapus tombol daftar jika telah belanja matakuliah
     const matakuliah = response.data.matakuliah_diprogramkan
-    if (matakuliah.length > 0)
-    {
+    if (matakuliah.length > 0) {
+      // get element tombol daftar
       const btnDaftar = getSelector('.btn-daftar')
       btnDaftar.remove()
     }
+    // hilangkan tombol pendaftaran jika telah tutup
+    tutupPendaftaran()
   })
   .catch(function (error) {
     // handle error
     // redirect kehalaman login jika user belum diautorisasi
+    console.log(error)
     redirectTo('/login')
   })
+

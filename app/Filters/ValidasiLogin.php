@@ -25,10 +25,11 @@ class ValidasiLogin implements FilterInterface
 		$usernameExist = $model->findUsername($username);
 		if (!$usernameExist) {
       $output = [
+        'error_form'  => 'username',
         'pesan' => 'Username tidak valid !',
         'status_code' => 401
       ];
-			return $this->response->setStatusCode(401)->setJSON($output);
+			return $this->response->setJSON($output);
 		}
 
 		// get data user berdasarkan username
@@ -38,10 +39,11 @@ class ValidasiLogin implements FilterInterface
 		// jika password salah
 		if (!$correctpassowrd) {
 			$output = [
-        'pesan' => 'Passoword tidak valid !',
+        'error_form'  => 'password',
+        'pesan' => 'Password tidak valid !',
         'status_code' => 401
       ];
-			return $this->response->setStatusCode(401)->setJSON($output);		
+			return $this->response->setJSON($output);		
 		}
 
 
@@ -51,10 +53,11 @@ class ValidasiLogin implements FilterInterface
 		$usernameExist = $model->findUsername($request->username);
 		if (!$usernameExist) {
       $output = [
-        'pesan' => 'Stambuk telah terdaftar !',
+        'error_form'  => 'username',
+        'pesan' => 'Username belum terdaftar !',
         'status_code' => 409
       ];
-			return $this->response->setStatusCode(409)->setJSON($output);
+			return $this->response->setJSON($output);
 		}
   }
 

@@ -18,8 +18,7 @@ class MahasiswaAuth implements FilterInterface
         'status_code' => 401
       ];
 
-      return $this->response->setStatusCode(401)
-                            ->setJSON($data);
+      return redirect()->to('/login');
     }
 
     // validasi JWT
@@ -32,22 +31,10 @@ class MahasiswaAuth implements FilterInterface
 
       // validasi role
       if ($docode->user->role !== 'mahasiswa'){
-        $output = [
-          'pesan'       => 'Unauthorized user',
-          'status_code' => 401
-        ];
-  
-        return $this->response->setStatusCode(401)
-                              ->setJSON($output);
+        return redirect()->to('/' + $docode->user->role);
       }
     } catch (\Exception $error) {
-      $output = [
-        'pesan'       => $error->getMessage(),
-        'status_code' => 401
-      ];
-
-      return $this->response->setStatusCode(401)
-                            ->setJSON($output);
+      return redirect()->to('/login');
     }
 
   }

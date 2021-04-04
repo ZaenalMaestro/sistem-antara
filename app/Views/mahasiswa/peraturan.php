@@ -11,10 +11,15 @@
 </div>
 
 <!-- ==== script ==== -->
+<!-- ==== global helper ==== -->
+<script src="/js/global-helper.js"></script>
+
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-peraturan.js"></script>
-<!-- ==== global helper ==== -->
-<script src="/js/global-helper.js"></script>
+<script>
+  // jjika belum login arahkan ke form login
+  isNotLogin()
+</script>
 <?= $this->endSection() ?>

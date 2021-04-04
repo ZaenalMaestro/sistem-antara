@@ -68,6 +68,10 @@
 
 </div>
 
+<!-- ==== global helper ==== -->
+<script src="/js/global-helper.js"></script>
+
+<script src="/js/sweetalert2.js"></script>
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
@@ -78,12 +82,12 @@
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/submit-matkul-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
-<!-- ==== global helper ==== -->
-<script src="/js/global-helper.js"></script>
 
 <!-- ==== redirect ke halaman home jika telah belanja matakuliah ==== -->
-<script src="/js/mahasiswa/helper.js"></script>
 <script>
+  // redirect jika telah belanja matakuliah
   redirectJikaTelahBelanjaMatakuliah('/mahasiswa')
+  // redirect kehalaman mahasiswa jika pendaftaran telah tutup
+  redirectJikaPendaftaranTutup('/mahasiswa')
 </script>
 <?= $this->endSection() ?>

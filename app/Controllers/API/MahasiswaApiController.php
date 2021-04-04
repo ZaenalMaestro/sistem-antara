@@ -170,4 +170,5 @@ class MahasiswaApiController extends ResourceController
     ];
     return $this->respond($output, 200);
   }
+
 }

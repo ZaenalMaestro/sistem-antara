@@ -25,7 +25,7 @@ class ValidasiUser implements FilterInterface
         'pesan' => 'Stambuk telah terdaftar !',
         'status_code' => 409
       ];
-			return $this->response->setStatusCode(409)->setJSON($output);
+			return $this->response->setJSON($output);
 		}
   }
 

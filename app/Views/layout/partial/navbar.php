@@ -30,7 +30,7 @@
             </p>
           </a>
           <ul class="dropdown-menu dropdown-navbar">
-            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+            <li class="nav-link"><a href="#" class="nav-item dropdown-item logout">Log out</a></li>
           </ul>
         </li>
         <li class="separator d-lg-none"></li>

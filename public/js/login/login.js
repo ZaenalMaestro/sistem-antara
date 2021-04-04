@@ -44,17 +44,34 @@ document.getElementById('tombol-login').addEventListener('click', () => {
     })
       .then(function (response) {
       // simpan respons login - jwt dan role
-      const login = {
-        role: response.data.role,
-        jwt: response.data.jwt,
-      }
+        const data = response.data
+
+        // jika username belum terdaftar
+        if (data.error_form === 'username') {
+          return showErrorMessage(username, data.pesan)
+        }
+
+        // jika password salah
+        if (data.error_form === 'password') {
+          return showErrorMessage(password, data.pesan)
+        }
+        
+        const login = {
+          status_login: true,
+          role: data.role,
+          jwt: data.jwt
+        }
       
       // simpan token dan role ke local storage
       window.localStorage.setItem('login', JSON.stringify(login));
 
-        // jika role mahasiswa
-        // redirect ke URL: /mahasiswa        
+        // redirect ke URL berdasarkan role        
+        // role mahasiswa
         if (response.data.role === 'mahasiswa') return window.location.href = '/mahasiswa'
+        // role BEM
+        if (response.data.role === 'bem') return window.location.href = '/bem'
+        // role prodi
+        if (response.data.role === 'prodi') return window.location.href = '/prodi'
     })
     .catch(function (error) {
       console.log(error);
@@ -66,7 +83,7 @@ document.getElementById('tombol-login').addEventListener('click', () => {
   
 })
 
-// validasi input ketika tombol login diklik
+// validasi input ketika tombol registrasi diklik
 document.getElementById('tombol-registrasi').addEventListener('click', () => {
   const stambuk = document.getElementById('stambuk-registrasi')
   const nama = document.getElementById('nama-registrasi')
@@ -80,8 +97,26 @@ document.getElementById('tombol-registrasi').addEventListener('click', () => {
 
   // registrasi berhasil jika semua inputan valid (true)
   if (inputValid) {
-    alert('registrasi berhasil')
-    toggleForm()
+    // kirim request registrasi ke server
+    axios.post('/api/registrasi', {
+      stambuk: stambuk.value,
+      nama: nama.value,
+      semester: semester.value,
+      password: password.value,
+      konfirmasi_password: konfirmasi_password.value
+    })
+    .then(function (response) {
+      console.log(response)
+      if (response.data.status_code === 409) {
+        return showErrorMessage(stambuk, 'Stambuk telah terdaftar !')
+      }
+      alert(response.data.pesan)
+      // pindahkan kehalaman login
+      toggleForm()
+    })
+    .catch(function (error) {
+      console.log(error);
+    });    
   }
   
   // menghapus pesan error saat inputan diperbaharui

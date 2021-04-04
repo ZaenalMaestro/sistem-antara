@@ -1,29 +1,48 @@
-// get data user yang login JWT
-const login = JSON.parse(localStorage.getItem('login'))
+const token = getTokenLocalStorage()
+
 const config = {
-  headers: { Authorization: `Bearer ${login.jwt}`}
+  headers: { Authorization: `Bearer ${token.jwt}`}
 }
-const body = {key: 'value'}
+
+const body = { key: 'value' }
+
 axios.get('/api/mahasiswa/data', config)
   .then(function (response) {
     // handle success
     const matakuliah = response.data.matakuliah_diprogramkan
-    if(matakuliah[0].status_ppi === 'diterima') getSelector('.btn-ubah-matakuliah').remove()
+
+    if (matakuliah.length > 0 && matakuliah[0].status_ppi === 'diterima') {
+      getSelector('.btn-ubah-matakuliah').remove()
+    }
+    // isi table data matakuliah mahasiswa
     isiTableMatakuliah(matakuliah)
   })
   .catch(function (error) {
     // jika belum login redirect kehalaman login or token expire or tidak ada token
-    redirectTo('/login')
+    console.log(error)
+    // redirectTo('/login')
   })
 
 function isiTableMatakuliah(matakuliah)
-{  
+{
+  if (matakuliah.length == 0) {
+    
+    if (!matakuliah) {
+      
+    }
+  }
+
   const table_matakuliah = getSelector('.daftar-matakuliah')
   let table_body = ''
 
   // jika tidak ada matakuliah yang dikonfirmasi
-  if (!matakuliah) {
-    return table_matakuliah.innerHTML = '<tr><td class="text-center" colspan="3">Matakuliah Telah dikonfirmasi oleh prodi</td></tr>'
+  if (matakuliah.length === 0) {
+    getSelector('.btn-ubah-matakuliah').remove()
+    return table_matakuliah.innerHTML = `
+      <tr>
+        <td class="text-center" colspan="4">
+          Belum ada matakuliah yang belanjakan
+      </tr>`
   }
 
   matakuliah.forEach((matkul, nomor)=> {

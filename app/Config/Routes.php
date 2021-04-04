@@ -99,6 +99,7 @@ $routes->get('/api/prodi/peraturan', 'API/ProdiApiController::tampilPeraturan', 
 // route peraturan dan mataukuliah PPI API
 $routes->get('/api/ppi/matakuliah', 'API/PPIApiController::matakuliahPPI');
 $routes->get('/api/ppi/peraturan', 'API/PPIApiController::peraturanPPI');
+$routes->get('/api/ppi/jadwal', 'API/PPIApiController::jadwalPPI');
 
 
 /*

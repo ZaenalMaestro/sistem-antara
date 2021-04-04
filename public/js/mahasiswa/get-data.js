@@ -20,7 +20,7 @@ axios.get('/api/mahasiswa/data', config)
   .catch(function (error) {
     // jika belum login redirect kehalaman login or token expire or tidak ada token
     console.log(error)
-    // redirectTo('/login')
+    redirectTo('/login')
   })
 
 function isiTableMatakuliah(matakuliah)

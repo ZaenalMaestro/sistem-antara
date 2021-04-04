@@ -47,12 +47,23 @@ axios.get('/api/mahasiswa/data', config)
 function isNotLogin() {
   // get data user yang login JWT
   const login = getTokenLocalStorage()
+
+  if (login.status_login === false) {
+    window.location.href = '/login'
+  }
+  // jika tidak ada token
+  if (!login.jwt) return window.location.href = '/login'
+  
   const config = {
     headers: { Authorization: `Bearer ${login.jwt}`}
   }
+
   axios.get('/api/mahasiswa/data', config)
     .then(response => response)
-    .catch(error => redirectTo('/login'))
+    .catch(error => {
+      console.log(error)
+      redirectTo('/login')
+    })
 }
 
 function getTokenLocalStorage() {
@@ -60,16 +71,8 @@ function getTokenLocalStorage() {
   const login = JSON.parse(localStorage.getItem('login'))
 
     // jika token tidak tersedia
-  if( login && login === "null" && login === "undefined" ){
-    const login = {
-      status_login: false,
-      role: '',
-      jwt: '',
-    }  
-    // simpan token dan role ke local storage
-    window.localStorage.setItem('login', JSON.stringify(login));
-    // get default value
-    login = JSON.parse(localStorage.getItem('login'))
+  if(login === null || typeof login === undefined ){
+    return window.location.href = '/login'
   }
   return login
 }
@@ -78,8 +81,8 @@ function getTokenLocalStorage() {
 function logout() {
   const login = {
     status_login: false,
-    role: '',
-    jwt: '',
+    role: 'empty',
+    jwt: 'empty',
   }  
   // simpan token dan role ke local storage
   window.localStorage.setItem('login', JSON.stringify(login));
@@ -128,6 +131,9 @@ function tutupPendaftaran() {
 
     // set UI batas pendaftaran
     getSelector('.batas-pendaftaran').innerHTML = formatTangggal(batas_pendaftaran_ppi)
+  
+    //
+    countdown(batas_pendaftaran_ppi)
     
     if (cekBatasPendaftaran(batas_pendaftaran_ppi)) {
       // get element tombol daftar
@@ -170,4 +176,41 @@ async function redirectJikaPendaftaranTutup(url) {
   .catch(function (error) {
     console.log(error);
   })
+}
+
+// 
+function countdown(time) {
+  // Set the date we're counting down to
+  let [year, month, day] = time.split('-')
+  day = parseInt(day) + 1
+  var countDownDate = new Date(`${year}-${month}-${day}`).getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+      
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+      
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    getSelector(".countdown").innerHTML = `
+    <span class="text-info">${days} </span> hari
+    <span class="text-info">${hours} </span>jam
+    <span class="text-info">${minutes} </span>menit
+    <span class="text-warning">${seconds} </span>detik`
+      
+    // If the count down is over, write some text 
+    if (distance < 0) {
+      clearInterval(x);
+      getSelector(".text-hitung-mundur").innerHTML = "";
+      getSelector(".countdown").innerHTML = "PENDAFTARAN PPI TELAH DITUTUP";
+    }
+  }, 1000);
 }

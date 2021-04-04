@@ -1,4 +1,5 @@
 const token = getTokenLocalStorage()
+console.log(token)
 
 const config = {
   headers: { Authorization: `Bearer ${token.jwt}`}

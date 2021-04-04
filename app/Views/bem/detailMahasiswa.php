@@ -9,8 +9,8 @@
           <div class="col-md-10">
             <div class="row">
               <div class="col-md-10">
-                <h5><span class="mr-4">Nama</span> : <span class="ml-2">Muh Ruryl Samdilah</span></h5>
-                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2">13020160001</span></h5>
+                <h5><span class="mr-4">Nama</span> : <span class="ml-2 nama">Muh Ruryl Samdilah</span></h5>
+                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2 stambuk">13020160001</span></h5>
               </div>
               <div class="col mt-2">
                 <button class="btn btn-info btn-sm">Cetak</button>
@@ -33,22 +33,8 @@
                     <th class="text-info text-left">SKS</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-left">Java Lanjut</td>
-                    <td class="text-left">2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-left">Basis Data I</td>
-                    <td class="text-left">2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-left">Matematika Diskrit</td>
-                    <td class="text-left">3</td>
-                  </tr>
+                <tbody class="table-detail-mahasiswa">
+                  <!-- ==== daftar matakuliah mahasiswa==== -->
                 </tbody>
               </table>
             </div>
@@ -62,6 +48,14 @@
     </div>
   </div>
 
-  <!-- script -->
-  <script src="/js/jquery.js"></script>
+
+<!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/bem/helper.js"></script>
+
+<script src="/js/jquery.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/bem/get-detail-mahasiswa.js"></script>
   <?= $this->endSection() ?>

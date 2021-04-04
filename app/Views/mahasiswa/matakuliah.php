@@ -40,5 +40,8 @@
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-matakuliah.js"></script>
+<script>
+  isNotLogin();
+</script>
 
 <?= $this->endSection() ?>

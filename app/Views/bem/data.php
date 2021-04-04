@@ -20,22 +20,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="text-center">
+              <!-- <tr class="text-center">
                 <td class="text-left">13020160099</td>
                 <td class="text-left">Rehan Armand</td>
                 <td><span class="badge badge-warning badge-sm">belum dikonfirmasi</span></td>
                 <td>
                   <a href="/bem/detail" class="btn btn-info btn-sm">Lihat Detail</a>
                 </td>
-              </tr>
-              <tr class="text-center">
-                <td class="text-left">13020160101</td>
-                <td class="text-left">Jhon Doe</td>
-                <td><span class="badge badge-success badge-sm">telah dikonfirmasi</span></td>
-                <td>
-                  <a href="/bem/detail" class="btn btn-info btn-sm">Lihat Detail</a>
-                </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
@@ -45,16 +37,14 @@
 </div>
 
 <!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/bem/helper.js"></script>
+
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
-<script src="/js/matakuliah/get-element.js"></script>
-<script src="/js/matakuliah/daftar-ppi.js"></script>
-<script src="/js/matakuliah/update-matkul-ppi.js"></script>
-<script src="/js/matakuliah/batalkan-matkul-ppi.js"></script>
-<script>
-  $(document).ready(function () {
-    $('#matkul-ppi').DataTable();
-  })
-</script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/bem/get-data.js"></script>
 <?= $this->endSection() ?>

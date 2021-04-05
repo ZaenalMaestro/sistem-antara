@@ -244,4 +244,16 @@ class BemApiController extends ResourceController
 
 		return $this->respond($response, 200);
 	}
+
+	public function dataCetakPPI()
+	{
+		$data_cetak = $this->model->dataCetakPPI();
+
+		$response = [
+			'status_code' => 200,
+			'data_cetak' => $data_cetak
+		];
+
+		return $this->respond($response, 200);
+	}
 }

@@ -105,4 +105,32 @@ class BemModel extends Model
     $result = $this->db->table('jadwal_ppi')->replace($jadwal);
     return $result ? true : false;
   }
+
+  // data cetak
+  public function dataCetakPPI()
+  {
+    $mahasiswa = $this->db->table('mahasiswa')->get()->getResultArray();
+    $matakuliah = $this->db->table('belanja_matakuliah')->get()->getResultArray();
+
+    $data_cetak = [];
+    foreach ($mahasiswa as $mhs) {
+      foreach ($matakuliah as $matkul) {
+        if ($mhs['stambuk'] === $matkul['stambuk']) {
+          $mhs['matakuliah'][] = [
+            'matakuliah' => $matkul['matakuliah'],
+            'sks' => $matkul['sks'],
+          ];
+        }
+      }
+
+      if (empty($mhs['matakuliah'])) {
+        $mhs['matakuliah'] = [];
+      }
+      $data_cetak [] = $mhs;
+    }
+    
+    return $data_cetak;
+
+
+  }
 }

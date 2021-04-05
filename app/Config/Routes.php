@@ -47,6 +47,7 @@ $routes->get('/bem/detail', 'BemController::detailMahasiswa');
 $routes->get('/bem/data', 'BemController::data');
 $routes->get('/bem/matakuliah', 'BemController::matakuliah');
 $routes->get('/bem/peraturan', 'BemController::peraturan');
+$routes->get('/bem/cetak', 'BemController::cetakMatakuliah');
 
 // routes dashboard Prodi
 $routes->get('/prodi', 'ProdiController::index');
@@ -79,6 +80,7 @@ $routes->get('/api/mahasiswa/data/edit', 'API/MahasiswaApiController::matakuliah
 $routes->get('/api/bem', 'API/BemApiController::jumlahMahasiswaPPI', ['filter' => 'bem_auth']);
 $routes->get('/api/bem/mahasiswa', 'API/BemApiController::mahasiswaPPI', ['filter' => 'bem_auth']);
 $routes->get('/api/bem/mahasiswa/(:num)', 'API/BemApiController::detaiMahasiswaPPI', ['filter' => 'bem_auth']);
+$routes->get('/api/bem/mahasiswa/cetak', 'API/BemApiController::dataCetakPPI');
 // route bem - matakuliah
 $routes->post('/api/bem/matakuliah', 'API/BemApiController::tambahMatakuliahPPI', ['filter' => 'bem_auth']);
 $routes->put('/api/bem/matakuliah', 'API/BemApiController::ubahMatakuliahPPI', ['filter' => 'bem_auth']);

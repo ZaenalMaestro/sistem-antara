@@ -71,5 +71,15 @@ class BemController extends BaseController
 		return view('bem/editmatakuliah', $data);
 	}
 
+	public function cetakMatakuliah()
+	{
+		$data = [
+			'activeURL'=> 'data',
+			'page'=> 'Data / Cetak Matakuliah PPI',
+			'URL'=> $this->sidebarBem
+		];
+		return view('bem/cetakmatakuliah', $data);
+	}
+
 	
 }

@@ -80,7 +80,7 @@ $routes->get('/api/mahasiswa/data/edit', 'API/MahasiswaApiController::matakuliah
 $routes->get('/api/bem', 'API/BemApiController::jumlahMahasiswaPPI', ['filter' => 'bem_auth']);
 $routes->get('/api/bem/mahasiswa', 'API/BemApiController::mahasiswaPPI', ['filter' => 'bem_auth']);
 $routes->get('/api/bem/mahasiswa/(:num)', 'API/BemApiController::detaiMahasiswaPPI', ['filter' => 'bem_auth']);
-$routes->get('/api/bem/mahasiswa/cetak', 'API/BemApiController::dataCetakPPI');
+$routes->get('/api/bem/mahasiswa/cetak', 'API/BemApiController::dataCetakPPI', ['filter' => 'bem_auth']);
 // route bem - matakuliah
 $routes->post('/api/bem/matakuliah', 'API/BemApiController::tambahMatakuliahPPI', ['filter' => 'bem_auth']);
 $routes->put('/api/bem/matakuliah', 'API/BemApiController::ubahMatakuliahPPI', ['filter' => 'bem_auth']);

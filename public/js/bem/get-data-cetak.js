@@ -14,8 +14,8 @@ axios.get('/api/bem/mahasiswa/cetak', config)
   .catch(function (error) {
     // handle error
     console.log(error);
-    // updateToken()
-    // return window.location.href = '/login'
+    updateToken()
+    return window.location.href = '/login'
   })
 
 function updateTableCetak(data_cetak) {
@@ -26,38 +26,65 @@ function updateTableCetak(data_cetak) {
                                       </tr>`
   }
 
-  let table_body = ''
+  let table_body = `<tr style="font-weight:bolder" class="text-left">
+                      <th colspan="3" class="text-center text-info"><b>DAFTAR MAHASISWA PPI - FIKOM UMI</b></th>
+                    </tr>`
   data_cetak.forEach((data, index) => {
     console.log(data_cetak)
     table_body += `
-    <tr>
-      <td colspan="3"><span style="width: 100px;">Nama</span> <span class="nama">${data.nama}</span></td>
+    <tr style="font-weight:bolder">
+      <td><b>Nama</b></td>
+      <td class="text-center"><b>:</b></td>
+      <td><b>&nbsp;${data.nama}</b></td>
     </tr>
-    <tr>
-      <td colspan="3"><span style="width: 100px;">Stambuk</span> <span class="stambuk">${data.stambuk}</span></td>
+    <tr style="font-weight:bolder">
+      <td><b>Stambuk</b></td>
+      <td class="text-center"><b>:</b></td>
+      <td><b>&nbsp;${data.stambuk.toString()}</b></td>
     </tr>
-    <tr>
-      <td colspan="3"><span style="width: 100px;">Status PPI</span> <span class="status_ppi">${data.status_ppi}</span></td>
+    <tr style="font-weight:bolder">
+      <td><b>Status PPI</b></td>
+      <td class="text-center"><b>:</b></td>
+      <td><b>&nbsp;${data.status_ppi}</b></td>
     </tr>
-    <tr>
-      <td colspan="3"><span style="width: 100px;">Semester</span> <span class="semester">${data.semester}</span></td>
+    <tr style="font-weight:bolder">
+      <td><b>Semester</b></td>
+      <td class="text-center"><b>:</b></td>
+      <td><b>&nbsp;${data.semester.toString()}</b></td>
     </tr>
     <tr class="text-center">
-      <td >Matakuliah</td>
-      <td>SKS</td>
+      <td style="font-weight:bolder"><b>No.</b></td>
+      <td style="font-weight:bolder"><b>Matakuliah</b></td>
+      <td style="font-weight:bolder"><b>SKS</b></td>
     </tr>`
       
     if (data.matakuliah.length === 0) {
-      table_body += '<td colspan="2" class="text-center">**Belum belanja matakuliah</td>'
+      table_body += `
+            <td colspan="3" class="text-center">
+              <span style="color: grey"> ~BELUM ADA MATAKULIAH PPI YANG DIPROGRAMKAN ~</span>
+            </td >`
     } else {
       data.matakuliah.forEach((matkul, index) => {
+        let nomor = ++index;
         table_body += `
           <tr>
+            <td class="matakuliah">&nbsp;${nomor.toString()}. </td>
             <td class="matakuliah">${matkul.matakuliah}</td>
-            <td class="sks">${matkul.matakuliah}</td>
+            <td class="sks">${matkul.sks.toString()} SKS</td>
           </tr>`
       })      
     }
+
+    table_body += `
+      <tr>
+        <td colspan="3" class="my-3"></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="my-3"></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="my-3"></td>
+      </tr>`
 
 
 

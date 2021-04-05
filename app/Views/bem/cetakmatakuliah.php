@@ -18,9 +18,8 @@
         <!-- ==== table ==== -->
         <div class="row justify-content-center">
           <div class="col-md-10">
-            <h4 class="text-center mb-1 mt-3 text-info">Data Mahasiswa PPI</h4>
             <div class="table-responsive ps">
-              <table class="table" id="table-cetak">
+              <table class="table uitable" id="table-cetak">
                 
                 
               </table>
@@ -28,7 +27,6 @@
           </div>
         </div>
         <!-- ==== end table ==== -->
-        <iframe id="txtArea1" style="display:none"></iframe>
       </div>
     </div>
   </div>

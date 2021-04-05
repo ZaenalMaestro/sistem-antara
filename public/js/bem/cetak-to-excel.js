@@ -1,36 +1,24 @@
 const btn_cetak = getSelector('.btn-cetak')
 btn_cetak.addEventListener('click', cetakToExcel)
 
-function cetakToExcel()
-{
-    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
-    var textRange; var j=0;
-    tab = document.getElementById('table-cetak'); // id of table
-
-    for(j = 0 ; j < tab.rows.length ; j++) 
-    {     
-        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
-        //tab_text=tab_text+"</tr>";
+function cetakToExcel() {
+  var uri = 'data:application/vnd.ms-excel;base64,',
+    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+    base64 = function(s) {
+      return window.btoa(unescape(encodeURIComponent(s)))
+    },
+    format = function(s, c) {
+      return s.replace(/{(\w+)}/g, function(m, p) {
+        return c[p];
+      })
     }
-
-    tab_text=tab_text+"</table>";
-    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
-    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
-    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
-
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE "); 
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-    {
-        txtArea1.document.open("txt/html","replace");
-        txtArea1.document.write(tab_text);
-        txtArea1.document.close();
-        txtArea1.focus(); 
-        sa=txtArea1.document.execCommand("SaveAs",true,"data-mahasiswa-ppi.xlsx");
-    }  
-    else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    return (sa);
+  var toExcel = document.getElementById("table-cetak").innerHTML;
+  var ctx = {
+    worksheet: name || '',
+    table: toExcel
+  };
+  var link = document.createElement("a");
+  link.download = "DAFTAR MAHASISWA PPI FIKOM UMI.xls";
+  link.href = uri + base64(format(template, ctx))
+  link.click();
 }

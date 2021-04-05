@@ -1,7 +1,7 @@
 // cek status login
 // jika belum login arahkan kehalaman login
 function cekLogin() {
-  const login = JSON.parse(localStorage.getItem('login'))
+  const login = getToken()
   const config = {
     headers: { Authorization: `Bearer ${login.jwt}`}
   }
@@ -29,7 +29,9 @@ function cekLogin() {
 
 // get token
 function getToken() {
-  return JSON.parse(localStorage.getItem('login'))
+  const token = JSON.parse(localStorage.getItem('login'))
+  if (token === null) updateToken()
+  return token
 }
 
 // updateToken

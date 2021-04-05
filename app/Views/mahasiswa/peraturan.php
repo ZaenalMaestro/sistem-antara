@@ -21,6 +21,6 @@
 <script src="/js/mahasiswa/get-peraturan.js"></script>
 <script>
   // jjika belum login arahkan ke form login
-  isNotLogin()
+  cekLogin()
 </script>
 <?= $this->endSection() ?>

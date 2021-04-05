@@ -42,7 +42,7 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-matakuliah.js"></script>
 <script>
-  isNotLogin();
+  cekLogin()
 </script>
 
 <?= $this->endSection() ?>

@@ -35,10 +35,11 @@
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
-<script src="/js/bem/get-home.js"></script>
-
 <script>
   cekLogin()
 </script>
+<script src="/js/bem/get-home.js"></script>
+
+
 
 <?= $this->endSection() ?>

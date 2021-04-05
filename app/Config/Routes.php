@@ -87,6 +87,10 @@ $routes->get('/api/bem/peraturan', 'API/BemApiController::tampilPeraturan', ['fi
 $routes->post('/api/bem/peraturan', 'API/BemApiController::tambahPeraturan', ['filter' => 'bem_auth']);
 $routes->put('/api/bem/peraturan', 'API/BemApiController::ubahPeraturan', ['filter' => 'bem_auth']);
 $routes->delete('/api/bem/peraturan', 'API/BemApiController::hapusPeraturan', ['filter' => 'bem_auth']);
+// route bem - peraturan
+$routes->get('/api/bem/jadwal', 'API/BemApiController::jadwalPPI', ['filter' => 'bem_auth']);
+$routes->put('/api/bem/jadwal', 'API/BemApiController::ubahJadwalPPI', ['filter' => 'bem_auth']);
+
 
 // route Prodi API
 $routes->get('/api/prodi', 'API/ProdiApiController::jumlahMahasiswaPPI', ['filter' => 'prodi_auth']);

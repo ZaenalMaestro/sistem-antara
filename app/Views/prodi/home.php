@@ -10,23 +10,31 @@
       <div class="card-body">
         <div class="row text-center my-5">
           <div class="col">
-            <h1 class="mb-1">39</h1> <span class="text-info">Sudah Mendaftar</span>
+            <h1 class="mb-1 mendaftar">0</h1> <span class="text-info">Sudah Mendaftar</span>
           </div>
           <div class="col">
-            <h1 class="mb-1">27</h1> <span class="text-info">Belum Diterima</span>
+            <h1 class="mb-1 belum-diterima">0</h1> <span class="text-info">Belum Diterima</span>
           </div>
         </div>
         <div class="row text-center mb-3">
           <div class="col">
-            <h1 class="mb-1">12</h1> <span class="text-info">Sudah Diterima</span>
+            <h1 class="mb-1 diterima">0</h1> <span class="text-info">Sudah Diterima</span>
           </div>
           <div class="col">
-            <h1 class="mb-1">0</h1> <span class="text-info">Ditolak</span>
+            <h1 class="mb-1 ditolak">0</h1> <span class="text-info">Ditolak</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- ==== global helper ==== -->
+<script src="/js/bem/helper.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
+<script src="/js/prodi/get-home.js"></script>
+
 <?= $this->endSection() ?>

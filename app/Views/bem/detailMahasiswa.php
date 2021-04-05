@@ -12,11 +12,7 @@
                 <h5><span class="mr-4">Nama</span> : <span class="ml-2 nama">-</span></h5>
                 <h5><span class="mr-2">Stambuk</span> : <span class="ml-2 stambuk">-</span></h5>
               </div>
-              <div class="col mt-2">
-                <button class="btn btn-info btn-sm">Cetak</button>
-              </div>
             </div>
-
           </div>
         </div>
 

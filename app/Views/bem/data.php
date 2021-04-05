@@ -2,10 +2,18 @@
 
 <?= $this->section('content') ?>
 <div class="row">
-  <div class="col">
+  <!-- ==== data matakuliah -->
+  <div class="col-md-8">
     <div class="card card-nav-tabs">
-      <h3 class="card-header card-header-info">Daftar Mahasiswa PPI
-      </h3>
+      <div class="row">
+        <div class="col-md">
+          <h3 class="card-header card-header-info">Daftar Mahasiswa PPI</h3>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-info btn-sm mt-3">Cetak</button>
+        </div>
+      </div>
+      
       <div class="card-body mx-4 my-4">
         <div class="table-responsive ps">
 
@@ -20,15 +28,46 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr class="text-center">
-                <td class="text-left">13020160099</td>
-                <td class="text-left">Rehan Armand</td>
-                <td><span class="badge badge-warning badge-sm">belum dikonfirmasi</span></td>
-                <td>
-                  <a href="/bem/detail" class="btn btn-info btn-sm">Lihat Detail</a>
-                </td>
-              </tr> -->
+            <!-- ===== data mahasiswa PPI===== -->
             </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==== jadwal ppi -->
+  <div class="col">
+  <div class="card card-nav-tabs">
+    <div class="row">
+      <div class="col-md">
+        <h3 class="card-header card-header-info">Jadwal PPI</h3>
+      </div>
+      <div class="col-md-5">
+        <button class="btn btn-info btn-sm text-center mt-3" data-toggle="modal" data-target="#ubah_jadwa">Ubah Jadwal</button>
+      </div>
+    </div>
+      <div class="card-body my-4">
+        <div class="ml-2">
+          <table>
+            <tr>
+              <td><h4 class="text-info mr-2">Tanggal Pendaftaran</h4></td>
+              <td>
+                <h4>
+                  <span class="mr-2">:</span>
+                  <span class="data-mulai-pendaftaran">-</span>
+                </h4>
+              </td>
+            </tr>
+            <tr>
+              <td><h4 class="text-info mr-2">Batas Pendaftaran</h4></td>
+              <td>
+                <h4>
+                  <span class="mr-2">:</span>
+                  <span class="data-batas-pendaftaran">-</span>
+                </h4>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -36,8 +75,46 @@
   </div>
 </div>
 
+<!-- === Modal ==== -->
+<div class="modal modal-black fade right" id="ubah_jadwa" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="judul">Ubah Jadwal PPI</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="tutup">
+          <i class="tim-icons icon-simple-remove"></i>
+        </button>
+      </div>
+      <!-- ==== form ==== -->
+      <form>
+        <div class="modal-body">
+          <input type="hidden" id="id-jadwal">
+          <!-- ==== tanggal pendaftaran ==== -->
+          <div class="form-group">
+            <input class="form-control" type="date" name="tanggal-pendaftaran" id="tanggal-pendaftaran">
+          </div>
+          <!-- ==== batas pendaftaran ==== -->
+          <div class="form-group">
+            <input class="form-control" type="date" name="batas-pendaftaran" id="batas-pendaftaran">  
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <p style="font-style: italic;color: grey">**Format: Bulan/Tanggal/Tahun</p>
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-ubah">Ubah Jadwal</button>
+        </div>
+      </form>
+      <!-- ==== end form ==== -->
+    </div>
+  </div>
+</div>
+
+
 <!-- script -->
 <!-- ==== global helper ==== -->
+<script src="/js/sweetalert2.js"></script>
+<script src="/js/global-helper.js"></script>
 <script src="/js/bem/helper.js"></script>
 
 <script src="/js/jquery.js"></script>
@@ -47,6 +124,8 @@
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/bem/get-data.js"></script>
+<script src="/js/bem/jadwal-get.js"></script>
+<script src="/js/bem/jadwal-edit.js"></script>
 <script>
   cekLogin()
 </script>

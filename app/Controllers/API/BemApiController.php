@@ -200,4 +200,48 @@ class BemApiController extends ResourceController
     // jika berhasil tersimpan
     return $this->respond($response, 200);
 	}
+
+
+	// ---- jadwal PPI ---- //
+
+	// menampilkan data jadwal PPI
+	public function jadwalPPI()
+	{
+		$jadwal = $this->model->getJadwalPPI();
+
+		$response = [
+			"status_code" => 200,
+			"jadwal_ppi" => $jadwal
+		];
+
+		return $this->respond($response, 200);
+	}
+
+	// menampilkan data jadwal PPI
+	public function ubahJadwalPPI()
+	{
+		$request = $this->request->getJSON();
+		$jadwal = [
+			'id_jadwal' => $request->id_jadwal,
+			'mulai_pendaftaran' => $request->mulai_pendaftaran,
+			'batas_pendaftaran' => $request->batas_pendaftaran,
+		];
+
+		$jadwal_diubah = $this->model->ubahJadwalPPI($jadwal);
+
+		$response = [
+			"status_code" => 200,
+			"pesan" 			=> 'Jadwal berhasil diubah'
+		];
+
+		if (!$jadwal_diubah) {
+			$response = [
+				"status_code" => 400,
+				"pesan" 			=> 'Jadwal gagal diubah'
+			];
+			return $this->respond($response, 400);
+		}
+
+		return $this->respond($response, 200);
+	}
 }

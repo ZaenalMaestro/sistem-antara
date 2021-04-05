@@ -35,8 +35,8 @@ $(document).ready(function () {
         "targets": 2,
         "render": function (data, type, row) {
           return `<div class="text-center" data-id="${row.id_peraturan}" data-peraturan="${row.peraturan}">
-                    <button class="btn btn-info btn-sm form-ubah" id="exampleModalLabel">Ubah</button>
-                    <button class="btn btn-warning btn-sm mt-1 btn-hapus">Hapus</button>
+                    <button class="btn btn-info btn-sm form-ubah" id="exampleModalLabel" style="width:150px">Ubah</button>
+                    <button class="btn btn-warning btn-sm mt-1 btn-hapus" style="width:150px">Hapus</button>
                   </div>`
         }
       },

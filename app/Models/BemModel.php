@@ -94,6 +94,15 @@ class BemModel extends Model
     return $result ? true : false;
   }
 
+  // ------- JADWAL PPI ------------ //
+  public function getJadwalPPI()
+  {
+    return $this->db->table('jadwal_ppi')->get()->getResultArray();
+  }
 
-
+  public function ubahJadwalPPI($jadwal)
+  {
+    $result = $this->db->table('jadwal_ppi')->replace($jadwal);
+    return $result ? true : false;
+  }
 }

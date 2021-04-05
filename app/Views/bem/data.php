@@ -102,7 +102,7 @@
         </div>
         <div class="modal-footer">
           <p style="font-style: italic;color: grey">**Format: Bulan/Tanggal/Tahun</p>
-          <button type="button" class="btn btn-block ml-auto btn-sm btn-ubah" style="background-color: #00F2C3;">Ubah Jadwal</button>
+          <button type="button" class="btn btn-success btn-block ml-auto btn-sm btn-ubah" style="background-color: #00F2C3;">Ubah Jadwal</button>
         </div>
       </form>
       <!-- ==== end form ==== -->

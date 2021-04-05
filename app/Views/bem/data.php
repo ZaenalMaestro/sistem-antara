@@ -9,8 +9,8 @@
         <div class="col-md">
           <h3 class="card-header card-header-info">Daftar Mahasiswa PPI</h3>
         </div>
-        <div class="col-md-2">
-          <button class="btn btn-info btn-sm mt-3">Cetak</button>
+        <div class="col-md-4">
+          <a href="/bem/cetak"class="btn btn-info btn-sm mt-3">data peserta PPI</a>
         </div>
       </div>
       
@@ -102,7 +102,7 @@
         </div>
         <div class="modal-footer">
           <p style="font-style: italic;color: grey">**Format: Bulan/Tanggal/Tahun</p>
-          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-ubah">Ubah Jadwal</button>
+          <button type="button" class="btn btn-block ml-auto btn-sm btn-ubah" style="background-color: #00F2C3;">Ubah Jadwal</button>
         </div>
       </form>
       <!-- ==== end form ==== -->

@@ -30,7 +30,7 @@ function editJadwal() {
         timer: 2000
       })
       setTimeout(() => {
-        window.location.href = '/bem/jadwal'
+        window.location.href = '/bem/data'
       }, 2300);
     }
   })

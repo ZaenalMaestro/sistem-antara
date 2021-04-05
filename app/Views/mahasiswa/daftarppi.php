@@ -86,7 +86,6 @@
 
 <!-- ==== redirect ke halaman home jika telah belanja matakuliah ==== -->
 <script>
-  cekLogin()
   // redirect jika telah belanja matakuliah
   redirectJikaTelahBelanjaMatakuliah('/mahasiswa')
   // redirect kehalaman mahasiswa jika pendaftaran telah tutup

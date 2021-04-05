@@ -35,14 +35,13 @@
 
 <!-- ==== global helper ==== -->
 <script src="/js/global-helper.js"></script>
-<script src="/js/mahasiswa/helper.js"></script>
 
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-matakuliah.js"></script>
 <script>
-  cekLogin()
+  isNotLogin();
 </script>
 
 <?= $this->endSection() ?>

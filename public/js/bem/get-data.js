@@ -21,8 +21,15 @@ $(document).ready(function () {
       {
         "targets": 2,
         "render": function (data, type, row) {
+          if (row.status_ppi == 'ditolak') {
+            return `<td>
+                    <span class="badge badge-sm" style="width:100px; background:#d9534f">
+                      ${row.status_ppi}
+                    </span>
+                  </td>`
+          }
           return `<td>
-                    <span class="badge badge-${row.status_ppi === 'diterima' ? 'success' : 'warning'} badge-sm">
+                    <span class="badge badge-${row.status_ppi === 'diterima' ? 'success' : 'warning'} badge-sm" style="width: 100px">
                       ${row.status_ppi}
                     </span>
                   </td>`

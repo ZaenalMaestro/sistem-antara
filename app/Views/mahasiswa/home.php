@@ -25,7 +25,4 @@
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-home.js"></script>
-<script>
-  cekLogin()
-</script>
 <?= $this->endSection() ?>

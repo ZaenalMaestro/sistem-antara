@@ -77,6 +77,7 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
+<script src="/js/mahasiswa/helper.js"></script>
 <script src="/js/mahasiswa/matakuliah/get-element.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi.js"></script>
 <script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>

@@ -1,19 +1,11 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('content') ?>
-<div class="row">
-  <div class="col-md-12">
+<div class="row justify-content-center">
+  <div class="col-md-10">
     <div class="card ">
       <div class="card-header">
-        <div class="row mb-3">
-          <div class="col-md-9">
-            <h4 class="card-title">Daftar Matakuliah</h4>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahMatakuliah">Tambah
-              Matakuliah</button>
-          </div>
-        </div>
+        <h4 class="card-title">Daftar Matakuliah</h4>         
       </div>
       <div class="card-body">
         <div class="table-responsive ps">
@@ -24,7 +16,7 @@
                   #
                 </th>
                 <th class="text-info">
-                  Matakuliah
+                  Matakuliah PPI
                 </th>
                 <th class="text-info text-left">
                   SKS
@@ -32,83 +24,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -148,13 +64,19 @@
   </div>
 </div>
 
-<!-- ==== script ==== -->
+<!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/prodi/helper.js"></script>
+
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
+<script src="/js/sweetalert2.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/prodi/get-matakuliah.js"></script>
 <script>
-  $(document).ready(function () {
-    $('#matkul-ppi').DataTable();
-  })
+  cekLogin()
 </script>
 <?= $this->endSection() ?>

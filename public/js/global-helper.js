@@ -69,11 +69,12 @@ function isNotLogin() {
 function getTokenLocalStorage() {
   // get data user yang login JWT
   const login = JSON.parse(localStorage.getItem('login'))
-
     // jika token tidak tersedia
-  if(login === null || typeof login === undefined ){
-    return window.location.href = '/login'
-  }
+  
+  
+  //   // simpan token dan role ke local storage
+  //   window.localStorage.setItem('login', JSON.stringify(login));
+  // }
   return login
 }
 
@@ -97,6 +98,14 @@ function cekLogin() {
   console.log(login)
   if (login.status_login === true) {
     return redirectTo('/' + login.role)
+  }
+    if(login === null || typeof login === undefined ){
+      const login = {
+        status_login: false,
+        role: null,
+        jwt: null
+      }
+      window.localStorage.setItem('login', JSON.stringify(login));
   }
 }
 

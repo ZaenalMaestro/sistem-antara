@@ -14,7 +14,8 @@ axios.get('/api/mahasiswa/data', config)
    })
    .catch(function (error) {
       // handle error
-      console.log(error);
+      console.log(error)
+      window.location.href = '/login';
    })
 
    function isiTableMatakuliah(matakuliah)

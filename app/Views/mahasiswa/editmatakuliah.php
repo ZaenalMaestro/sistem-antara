@@ -71,6 +71,7 @@
 <!-- ==== script ==== -->
 <!-- ==== global helper ==== -->
 <script src="/js/global-helper.js"></script>
+<script src="/js/mahasiswa/helper.js"></script>
 
 
 <script src="/js/sweetalert2.js"></script>

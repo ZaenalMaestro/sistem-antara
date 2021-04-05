@@ -14,7 +14,8 @@ axios.get('/api/mahasiswa/matakuliah', config)
   })
   .catch(function (error) {
     // redirect kehalaman login jika user belum diautorisasi
-    redirectTo('/login')
+    console.log(error)
+   window.location.href = '/login';
   })
 
 function isiTableMatakuliah(matakuliah)

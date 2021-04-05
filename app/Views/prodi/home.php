@@ -30,11 +30,14 @@
 </div>
 
 <!-- ==== global helper ==== -->
-<script src="/js/bem/helper.js"></script>
+<script src="/js/prodi/helper.js"></script>
 
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/prodi/get-home.js"></script>
+<script>
+  cekLogin()
+</script>
 
 <?= $this->endSection() ?>

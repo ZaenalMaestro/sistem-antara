@@ -9,14 +9,10 @@
           <div class="col-md-10">
             <div class="row">
               <div class="col-md-10">
-                <h5><span class="mr-4">Nama</span> : <span class="ml-2">Muh Ruryl Samdilah</span></h5>
-                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2">13020160001</span></h5>
-              </div>
-              <div class="col mt-2">
-                <button class="btn btn-info btn-sm">Konfirmasi</button>
+                <h5><span class="mr-4">Nama</span> : <span class="ml-2 nama">-</span></h5>
+                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2 stambuk">-</span></h5>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -33,24 +29,12 @@
                     <th class="text-info text-left">SKS</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-left">Java Lanjut</td>
-                    <td class="text-left">2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-left">Basis Data I</td>
-                    <td class="text-left">2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-left">Matematika Diskrit</td>
-                    <td class="text-left">3</td>
-                  </tr>
+                <tbody class="table-detail-mahasiswa">
+                  <!-- ==== daftar matakuliah mahasiswa==== -->
                 </tbody>
               </table>
+              <button type="button" class="btn btn-info btn-sm btn-konfirmasi d-none" style="width: 50%;">Konfirmasi</button>
+              <button type="button" class="btn btn-warning btn-sm btn-tolak d-none" style="width: 49%;">tolak</button>
             </div>
           </div>
         </div>
@@ -62,6 +46,21 @@
     </div>
   </div>
 
-  <!-- script -->
-  <script src="/js/jquery.js"></script>
-  <?= $this->endSection() ?>
+
+<!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/prodi/helper.js"></script>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/sweetalert2.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/prodi/get-detail-mahasiswa.js"></script>
+<script src="/js/prodi/detail-konfirmasi.js"></script>
+<script src="/js/prodi/detail-tolak.js"></script>
+<script>
+  cekLogin()
+</script>
+
+<?= $this->endSection() ?>

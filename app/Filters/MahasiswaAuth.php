@@ -10,10 +10,10 @@ class MahasiswaAuth implements FilterInterface
   public function before(RequestInterface $request, $arguments = null)
   {
     $this->response = service('response');
-    // $token = $request->getServer('HTTP_AUTHORIZATION');
-    // if (!$token) {
-    //   return redirect()->to('/login');
-    // }
+    $token = $request->getServer('HTTP_AUTHORIZATION');
+    if (!$token) {
+      return redirect()->to('/login');
+    }
 
     // validasi JWT
     try {

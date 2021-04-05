@@ -131,7 +131,7 @@ class BemApiController extends ResourceController
 	{
 		$peraturan = $this->request->getJsonVar('peraturan');
 		$peraturan_baru = [
-			"peraturan" => $peraturan
+			"peraturan" => htmlspecialchars($peraturan)
 		];
 		$peraturan_ditambahkan = $this->model->addPeraturan($peraturan_baru);
 		
@@ -157,7 +157,7 @@ class BemApiController extends ResourceController
 		$request = $this->request->getJSON();
 		$peraturan = [
 			"id_peraturan" 	=> $request->id_peraturan,
-			"peraturan" 		=> $request->peraturan,
+			"peraturan" 		=> htmlspecialchars($request->peraturan),
 		];
 		$peraturan_diubah = $this->model->ubahPeraturan($peraturan);
 		

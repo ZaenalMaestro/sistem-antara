@@ -9,8 +9,8 @@
           <div class="col-md-10">
             <div class="row">
               <div class="col-md-10">
-                <h5><span class="mr-4">Nama</span> : <span class="ml-2 nama">Muh Ruryl Samdilah</span></h5>
-                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2 stambuk">13020160001</span></h5>
+                <h5><span class="mr-4">Nama</span> : <span class="ml-2 nama">-</span></h5>
+                <h5><span class="mr-2">Stambuk</span> : <span class="ml-2 stambuk">-</span></h5>
               </div>
               <div class="col mt-2">
                 <button class="btn btn-info btn-sm">Cetak</button>
@@ -58,4 +58,7 @@
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/bem/get-detail-mahasiswa.js"></script>
+<script>
+  cekLogin()
+</script>
   <?= $this->endSection() ?>

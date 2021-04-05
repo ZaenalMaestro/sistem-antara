@@ -47,4 +47,7 @@
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/bem/get-data.js"></script>
+<script>
+  cekLogin()
+</script>
 <?= $this->endSection() ?>

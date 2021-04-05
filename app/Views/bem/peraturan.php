@@ -24,7 +24,7 @@
                 <th class="text-info text-center">
                   #
                 </th>
-                <th class="text-info text-left">
+                <th class="text-info text-center">
                   Peraturan
                 </th>
                 <th class="text-info text-center">
@@ -33,25 +33,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="text-center">
-                  1
-                </td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-8">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Voluptatem quam consectetur minima
-                      doloremque repellat ratione temporibus commodi accusamus in eaque? Eos
-                      aut blanditiis recusandae est excepturi iste explicabo maiores dolore!
-                    </div>
-                  </div>
-
-                </td>
-                <td class="text-center">
-                  <button class="btn btn-warning btn-sm">Ubah</button>
-                </td>
-              </tr>
+              <!-- ==== daftar peraturan ==== -->
             </tbody>
           </table>
           <!-- ==== end table peraturan ==== -->
@@ -67,21 +49,23 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Tambah Peraturan</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <h3 class="modal-title" id="judul">Tambah Peraturan</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="tutup">
           <i class="tim-icons icon-simple-remove"></i>
         </button>
       </div>
       <!-- ==== form ==== -->
       <form>
         <div class="modal-body">
+          <input type="hidden" id="id_peraturan">
           <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukkan peraturan..." autofocus></textarea>
+            <textarea class="form-control" id="input-peraturan" rows="3" placeholder="Masukkan peraturan..." autofocus></textarea>
           </div>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info btn-block ml-auto btn-sm">Simpan</button>
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-edit d-none">Ubah</button>
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-simpan d-block">Simpan</button>
         </div>
       </form>
       <!-- ==== end form ==== -->
@@ -90,12 +74,22 @@
 </div>
 
 <!-- ==== script ==== -->
+<!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/bem/helper.js"></script>
+
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
+<script src="/js/sweetalert2.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/bem/get-peraturan.js"></script>
+<script src="/js/bem/peraturan-tambah.js"></script>
+<script src="/js/bem/peraturan-edit.js"></script>
+<script src="/js/bem/peraturan-delete.js"></script>
 <script>
-  $(document).ready(function () {
-    $('#matkul-ppi').DataTable();
-  })
+  cekLogin()
 </script>
 <?= $this->endSection() ?>

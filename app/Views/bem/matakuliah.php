@@ -35,20 +35,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  1
-                </td>
-                <td>
-                  Java Lanjut
-                </td>
-                <td>
-                  2
-                </td>
-                <td class="text-center">
-                  <button class="btn btn-warning btn-sm">Ubah</button>
-                </td>
-              </tr>
+            <!-- ==== daftar matakuliah -->
             </tbody>
           </table>
         </div>
@@ -63,24 +50,26 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Tambah Matakuliah</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <h3 class="modal-title" id="judul">Tambah Matakuliah</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="tutup">
           <i class="tim-icons icon-simple-remove"></i>
         </button>
       </div>
       <!-- ==== form ==== -->
       <form>
         <div class="modal-body">
+          <input type="hidden" name="id_matakuliah" class="form-control" id="id_matakuliah">
           <div class="form-group my-2">
             <input type="text" name="matakuliah" class="form-control" id="matakuliah" placeholder="Masukkan matakuliah">
           </div>
           <div class="form-group mb-2">
-            <input type="number" name="sks" class="form-control" id="jumlahSks" placeholder="Masukkan sks">
+            <input type="number" name="sks" class="form-control" id="sks" placeholder="Masukkan sks">
           </div>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info btn-block ml-auto btn-sm">Simpan</button>
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-simpan d-block">Simpan</button>
+          <button type="button" class="btn btn-info btn-block ml-auto btn-sm btn-edit d-none">Edit</button>
         </div>
       </form>
       <!-- ==== end form ==== -->
@@ -88,13 +77,21 @@
   </div>
 </div>
 
-<!-- ==== script ==== -->
+<!-- script -->
+<!-- ==== global helper ==== -->
+<script src="/js/bem/helper.js"></script>
+
 <script src="/js/jquery.js"></script>
 <script src="/js/dataTables.js"></script>
 <script src="/js/dataTables.bootstrap4.js"></script>
+<script src="/js/sweetalert2.js"></script>
+
+<script src="/js/axios/dist/axios.min.js"></script>
+<script src="/js/dom-selector.js"></script>
+<script src="/js/bem/get-matakuliah.js"></script>
+<script src="/js/bem/matakuliah-tambah.js"></script>
+<script src="/js/bem/matakuliah-edit.js"></script>
 <script>
-  $(document).ready(function () {
-    $('#matkul-ppi').DataTable();
-  })
+  cekLogin()
 </script>
 <?= $this->endSection() ?>

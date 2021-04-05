@@ -8,6 +8,7 @@ axios.get('/api/mahasiswa/data', config)
   .then(function (response) {
     // handle success
     // hapus tombol daftar jika telah belanja matakuliah
+    console.log(response)
     const matakuliah = response.data.matakuliah_diprogramkan
     if (matakuliah.length > 0) {
       // get element tombol daftar

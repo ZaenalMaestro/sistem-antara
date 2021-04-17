@@ -24,4 +24,10 @@ class PPiModel extends Model
   {
     return $this->db->table('jadwal_ppi')->get()->getResultArray();
   }
+
+  // get jadwal PPI
+  public function getBatasMatakuliahPPI()
+  {
+    return $this->db->table('batas_sks')->get()->getResultArray();
+  }
 }

@@ -61,7 +61,8 @@
           <div class="col">
             <h4 class="text-right mt-1">Total SKS : <span class="text-info total-sks">0</span></h4>
           </div>
-        </div>
+        </div>        
+        <p class="mt-2">**Matakuliah yang dapat dibelanjakan yaitu maksimal <span class="sks-maksimal"></span> SKS</p>
       </div>
     </div>
   </div>

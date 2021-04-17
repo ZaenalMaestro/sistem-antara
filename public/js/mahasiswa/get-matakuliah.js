@@ -1,41 +1,33 @@
-const token = getTokenLocalStorage()
-
-const config = {
-  headers: { Authorization: `Bearer ${token.jwt}`}
-}
-
-const body = { key: 'value' }
-
-axios.get('/api/mahasiswa/matakuliah', config)
-  .then(function (response) {
-    // handle success
-    const matakuliah = response.data.matakuliah_diterima
-    isiTableMatakuliah(matakuliah)    
-  })
-  .catch(function (error) {
-    // redirect kehalaman login jika user belum diautorisasi
-    console.log(error)
-   window.location.href = '/login';
-  })
-
-function isiTableMatakuliah(matakuliah)
-{  
-  const table_matakuliah = getSelector('.matakuliah-terkonfirmasi')
-  let table_body = ''
-
-  // jika tidak ada matakuliah yang dikonfirmasi
-  if (!matakuliah) {
-    return table_matakuliah.innerHTML = '<tr><td class="text-center" colspan="3">Belum ada matakuliah yang dikonfirmasi oleh prodi</td></tr>'
-  }
-
-  matakuliah.forEach((matkul, nomor)=> {
-    table_body += `
-    <tr>
-      <td>${++nomor}</td>
-      <td>${matkul.matakuliah}</td>
-      <td>${matkul.sks}</td>
-    </tr>`
+$(document).ready(function () {
+  let nomor = 0;
+  $('#matkul-ppi').DataTable({
+    "ajax": {
+      'url': 'http://localhost:8080/api/ppi/matakuliah',
+      'dataSrc': "daftar_matakuliah"
+    },
+    "columnDefs":
+    [{
+        "targets": [0, 2],
+        "className": "text-center"
+      },
+      {
+        "targets": 0,
+        "render": function (data, type, row) {
+          return `${++nomor}`
+        }
+      },
+      {
+        "targets": 1,
+        "render": function (data, type, row) {          
+          return `<td>${row.matakuliah}</td>`
+        }
+      },
+      {
+        "targets": 2,
+        "render": function (data, type, row) {
+          return `<td>${row.sks}</td>`
+        }
+      }
+    ]
   });
-  // isi table matakuliah yang telah dikonfirmasi oleh prodi
-  table_matakuliah.innerHTML = table_body
-}
+});

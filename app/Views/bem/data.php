@@ -38,40 +38,72 @@
 
   <!-- ==== jadwal ppi -->
   <div class="col">
-  <div class="card card-nav-tabs">
     <div class="row">
-      <div class="col-md">
-        <h3 class="card-header card-header-info">Jadwal PPI</h3>
-      </div>
-      <div class="col-md-5">
-        <button class="btn btn-info btn-sm text-center mt-3" data-toggle="modal" data-target="#ubah_jadwa">Ubah Jadwal</button>
-      </div>
-    </div>
-      <div class="card-body my-4">
-        <div class="ml-2">
-          <table>
-            <tr>
-              <td><h4 class="text-info mr-2">Tanggal Pendaftaran</h4></td>
-              <td>
-                <h4>
-                  <span class="mr-2">:</span>
-                  <span class="data-mulai-pendaftaran">-</span>
-                </h4>
-              </td>
-            </tr>
-            <tr>
-              <td><h4 class="text-info mr-2">Batas Pendaftaran</h4></td>
-              <td>
-                <h4>
-                  <span class="mr-2">:</span>
-                  <span class="data-batas-pendaftaran">-</span>
-                </h4>
-              </td>
-            </tr>
-          </table>
+      <div class="col-md-12">
+        <!--  -->
+        <div class="card card-nav-tabs">
+          <h3 class="card-header card-header-info">Jadwal PPI</h3>
+          <div class="card-body my-4">
+            <div class="ml-2">
+              <table>
+                <tr>
+                  <td><h4 class="text-info mr-2">Tanggal Pendaftaran</h4></td>
+                  <td>
+                    <h4>
+                      <span class="mr-2">:</span>
+                      <span class="data-mulai-pendaftaran">-</span>
+                    </h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h4 class="text-info mr-2">Batas Pendaftaran</h4></td>
+                  <td>
+                    <h4>
+                      <span class="mr-2">:</span>
+                      <span class="data-batas-pendaftaran">-</span>
+                    </h4>
+                  </td>
+                </tr>
+              </table>
+              <button class="btn btn-info btn-sm text-center mt-3" data-toggle="modal" data-target="#ubah_jadwa">Ubah Jadwal</button>
+            </div>
+          </div>
         </div>
+        <!--  -->
       </div>
-    </div>
+      <div class="col-md-12">
+        <!--  -->
+        <div class="card card-nav-tabs">
+          <h3 class="card-header card-header-info">Batas SKS PPI</h3>
+          <div class="card-body my-4">
+            <div class="ml-2">
+              <table>
+                <tr class="d-none">
+                  <td><h4 class="text-info mr-2">Matakuliah Maksimal</h4></td>
+                  <td>
+                    <h4>
+                      <span class="mr-2">:</span>
+                      <span class="matakuliah-maksimal">-</span>
+                    </h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h4 class="text-info mr-2">SKS Maksimal</h4></td>
+                  <td>
+                    <h4>
+                      <span class="mr-2">:</span>
+                      <span class="sks-maksimal">-</span>
+                    </h4>
+                  </td>
+                </tr>
+              </table>
+              <button class="btn btn-info btn-sm text-center mt-3 ubah-matkul-sks" data-toggle="modal" data-target="#ubah_jadwa">Ubah Batas SKS</button>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>    
   </div>
 </div>
 
@@ -86,16 +118,18 @@
           <i class="tim-icons icon-simple-remove"></i>
         </button>
       </div>
-      <!-- ==== form ==== -->
-      <form>
+      <!-- ==== form jadwal==== -->
+      <form class="form-jadwal d-block">
         <div class="modal-body">
           <input type="hidden" id="id-jadwal">
           <!-- ==== tanggal pendaftaran ==== -->
           <div class="form-group">
+            <label for="tanggal-pendaftaran">Tanggal Pendaftaran</label>
             <input class="form-control" type="date" name="tanggal-pendaftaran" id="tanggal-pendaftaran">
           </div>
           <!-- ==== batas pendaftaran ==== -->
           <div class="form-group">
+            <label for="batas-pendaftaran">Batas Pendaftaran</label>
             <input class="form-control" type="date" name="batas-pendaftaran" id="batas-pendaftaran">  
           </div>
 
@@ -105,7 +139,26 @@
           <button type="button" class="btn btn-success btn-block ml-auto btn-sm btn-ubah" style="background-color: #00F2C3;">Ubah Jadwal</button>
         </div>
       </form>
-      <!-- ==== end form ==== -->
+      <!-- ==== end form jadwal==== -->
+
+      <!-- ==== form ubah matakuliah dan sks==== -->
+      <form class="form-matkul-sks d-none">
+        <div class="modal-body">
+          <input type="hidden" id="id-batas-sks">
+          <!-- ==== tanggal pendaftaran ==== -->
+          <div class="form-group d-none">
+            <label for="">Matakuliah Maksimal</label>
+            <input class="form-control input-matakuliah-maksimal" type="text">
+          </div>
+          <!-- ==== batas pendaftaran ==== -->
+          <div class="form-group">
+          <label for="">SKS Maksimal</label>
+            <input class="form-control input-sks-maksimal" type="text">  
+          </div>
+          <button type="button" class="btn btn-success btn-block ml-auto btn-sm btn-ubah-sks-matkul" style="background-color: #00F2C3;">Ubah SKS</button>
+        </div>
+      </form>
+      <!-- ==== end form ubah matakuliah dan sks==== -->
     </div>
   </div>
 </div>
@@ -126,6 +179,8 @@
 <script src="/js/bem/get-data.js"></script>
 <script src="/js/bem/jadwal-get.js"></script>
 <script src="/js/bem/jadwal-edit.js"></script>
+<script src="/js/bem/get-batas-sks.js"></script>
+<script src="/js/bem/matakuliah-sks-edit.js"></script>
 <script>
   cekLogin()
 </script>

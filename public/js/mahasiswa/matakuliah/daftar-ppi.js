@@ -1,25 +1,41 @@
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('matakuliah-terpilih')) {
-    const sks = e.target.getAttribute('data-sks')
+axios.get('/api/ppi/sks')
+  .then(function (response) {
+    // handle success
+    const ppi = response.data[0]
+    getSelector('.sks-maksimal').innerHTML = ppi.sks_maksimal
+    matakuliahTerpilih(ppi.sks_maksimal)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    // updateToken()
+    // return window.location.href = '/login'
+  })
 
-    // total sks yang telah dibelanjakan
-    let total_sks = getClass('total-sks').innerHTML
-    // sks matakuliah yang akan dibelanjakan
-    total_sks = parseInt(total_sks)
-
-    // hitung ulang total sks saat menambahkan matakuliah baru
-    const sks_dibelanjakan = total_sks + parseInt(sks)
-
-    // jika sks diatas 16
-    if (sks_dibelanjakan > 16) {
-      return alert('Matakuliah tidak dapat dibelanjakan karena melebihi batas SKS')
+function matakuliahTerpilih(batas_sks) {
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('matakuliah-terpilih')) {
+      const sks = e.target.getAttribute('data-sks')
+  
+      // total sks yang telah dibelanjakan
+      let total_sks = getClass('total-sks').innerHTML
+      // sks matakuliah yang akan dibelanjakan
+      total_sks = parseInt(total_sks)
+  
+      // hitung ulang total sks saat menambahkan matakuliah baru
+      const sks_dibelanjakan = total_sks + parseInt(sks)
+  
+      // jika sks diatas 16
+      if (sks_dibelanjakan > batas_sks) {
+        return alert('Matakuliah tidak dapat dibelanjakan karena melebihi batas SKS')
+      }
+      
+      const matakuliah = e.target.getAttribute('data-matakuliah')
+      tambahkanMatakuliah(matakuliah, sks)
+      e.target.remove()
     }
-    
-    const matakuliah = e.target.getAttribute('data-matakuliah')
-    tambahkanMatakuliah(matakuliah, sks)
-    e.target.remove()
-  }
-})
+  })  
+}
 
 
 // menambahkan matakuliah ke table matakuliah ppi terpilih

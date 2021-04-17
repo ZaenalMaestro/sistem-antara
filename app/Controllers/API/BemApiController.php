@@ -244,6 +244,33 @@ class BemApiController extends ResourceController
 
 		return $this->respond($response, 200);
 	}
+	// menampilkan data jadwal PPI
+	public function ubahBatasSksPPI()
+	{
+		$request = $this->request->getJSON();
+		$batas_sks_matakuliah = [
+			'id_batas_sks' => $request->id_batas_sks,
+			'matakuliah_maksimal' => $request->matakuliah_maksimal,
+			'sks_maksimal' => $request->sks_maksimal,
+		];
+
+		$batas_sks_matakuliah_diubah = $this->model->ubahBatasSksPPI($batas_sks_matakuliah);
+
+		$response = [
+			"status_code" => 200,
+			"pesan" 			=> 'SKS dan matakuliah berhasil diubah'
+		];
+
+		if (!$batas_sks_matakuliah_diubah) {
+			$response = [
+				"status_code" => 400,
+				"pesan" 			=> 'SKS dan matakuliah gagal diubah'
+			];
+			return $this->respond($response, 400);
+		}
+
+		return $this->respond($response, 200);
+	}
 
 	public function dataCetakPPI()
 	{

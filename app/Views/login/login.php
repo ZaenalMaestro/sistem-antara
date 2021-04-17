@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- login form css -->
   <!-- <script src="/js/sweetalert2.js"></script> -->
+  <link rel="icon" type="image/ico" href="/img/favicons.ico">
   <link rel="stylesheet" href="/css/login.css">
 
   <title>PPI FIKOM UMI - Login</title>

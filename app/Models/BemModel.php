@@ -105,6 +105,11 @@ class BemModel extends Model
     $result = $this->db->table('jadwal_ppi')->replace($jadwal);
     return $result ? true : false;
   }
+  public function ubahBatasSksPPI($batas_sks_matakuliah)
+  {
+    $result = $this->db->table('batas_sks')->replace($batas_sks_matakuliah);
+    return $result ? true : false;
+  }
 
   // data cetak
   public function dataCetakPPI()

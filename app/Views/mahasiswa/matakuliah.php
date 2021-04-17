@@ -1,30 +1,30 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('content') ?>
-<div class="row">
-  <div class="col-md-12">
+<div class="row justify-content-center">
+  <div class="col-md-10">
     <div class="card ">
       <div class="card-header">
-        <h4 class="card-title">Mohon tunggu konfirmasi</h4>
+        <h4 class="card-title">Daftar Matakuliah</h4>         
       </div>
       <div class="card-body">
         <div class="table-responsive ps">
-          <table class="table tablesorter " id="">
+          <table class="table tablesorter " id="matkul-ppi">
             <thead class="text-info">
               <tr>
                 <th class="text-info">
                   #
                 </th>
                 <th class="text-info">
-                  Matakuliah
+                  Matakuliah PPI
                 </th>
                 <th class="text-info text-left">
                   SKS
                 </th>
               </tr>
             </thead>
-            <tbody class="matakuliah-terkonfirmasi">
-              <!-- ==== daftar matakuliah yang telah dikonfirmasi prodi ==== -->
+            <tbody>
+              
             </tbody>
           </table>
         </div>
@@ -39,6 +39,8 @@
 <script src="/js/axios/dist/axios.min.js"></script>
 <script src="/js/dom-selector.js"></script>
 <script src="/js/jquery.js"></script>
+<script src="/js/dataTables.js"></script>
+<script src="/js/dataTables.bootstrap4.js"></script>
 <script src="/js/mahasiswa/get-matakuliah.js"></script>
 <script>
   isNotLogin();

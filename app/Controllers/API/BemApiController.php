@@ -258,13 +258,13 @@ class BemApiController extends ResourceController
 
 		$response = [
 			"status_code" => 200,
-			"pesan" 			=> 'SKS dan matakuliah berhasil diubah'
+			"pesan" 			=> 'Batas SKS berhasil diubah'
 		];
 
 		if (!$batas_sks_matakuliah_diubah) {
 			$response = [
 				"status_code" => 400,
-				"pesan" 			=> 'SKS dan matakuliah gagal diubah'
+				"pesan" 			=> 'Batas SKS gagal diubah'
 			];
 			return $this->respond($response, 400);
 		}

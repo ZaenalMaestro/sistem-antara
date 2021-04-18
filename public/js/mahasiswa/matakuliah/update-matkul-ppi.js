@@ -30,6 +30,7 @@ function simpanMatakuliah() {
     })
     .catch(function (error) {
       // handle error
+      updateToken()
       window.location.href = '/login'
     })
 }

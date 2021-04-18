@@ -10,7 +10,7 @@ axios.get('/api/ppi/peraturan')
   .catch(function (error) {
     console.log(error)
     // redirect kehalaman login jika user belum diautorisasi
-    console.log(error)
+    updateToken()
     window.location.href = '/login';
   })
 

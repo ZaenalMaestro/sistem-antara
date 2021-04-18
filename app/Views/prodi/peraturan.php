@@ -19,4 +19,5 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/prodi/get-peraturan.js"></script>
 <script src="/js/prodi/helper.js"></script>
+<script>cekLogin()</script>
 <?= $this->endSection() ?>

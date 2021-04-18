@@ -29,8 +29,10 @@ function simpanMatakuliah() {
       }
     })
     .catch(function (error) {
-      // handle error
+      // handle error      
       console.log(error);
+      updateToken()
+      redire
     })
 }
 

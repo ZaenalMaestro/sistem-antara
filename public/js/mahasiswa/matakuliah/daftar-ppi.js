@@ -8,8 +8,8 @@ axios.get('/api/ppi/sks')
   .catch(function (error) {
     // handle error
     console.log(error);
-    // updateToken()
-    // return window.location.href = '/login'
+    updateToken()
+    return window.location.href = '/login'
   })
 
 function matakuliahTerpilih(batas_sks) {

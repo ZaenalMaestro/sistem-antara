@@ -84,7 +84,7 @@
 
 <!-- ==== redirect ke halaman data jika matakuliah telah dikonfirmasi oleh prodi ==== -->
 <script>
-  // cekLogin()
+  cekLogin()
   redirectJikaMatakuliahTelahDikonfirmasi('/mahasiswa/data')
   // redirect kehalaman mahasiswa jika pendaftaran telah tutup
   redirectJikaPendaftaranTutup('/data')

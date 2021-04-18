@@ -1,5 +1,4 @@
-const token = getTokenLocalStorage()
-console.log(token)
+const token = getToken()
 
 const config = {
   headers: { Authorization: `Bearer ${token.jwt}`}
@@ -22,6 +21,7 @@ axios.get('/api/mahasiswa/data', config)
     // handle error
     // redirect kehalaman login jika user belum diautorisasi
     console.log(error)
+    updateToken()
     redirectTo('/login')
   })
 

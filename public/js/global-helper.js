@@ -48,11 +48,10 @@ function isNotLogin() {
   // get data user yang login JWT
   const login = getTokenLocalStorage()
 
-  if (login.status_login === false) {
-    window.location.href = '/login'
-  }
-  // jika tidak ada token
-  if (!login.jwt) return window.location.href = '/login'
+  if (login === null) return window.location.href = '/login'
+  if (login === undefined) return window.location.href = '/login'
+  if (login.status_login === false) return window.location.href = '/login'
+  if (login.role !== 'mahasiswa') return window.location.href = '/' + login.role
   
   const config = {
     headers: { Authorization: `Bearer ${login.jwt}`}
@@ -62,20 +61,27 @@ function isNotLogin() {
     .then(response => response)
     .catch(error => {
       console.log(error)
+      updateToken()
       redirectTo('/login')
     })
 }
 
 function getTokenLocalStorage() {
-  // get data user yang login JWT
-  const login = JSON.parse(localStorage.getItem('login'))
-    // jika token tidak tersedia
-  
-  
-  //   // simpan token dan role ke local storage
-  //   window.localStorage.setItem('login', JSON.stringify(login));
-  // }
-  return login
+  const token = JSON.parse(localStorage.getItem('login'))
+  if (token === null) updateToken()
+  return token
+}
+
+// updateToken
+function updateToken() {
+  const login = {
+    status_login: false,
+    role: null,
+    jwt: null
+  }
+
+  // simpan token dan role ke local storage
+  window.localStorage.setItem('login', JSON.stringify(login));
 }
 
 // logout

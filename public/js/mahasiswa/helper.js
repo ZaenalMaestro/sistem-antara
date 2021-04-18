@@ -17,17 +17,19 @@ function cekLogin() {
     headers: { Authorization: `Bearer ${login.jwt}`}
   }
 
-  axios.get('/api/prodi', config)
+  axios.get('/api/mahasiswa/data', config)
     .then(response => response)
     .catch(error => {
       // handle error
-      console.log(error);
+      updateToken()
+      redirectToLogin()
+      console.log(error);      
     })
 
   if (login === null) return redirectToLogin()
   if (login === undefined) return redirectToLogin()
   if (login.status_login === false) return redirectToLogin()
-  if (login.role !== 'prodi') return window.location.href = '/' + login.role
+  if (login.role !== 'mahasiswa') return window.location.href = '/' + login.role
 
   
 

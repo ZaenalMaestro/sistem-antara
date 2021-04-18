@@ -1,4 +1,4 @@
-const token = getTokenLocalStorage()
+const token = getToken()
 
 const config = {
    headers: { Authorization: `Bearer ${token.jwt}`}
@@ -15,6 +15,7 @@ axios.get('/api/mahasiswa/data', config)
    .catch(function (error) {
       // handle error
       console.log(error)
+      updateToke();
       window.location.href = '/login';
    })
 

@@ -91,9 +91,9 @@
 </script>
 
 <script src="/js/mahasiswa/matakuliah/get-element.js"></script>
-<script src="/js/mahasiswa/matakuliah/daftar-ppi.js"></script>
+<script src="/js/mahasiswa/matakuliah/daftar-ppi-edit.js"></script>
 <script src="/js/mahasiswa/matakuliah/update-matkul-ppi.js"></script>
-<script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi.js"></script>
+<script src="/js/mahasiswa/matakuliah/batalkan-matkul-ppi-edit.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-edit.js"></script>
 <script src="/js/mahasiswa/get-all-matakuliah-ppi-mahasiswa.js"></script>
 

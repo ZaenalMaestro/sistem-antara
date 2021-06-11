@@ -1,5 +1,15 @@
 window.onload = () => {
   document.addEventListener('click', batalkanMatkul)
+  let daftar_matakuliah = getMatkulTerpilih()
+  daftar_matakuliah = daftar_matakuliah.filter(matakuliah => matakuliah[0] != 'MATAKULIAH')
+
+  let praktikum = 0;
+  daftar_matakuliah.forEach(row => {
+    if (row[1] == '1') {
+      praktikum+= 1
+    }
+  })
+  localStorage.setItem('praktikum', praktikum)
 }
 
 
@@ -9,12 +19,13 @@ function batalkanMatkul(e) {
     const matakuliah = e.target.getAttribute('data-matakuliah')
     const sks = e.target.getAttribute('data-sks')
 
-    if (parseInt(sks) == 1) {
-      let jumlah = parseInt(localStorage.getItem('jumlah_praktikum'));
-      jumlah -= 1;
-      window.localStorage.setItem('jumlah_praktikum', jumlah);
+    if (sks == '1') {
+      let jumlahPraktikum = parseInt(localStorage.getItem('praktikum'))
+      jumlahPraktikum -= 1
+      localStorage.setItem('praktikum', jumlahPraktikum)
     }
-    console.log(localStorage.getItem('jumlah_praktikum'))
+
+    console.log(localStorage.getItem('praktikum'))
     // kuramgi jumlah sks jika tombol batalkan diklik
     kurangiSks(sks)
 
@@ -57,4 +68,13 @@ function updateSks(sisa_sks) {
 
 function hilangkanTombolSimopan(sisa_sks) {
   if (sisa_sks == 0) getClass('tombol-simpan-matakuliah').classList.replace('d-block', 'd-none')
+}
+
+function getMatkulTerpilih() {
+  let tabel_matakuliah = getId('table-belanja-matakuliah-ppi')
+
+  // mengambil data dari table
+  return [...tabel_matakuliah.rows]
+    .map(column => [...column.children]
+    .map(text => text.innerText))
 }

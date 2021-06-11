@@ -14,24 +14,30 @@ axios.get('/api/ppi/sks')
 
 function matakuliahTerpilih(batas_sks) {
   window.localStorage.setItem('jumlah_praktikum', 0);
+  window.localStorage.setItem('jumlah_praktikum_update', -1);
   document.addEventListener('click', function (e) {
-    console.log(localStorage.getItem('jumlah_praktikum'))
     if (e.target.classList.contains('matakuliah-terpilih')) {
       const sks = e.target.getAttribute('data-sks')
       if (parseInt(sks) == 1) {
         let jumlah = parseInt(localStorage.getItem('jumlah_praktikum'));
+        let jumlah_update = parseInt(localStorage.getItem('jumlah_praktikum_update'));
         jumlah += 1;
+        jumlah_update += 1;
+        console.log(jumlah_update)
         if (jumlah < 3) {
           window.localStorage.setItem('jumlah_praktikum', jumlah);
+          window.localStorage.setItem('jumlah_praktikum_update', jumlah);
         } else {
           return alert('Maksimal 2 sks matakuliah praktikum')
         }
       }
-
-      console.log(window.localStorage.getItem('jumlah_praktikum'))
-  
+      
+      console.log(localStorage.getItem('jumlah_praktikum'))
       // jika praktikum lebih dari dua
       if (parseInt(localStorage.getItem('jumlah_praktikum')) > 2) {
+        return alert('Maksimal 2 sks matakuliah praktikum')
+      }
+      if (parseInt(localStorage.getItem('jumlah_praktikum_update')) > 0) {
         return alert('Maksimal 2 sks matakuliah praktikum')
       }
   

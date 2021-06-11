@@ -51,6 +51,7 @@ class LoginApiController extends ResourceController
 		$stambuk 	= $request->stambuk;
 		$nama 		= $request->nama;
 		$semester = $request->semester;
+		$angkatan = $request->angkatan;
 		$password = $request->password;
 		
 		// password hash
@@ -69,6 +70,7 @@ class LoginApiController extends ResourceController
 			"stambuk" 		=> $stambuk,
 			"nama" 				=> $nama,
 			"semester" 		=> $semester,
+			"angkatan" 		=> $angkatan,
 			"status_PPi" 	=> "belum diterima"
 		];
 

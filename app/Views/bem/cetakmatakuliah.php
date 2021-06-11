@@ -20,8 +20,6 @@
           <div class="col-md-10">
             <div class="table-responsive ps">
               <table class="table uitable" id="table-cetak">
-                
-                
               </table>
             </div>
           </div>

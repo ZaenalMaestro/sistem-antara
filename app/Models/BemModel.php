@@ -138,4 +138,40 @@ class BemModel extends Model
 
 
   }
+
+  // get tahun angkatan
+  public function getAngkatan()
+  {
+    // get nama dan stambuk
+
+    $sql_query = "SELECT DISTINCT angkatan FROM mahasiswa";
+    return $this->db->query($sql_query)->getResultArray();
+  }
+
+  // get tahun angkatan
+  public function mahasiswaByAngkatan($tahun)
+  {
+    // get nama dan stambuk
+
+    $sql_query = "select count(stambuk) as jumlah_mahasiswa from mahasiswa WHERE angkatan = $tahun";
+    return $this->db->query($sql_query)->getResultArray()[0]["jumlah_mahasiswa"];
+  }
+
+  // get semua matakuliah
+  public function getMatakuliah()
+  {
+    // get nama dan stambuk
+
+    $sql_query = "SELECT DISTINCT matakuliah FROM daftar_matakuliah";
+    return $this->db->query($sql_query)->getResultArray();
+  }
+
+  public function mahasiswaByMatakuliah($matakuliah)
+  {
+    // get nama dan stambuk
+
+    $sql_query = "SELECT * FROM matakuliah_ppi_mahasiswa WHERE matakuliah = '$matakuliah'";
+    $result =  $this->db->query($sql_query)->getResultArray();
+    return count($result);
+  }
 }

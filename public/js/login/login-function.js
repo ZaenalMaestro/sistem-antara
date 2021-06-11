@@ -33,7 +33,7 @@ function loginFormValidation(username, password) {
 }
 
 // validasi form registrasi
-function registrationFormValidation(stambuk, nama, semester, password, konfirmasi_password) {
+function registrationFormValidation(stambuk, nama, semester,angkatan, password, konfirmasi_password) {
   let validasi = {
     stambuk: true,
     nama: true,
@@ -73,6 +73,17 @@ function registrationFormValidation(stambuk, nama, semester, password, konfirmas
   } else {
     validasi.semester = true
   }
+
+    // validasi semester ankatan
+    if (angkatan.value === '') {
+      showErrorMessage(angkatan, 'angkatan tidak boleh kosong !')
+      validasi.angkatan = false
+    }else if (angkatan.value === 'empty') {
+      showErrorMessage(angkatan, 'angkatan tidak boleh kosong !')
+      validasi.angkatan = false
+    } else {
+      validasi.angkatan = true
+    }
 
   // validasi nama registrasi
   const letter = /^[A-Za-z .']+$/

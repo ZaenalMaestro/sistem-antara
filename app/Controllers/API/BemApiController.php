@@ -275,10 +275,37 @@ class BemApiController extends ResourceController
 	public function dataCetakPPI()
 	{
 		$data_cetak = $this->model->dataCetakPPI();
+		
+		// get jumlah mahasiswa berdasarkan angkatan
+		$allAngkatan = $this->model->getAngkatan();
+		$angkatan = [];
+		foreach ($allAngkatan as $tahun) {
+			$tahun = $tahun['angkatan'];
+			$jumlahMahasiswa = $this->model->mahasiswaByAngkatan($tahun);
+			$data_angkatan = [
+				'tahun' => $tahun,
+				'jumlah'	=> $jumlahMahasiswa
+			];
+			$angkatan [] = $data_angkatan;
+		}
+
+		// get jumlah mahasiswa berdasarkan matakuliah
+		$allMatakuliah = $this->model->getMatakuliah();
+		$JumlahPPIBymatakuliah = [];
+		foreach ($allMatakuliah as $matakuliah) {
+			$matakuliah = $matakuliah['matakuliah'];
+			$jumlahMahasiswa = $this->model->mahasiswaByMatakuliah($matakuliah);
+			$data_matakuliah = [
+				'matakuliah' => $matakuliah,
+				'jumlah'	=> $jumlahMahasiswa
+			];
+			$JumlahPPIBymatakuliah [] = $data_matakuliah;
+		} 
 
 		$response = [
-			'status_code' => 200,
-			'data_cetak' => $data_cetak
+			'status_code' 	=> 200,
+			'angkatan' 		=> $angkatan,
+			'matakuliah' 	=> $JumlahPPIBymatakuliah
 		];
 
 		return $this->respond($response, 200);

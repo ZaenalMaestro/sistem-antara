@@ -90,12 +90,13 @@ document.getElementById('tombol-registrasi').addEventListener('click', () => {
   const stambuk = document.getElementById('stambuk-registrasi')
   const nama = document.getElementById('nama-registrasi')
   const semester = document.getElementById('semester-registrasi')
+  const angkatan = document.getElementById('angkatan')
   const password = document.getElementById('password-registrasi')
   const konfirmasi_password = document.getElementById('konfirmasi-password-registrasi')
 
   // return false => registrasi tidak valid
   // return true => registrasi valid
-  const inputValid = registrationFormValidation(stambuk, nama, semester, password, konfirmasi_password)
+  const inputValid = registrationFormValidation(stambuk, nama, semester, angkatan, password, konfirmasi_password)
 
   // registrasi berhasil jika semua inputan valid (true)
   if (inputValid) {
@@ -104,6 +105,7 @@ document.getElementById('tombol-registrasi').addEventListener('click', () => {
       stambuk: stambuk.value,
       nama: nama.value,
       semester: semester.value,
+      angkatan: angkatan.value,
       password: password.value,
       konfirmasi_password: konfirmasi_password.value
     })

@@ -75,6 +75,12 @@
               </select>
             </div>
 
+            <!-- ==== angkatan ==== -->
+            <div class="input-container">
+              <input type="text" name="angkatan" id="angkatan" placeholder="Angkatan"
+                maxlength="30">
+            </div>
+
             <!-- ==== password ==== -->
             <div class="input-container">
               <input type="password" name="password-registrasi" id="password-registrasi" placeholder="Password"

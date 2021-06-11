@@ -3,14 +3,16 @@
 namespace App\Controllers\API;
 
 use App\Models\ProdiModel;
+use App\Models\BiayaModel;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 
-class ProdiApiController extends ResourceController
+class FakultasApiController extends ResourceController
 {
 	public function __construct()
 	{
 		$this->model = new ProdiModel();
+		$this->biaya = new BiayaModel();
 	}
 
 	// menampilkan jumlah mahasiswa ppi
@@ -34,7 +36,7 @@ class ProdiApiController extends ResourceController
 	public function mahasiswaPPI()
 	{
 		// get semua mahasiswa PPI
-		$mahasiswa_ppi = $this->model->findAll();
+		$mahasiswa_ppi = $this->model->getMahasiswaDiterima();
 		$response = [
 			'status_code' 	=> 200,
 			'mahasiswa_ppi' => $mahasiswa_ppi
@@ -50,11 +52,11 @@ class ProdiApiController extends ResourceController
 
 		$detail_mahasiswa = $this->model->getMahasiswaByStambuk($stambuk);
 		$matakuliah_ppi 	= $this->model->getMatakuliahByStambuk($stambuk);
-		$total_sks 			= $this->model->getTotalSks($stambuk);
+		$biaya_ppi			= $this->biaya->where('id_biaya', 1)->first();
 
 		// add matakuliah kedalam detail mahasiswa
 		$detail_mahasiswa['matakuliah_ppi'] = $matakuliah_ppi;
-		$detail_mahasiswa['total_sks'] = $total_sks;
+		$detail_mahasiswa['biaya_ppi'] = $biaya_ppi['biaya'];
 
 		return $this->respond($detail_mahasiswa, 200);
 	}
@@ -66,8 +68,12 @@ class ProdiApiController extends ResourceController
 		
 		$stambuk = $request->stambuk;
 		$status_ppi = $request->status_ppi;
+		$biaya_ppi_persks = $this->model->getBiayaPPI();
+		$sks_total = $this->model->getTotalSks($stambuk);
+		$biaya_ppi = $biaya_ppi_persks * $sks_total;
 
 		$status_ppi_diubah = $this->model->ubahStatus($status_ppi, $stambuk);
+		$status_ppi_diubah = $this->model->ubahBiaya($biaya_ppi, $stambuk);
 
 		$response = [
       "pesan"       => "status ppi mahasiswa berhasil diubah",
@@ -95,6 +101,26 @@ class ProdiApiController extends ResourceController
 			"peraturan_ppi" => $peraturan
 		];
 		return $this->respond($response, 200);
+	}
 
+	// menampilkan data biaya ppi per SKS
+	public function getBiaya()
+	{
+		$response = $this->biaya->where('id_biaya', 1)->first();
+		return $this->respond($response, 200);
+	}
+	public function updateBiaya()
+	{
+		$request = $this->request->getJSON();
+		$data = [
+			'biaya' => $request->biaya
+		];
+		$this->biaya->update(1, $data);
+
+		$response = [
+			"pesan"       => "biaya ppi mahasiswa berhasil diubah",
+			"status_code" => 200
+		];
+		return $this->respond($response, 200);
 	}
 }

@@ -69,7 +69,7 @@
             <div class="input-container">
               <select name="semester-registrasi" id="semester-registrasi">
                 <option value="">Semester</option>
-                <?php for($i = 1; $i <15; $i++) : ?>
+                <?php for($i = 4; $i <15; $i++) : ?>
                 <option value="<?= $i ?>"><?= $i ?></option>
                 <?php endfor; ?>
               </select>

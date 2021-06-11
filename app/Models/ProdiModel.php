@@ -37,6 +37,12 @@ class ProdiModel extends Model
     ];
   }
 
+  // get status mahasiswa yang telah diterima dan diverifikasi
+  public function getMahasiswaDiterima () {
+    $sql_query = "SELECT * FROM mahasiswa WHERE status_ppi != 'belum diterima'";
+    return $this->db->query($sql_query)->getResultArray();
+  }
+
   // menampilkan data mahasiswa ppi dan matakuliah yang diprogramkan
   public function getMatakuliahByStambuk($stambuk)
   {
@@ -44,6 +50,23 @@ class ProdiModel extends Model
 
     $sql_query = "SELECT matakuliah, sks FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk";
     return $this->db->query($sql_query)->getResultArray();
+  }
+
+  // // menampilkan data mahasiswa ppi dan matakuliah yang diprogramkan
+  public function getTotalSks($stambuk)
+  {
+
+    $sql_query = "SELECT SUM(sks) as total FROM matakuliah_ppi_mahasiswa WHERE stambuk = $stambuk";
+    return (int)$this->db->query($sql_query)->getResultArray()[0]['total'];
+  }
+
+  // menampilkan data mahasiswa ppi dan matakuliah yang diprogramkan
+  public function getBiayaPPI()
+  {
+    // get nama dan stambuk
+
+    $sql_query = "SELECT biaya FROM biaya_ppi WHERE id_biaya = 1";
+    return (int)$this->db->query($sql_query)->getResultArray()[0]['biaya'];
   }
 
   // menampilkan data mahasiswa berdasarkan stambuk
@@ -63,6 +86,14 @@ class ProdiModel extends Model
   public function ubahStatus($status_ppi, $stambuk)
   {
     $result = $this->db->table($this->table)->set('status_ppi', $status_ppi)
+                                            ->where('stambuk', $stambuk)
+                                            ->update();
+    return $result ? true : false;
+  }
+  // update biaya ppi mahasiswa
+  public function ubahBiaya($biaya_ppi, $stambuk)
+  {
+    $result = $this->db->table($this->table)->set('biaya_ppi', $biaya_ppi)
                                             ->where('stambuk', $stambuk)
                                             ->update();
     return $result ? true : false;

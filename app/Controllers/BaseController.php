@@ -42,6 +42,14 @@ class BaseController extends Controller
 		'matakuliah' => '/prodi/matakuliah',
 		'peraturan' => '/prodi/peraturan',
 	];
+	// url sidebar prodi
+	protected $sidebarFakultas = [
+		'home' => '/fakultas',
+		'data' => '/fakultas/data',
+		'matakuliah' => '/fakultas/matakuliah',
+		'peraturan' => '/fakultas/peraturan',
+	];
+
 	protected $sidebarBem = [
 		'home' => '/bem',
 		'data' => '/bem/data',

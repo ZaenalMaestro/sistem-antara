@@ -19,12 +19,13 @@ class Filters extends BaseConfig
 		'csrf'     				=> CSRF::class,
 		'toolbar'  				=> DebugToolbar::class,
 		'honeypot' 				=> Honeypot::class,
-		'cors' 						=> \App\Filters\Cors::class,
-		'mahasiswa_auth' 	=> \App\Filters\MahasiswaAuth::class,
+		'cors' 					=> \App\Filters\Cors::class,
+		'mahasiswa_auth' 		=> \App\Filters\MahasiswaAuth::class,
 		'bem_auth' 				=> \App\Filters\BemAuth::class,
 		'prodi_auth' 			=> \App\Filters\ProdiAuth::class,
-		'validasi_user' 	=> \App\Filters\ValidasiUser::class,
-		'validasi_login' 	=> \App\Filters\ValidasiLogin::class,
+		'fakultas_auth' 		=> \App\Filters\FakultasAuth::class,
+		'validasi_user' 		=> \App\Filters\ValidasiUser::class,
+		'validasi_login' 		=> \App\Filters\ValidasiLogin::class,
 	];
 
 	// Always applied before every request

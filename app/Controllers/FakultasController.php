@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-class ProdiController extends BaseController
+class FakultasController extends BaseController
 {	
 	// menampilkan halaman dashboard prodi - home
 	public function index()
 	{
 		$data = [
 			'activeURL'=> 'home',
-			'page'=> 'Prodi',
-			'URL'=> $this->sidebarProdi
+			'page'=> 'Fakultas',
+			'URL'=> $this->sidebarFakultas
 		];
-		return view('prodi/home', $data);
+		return view('fakultas/home', $data);
 	}
 
 	// menampilkan halaman dashboard prodi - data
@@ -21,10 +21,10 @@ class ProdiController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page' => 'Prodi',
-			'URL'=> $this->sidebarProdi
+			'page' => 'Fakultas',
+			'URL'=> $this->sidebarFakultas
 		];
-		return view('prodi/data', $data);
+		return view('fakultas/data', $data);
 	}
 
 	// menampilkan halaman dashboard prodi - matakuliah
@@ -33,10 +33,10 @@ class ProdiController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'matakuliah',
-			'page'=> 'Prodi',
-			'URL'=> $this->sidebarProdi
+			'page'=> 'Fakultas',
+			'URL'=> $this->sidebarFakultas
 		];
-		return view('prodi/matakuliah', $data);
+		return view('fakultas/matakuliah', $data);
 	}
 
 	// menampilkan halaman dashboard prodi -> peraturan
@@ -45,19 +45,19 @@ class ProdiController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'peraturan',
-			'page'=> 'Prodi',
-			'URL'=> $this->sidebarProdi
+			'page'=> 'Fakultas',
+			'URL'=> $this->sidebarFakultas
 		];
-		return view('prodi/peraturan', $data);
+		return view('fakultas/peraturan', $data);
 	}
 
 	public function detailMahasiswa()
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page' => 'Prodi - Data / Detail Mahasiswa PPI',
-			'URL'=> $this->sidebarProdi
+			'page' => 'Fakultas - Data / Detail Mahasiswa PPI',
+			'URL'=> $this->sidebarFakultas
 		];
-		return view('prodi/detailMahasiswa', $data);
+		return view('fakultas/detailMahasiswa', $data);
 	}	
 }

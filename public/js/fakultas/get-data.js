@@ -2,7 +2,7 @@ $(document).ready(function () {
   const token = getToken()
   $('#matkul-ppi').DataTable({
     "ajax": {
-      'url': 'http://localhost:8080/api/prodi/mahasiswa',
+      'url': 'http://localhost:8080/api/fakultas/mahasiswa',
       'dataSrc': "mahasiswa_ppi",
       'headers': {
         'Authorization': `Bearer ${token.jwt}`
@@ -29,7 +29,7 @@ $(document).ready(function () {
                   </td>`
           }
           return `<td>
-                    <span class="badge badge-${row.status_ppi === 'diterima' || row.status_ppi === 'diverifikasi' ? 'success' : 'warning'} badge-sm" style="width:100px">
+                    <span class="badge badge-${row.status_ppi === 'diverifikasi' ? 'success' : 'warning'} badge-sm" style="width:100px">
                       ${row.status_ppi}
                     </span>
                   </td>`
@@ -58,6 +58,6 @@ function lihatdetail(e) {
     stambuk = e.target.getAttribute('data-stambuk')
     // simpan stambuk kedalam local storage
     setStambuk(stambuk)
-    window.location.href = '/prodi/detail'
+    window.location.href = '/fakultas/detail'
   }
 }

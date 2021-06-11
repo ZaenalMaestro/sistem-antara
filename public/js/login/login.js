@@ -62,8 +62,8 @@ document.getElementById('tombol-login').addEventListener('click', () => {
           jwt: data.jwt
         }
       
-      // simpan token dan role ke local storage
-      window.localStorage.setItem('login', JSON.stringify(login));
+        // simpan token dan role ke local storage
+        window.localStorage.setItem('login', JSON.stringify(login));
 
         // redirect ke URL berdasarkan role        
         // role mahasiswa
@@ -72,6 +72,8 @@ document.getElementById('tombol-login').addEventListener('click', () => {
         if (response.data.role === 'bem') return window.location.href = '/bem'
         // role prodi
         if (response.data.role === 'prodi') return window.location.href = '/prodi'
+        // role fakultas
+        if (response.data.role === 'fakultas') return window.location.href = '/fakultas'
     })
     .catch(function (error) {
       console.log(error);

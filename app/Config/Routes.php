@@ -56,6 +56,13 @@ $routes->get('/prodi/detail', 'ProdiController::detailMahasiswa');
 $routes->get('/prodi/matakuliah', 'ProdiController::matakuliah');
 $routes->get('/prodi/peraturan', 'ProdiController::peraturan');
 
+// routes dashboard Fakultas
+$routes->get('/fakultas', 'FakultasController::index');
+$routes->get('/fakultas/data', 'FakultasController::data');
+$routes->get('/fakultas/detail', 'FakultasController::detailMahasiswa');
+$routes->get('/fakultas/matakuliah', 'FakultasController::matakuliah');
+$routes->get('/fakultas/peraturan', 'FakultasController::peraturan');
+
 // routes login 
 // $routes->get('/login', 'LoginAPI/LoginController::login');
 $routes->get('/login', 'LoginController::login');
@@ -101,6 +108,16 @@ $routes->get('/api/prodi/mahasiswa', 'API/ProdiApiController::mahasiswaPPI', ['f
 $routes->put('/api/prodi/mahasiswa', 'API/ProdiApiController::ubahStatusMahasiswa', ['filter' => 'prodi_auth']);
 $routes->get('/api/prodi/mahasiswa/(:num)', 'API/ProdiApiController::detaiMahasiswaPPI', ['filter' => 'prodi_auth']);
 $routes->get('/api/prodi/peraturan', 'API/ProdiApiController::tampilPeraturan', ['filter' => 'prodi_auth']);
+
+
+// route Fakultas API
+$routes->get('/api/fakultas', 'API/FakultasApiController::jumlahMahasiswaPPI', ['filter' => 'fakultas_auth']);
+$routes->get('/api/fakultas/mahasiswa', 'API/FakultasApiController::mahasiswaPPI', ['filter' => 'fakultas_auth']);
+$routes->put('/api/fakultas/mahasiswa', 'API/FakultasApiController::ubahStatusMahasiswa', ['filter' => 'fakultas_auth']);
+$routes->get('/api/fakultas/mahasiswa/(:num)', 'API/FakultasApiController::detaiMahasiswaPPI', ['filter' => 'fakultas_auth']);
+$routes->get('/api/fakultas/peraturan', 'API/FakultasApiController::tampilPeraturan', ['filter' => 'fakultas_auth']);
+$routes->get('/api/fakultas/biaya', 'API/FakultasApiController::getBiaya', ['filter' => 'fakultas_auth']);
+$routes->put('/api/fakultas/biaya', 'API/FakultasApiController::updateBiaya', ['filter' => 'fakultas_auth']);
 
 
 // route peraturan dan mataukuliah PPI API

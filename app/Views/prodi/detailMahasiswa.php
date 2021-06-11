@@ -33,6 +33,11 @@
                   <!-- ==== daftar matakuliah mahasiswa==== -->
                 </tbody>
               </table>
+              <div class="row justify-content-end">
+                <div class="col-md-3 ml-3">
+                  <h4>Total SKS : <span class="total-sks text-info font-weight-bolder">-</span></h4>
+                </div>
+              </div>
               <button type="button" class="btn btn-info btn-sm btn-konfirmasi d-none" style="width: 50%;">Konfirmasi</button>
               <button type="button" class="btn btn-warning btn-sm btn-tolak d-none" style="width: 49%;">tolak</button>
             </div>

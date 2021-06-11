@@ -38,6 +38,11 @@
               <!-- ==== daftar matakuliah ==== -->
             </tbody>
           </table>
+          <div class="row justify-content-center">
+            <div class="col text-center">
+            <h4>Biaya PPI : Rp. <span class="biaya-ppi">-</span></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,6 +59,22 @@
 <script src="/js/jquery.js"></script>
 <script src="/js/mahasiswa/get-data.js"></script>
 <script>
+// cek status
   cekLogin()
+
+  axios.get('/api/ppi/jadwal')
+    .then(function (response) {
+    console.log(response)
+    batas_pendaftaran_ppi = response.data[0].batas_pendaftaran
+    console.log(cekBatasPendaftaran(batas_pendaftaran_ppi))
+    if (cekBatasPendaftaran(batas_pendaftaran_ppi)) {
+      // get element tombol daftar
+      const btnUpdate = getSelector('.btn-ubah-matakuliah')
+      btnUpdate.remove()
+    }
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 </script>
 <?= $this->endSection() ?>

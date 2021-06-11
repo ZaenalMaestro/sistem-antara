@@ -10,6 +10,10 @@ axios.get('/api/mahasiswa/data', config)
   .then(function (response) {
     // handle success
     const matakuliah = response.data.matakuliah_diprogramkan
+    const biaya_ppi = getSelector('.biaya-ppi');
+    if (!response.data.biaya_ppi) biaya_ppi.innerHTML = '-'
+    else biaya_ppi.innerHTML = formatRupiah(response.data.biaya_ppi)
+
 
     if (matakuliah.length > 0 && matakuliah[0].status_ppi === 'diterima') {
       getSelector('.btn-ubah-matakuliah').remove()
@@ -53,10 +57,24 @@ function isiTableMatakuliah(matakuliah)
       <td>${matkul.matakuliah}</td>
       <td>${matkul.sks}</td>
       <td class="text-center">
-        <span class="badge badge-${matkul.status_ppi == 'diterima' ? 'success' : 'warning'} badge-md">${matkul.status_ppi}</span>
+        <span class="badge badge-${matkul.status_ppi == 'diverifikasi' ? 'success' : 'warning'} badge-md">${matkul.status_ppi}</span>
       </td>
     </tr>`
   });
   // isi table matakuliah
   table_matakuliah.innerHTML = table_body
+}
+
+/* Fungsi formatRupiah */
+function formatRupiah(angka){
+  var	number_string = angka.toString(),
+	sisa 	= number_string.length % 3,
+	rupiah 	= number_string.substr(0, sisa),
+	ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+		
+  if (ribuan) {
+    separator = sisa ? '.' : '';
+    rupiah += separator + ribuan.join('.');
+  }
+  return rupiah
 }

@@ -9,7 +9,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'home',
-			'page'=> 'Home',
+			'page'=> 'BEM',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/home', $data);
@@ -21,7 +21,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page' => 'Data',
+			'page' => 'BEM',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/data', $data);
@@ -33,7 +33,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'matakuliah',
-			'page'=> 'Matakuliah',
+			'page'=> 'BEM',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/matakuliah', $data);
@@ -45,7 +45,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'peraturan',
-			'page'=> 'Peraturan',
+			'page'=> 'BEM',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/peraturan', $data);
@@ -55,7 +55,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page' => 'Data / Detail Mahasiswa PPI',
+			'page' => 'BEM - Data / Detail Mahasiswa PPI',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/detailMahasiswa', $data);
@@ -65,7 +65,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page'=> 'Data / Edit Matakuliah PPI',
+			'page'=> 'BEM - Data / Edit Matakuliah PPI',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/editmatakuliah', $data);
@@ -75,7 +75,7 @@ class BemController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page'=> 'Data / Cetak Matakuliah PPI',
+			'page'=> 'BEM - Data / Cetak Matakuliah PPI',
 			'URL'=> $this->sidebarBem
 		];
 		return view('bem/cetakmatakuliah', $data);

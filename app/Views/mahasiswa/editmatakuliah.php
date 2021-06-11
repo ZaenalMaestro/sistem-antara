@@ -85,9 +85,9 @@
 <!-- ==== redirect ke halaman data jika matakuliah telah dikonfirmasi oleh prodi ==== -->
 <script>
   cekLogin()
-  redirectJikaMatakuliahTelahDikonfirmasi('/mahasiswa/data')
+  redirectJikaMatakuliahTelahDikonfirmasi('mahasiswa/data')
   // redirect kehalaman mahasiswa jika pendaftaran telah tutup
-  redirectJikaPendaftaranTutup('/data')
+  redirectJikaPendaftaranTutup('mahasiswa/data')
 </script>
 
 <script src="/js/mahasiswa/matakuliah/get-element.js"></script>

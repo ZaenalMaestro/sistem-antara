@@ -8,7 +8,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'home',
-			'page'=> 'Home',
+			'page'=> 'Mahasiswa',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/home', $data);
@@ -20,7 +20,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page' => 'Data',
+			'page' => 'Mahasiswa',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/data', $data);
@@ -32,7 +32,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'matakuliah',
-			'page'=> 'Matakuliah',
+			'page'=> 'Mahasiswa',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/matakuliah', $data);
@@ -44,7 +44,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'peraturan',
-			'page'=> 'Peraturan',
+			'page'=> 'Mahasiswa',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/peraturan', $data);
@@ -54,7 +54,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'home',
-			'page' => 'Home / Daftar PPI',
+			'page' => 'Mahasiswa - Home / Daftar PPI',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/daftarppi', $data);
@@ -64,7 +64,7 @@ class MahasiswaController extends BaseController
 	{
 		$data = [
 			'activeURL'=> 'data',
-			'page'=> 'Data / Edit Matakuliah PPI',
+			'page'=> 'Mahasiswa - Data / Edit Matakuliah PPI',
 			'URL'=> $this->sidebarMahasiswa
 		];
 		return view('mahasiswa/editmatakuliah', $data);

@@ -101,7 +101,6 @@ function logout() {
 // jika telah login redirect kehalaman sesuai role user
 function cekLogin() {
   const login = getTokenLocalStorage()
-  console.log(login)
   if (login.status_login === true) {
     return redirectTo('/' + login.role)
   }
@@ -141,7 +140,6 @@ function formatTangggal(jadwal_ppi) {
 function tutupPendaftaran() {
   axios.get('/api/ppi/jadwal')
     .then(function (response) {
-    console.log(response)
     batas_pendaftaran_ppi = response.data[0].batas_pendaftaran
 
     // set UI batas pendaftaran
@@ -170,10 +168,11 @@ function cekBatasPendaftaran(batas_pendaftaran_ppi) {
   const currentYear = date.getFullYear()
 
   let [tahun, bulan, tanggal] = batas_pendaftaran_ppi.split('-');
-  // jika tahun or bulan or tanggal > batas pendaftaran
+
+  // batas pendaftaran -> true = pendaftaran ditutup
   if (currentYear < parseInt(tahun)) return false
-  if (currentMonth < parseInt(bulan)) return false
-  if (currentDate < parseInt(tanggal)) return false
+  if ((currentMonth + 1) < parseInt(bulan)) return false
+  if ((currentMonth + 1) <= parseInt(bulan) && currentDate < parseInt(tanggal)) return false
   return true
 }
 
@@ -181,9 +180,7 @@ function cekBatasPendaftaran(batas_pendaftaran_ppi) {
 async function redirectJikaPendaftaranTutup(url) {
   axios.get('/api/ppi/jadwal')
     .then(function (response) {
-    console.log('tutup')
     batas_pendaftaran_ppi = response.data[0].batas_pendaftaran
-    
     if (cekBatasPendaftaran(batas_pendaftaran_ppi)) {
       redirectTo('/' + url)
     }

@@ -56,7 +56,7 @@ class LoginApiController extends ResourceController
 		// password hash
 		$options 				= [ "cost" => 10 ];
 		$password_hash 	= password_hash($password, PASSWORD_DEFAULT, $options);
-
+		
 		// data registrasi
 		$registrasi = [
 			"username" 	=> $stambuk,

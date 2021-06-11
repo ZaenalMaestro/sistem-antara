@@ -39,6 +39,7 @@
   <!-- ==== jadwal ppi -->
   <div class="col">
     <div class="row">
+      <!-- batas tanggal -->
       <div class="col-md-12">
         <!--  -->
         <div class="card card-nav-tabs">
@@ -71,6 +72,7 @@
         </div>
         <!--  -->
       </div>
+      <!-- batas sks -->
       <div class="col-md-12">
         <!--  -->
         <div class="card card-nav-tabs">
@@ -98,6 +100,22 @@
                 </tr>
               </table>
               <button class="btn btn-info btn-sm text-center mt-3 ubah-matkul-sks" data-toggle="modal" data-target="#ubah_jadwa">Ubah Batas SKS</button>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <!-- batas sks -->
+      <div class="col-md-12">
+        <!--  -->
+        <div class="card card-nav-tabs">
+          <h3 class="card-header card-header-info">Batas Belanja Praktikum</h3>
+          <div class="card-body my-4">
+            <div class="ml-2">
+              <form method="post" class="form-group">
+                <input type="text" name="" class="form-control input-praktikum-maksimal">
+                <button type="button" class="btn btn-info btn-sm text-center mt-3 ubah-batas-praktikum">Ubah Batas Praktikum</button>
+              </form>
             </div>
           </div>
         </div>
@@ -181,6 +199,8 @@
 <script src="/js/bem/jadwal-edit.js"></script>
 <script src="/js/bem/get-batas-sks.js"></script>
 <script src="/js/bem/matakuliah-sks-edit.js"></script>
+<script src="/js/bem/praktikum-get.js"></script>
+<script src="/js/bem/praktikum-edit.js"></script>
 <script>
   cekLogin()
 </script>

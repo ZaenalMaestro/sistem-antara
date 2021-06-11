@@ -310,4 +310,45 @@ class BemApiController extends ResourceController
 
 		return $this->respond($response, 200);
 	}
+
+	// sks maksimal
+	// menampilkan data batas praktikum PPI
+	public function praktikumPPI()
+	{
+		$batas_praktikum = $this->model->getBatasPraktikum();
+
+		$response = [
+			"status_code" => 200,
+			"batas_praktikum" => $batas_praktikum
+		];
+
+		return $this->respond($response, 200);
+	}
+
+	// menampilkan data jadwal PPI
+	public function ubahBatasPraktikum()
+	{
+		$request = $this->request->getJSON();
+		$praktikum = [
+			'id' => 1,
+			'batas_praktikum' => $request->batas_praktikum
+		];
+
+		$praktikum_diubah = $this->model->ubahBatasPraktikum($praktikum);
+
+		$response = [
+			"status_code" => 200,
+			"pesan" 			=> 'Batas belanja praktikum berhasil diubah'
+		];
+
+		if (!$praktikum_diubah) {
+			$response = [
+				"status_code" => 400,
+				"pesan" 			=> 'Batas belanja praktikum gagal diubah'
+			];
+			return $this->respond($response, 400);
+		}
+
+		return $this->respond($response, 200);
+	}
 }

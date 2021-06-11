@@ -30,4 +30,10 @@ class PPiModel extends Model
   {
     return $this->db->table('batas_sks')->get()->getResultArray();
   }
+
+  // get batas praktikum
+  public function getBatasPraktikumPPI()
+  {
+    return $this->db->table('batas_praktikum')->get()->getResultArray();
+  }
 }

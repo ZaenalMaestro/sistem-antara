@@ -1,9 +1,11 @@
 axios.get('/api/ppi/sks')
   .then(function (response) {
+    console.log(response.data)
+    const ppi = response.data.batas_sks[0]
+    const praktikum = response.data.batas_praktikum[0]
     // handle success
-    const ppi = response.data[0]
     getSelector('.sks-maksimal').innerHTML = ppi.sks_maksimal
-    matakuliahTerpilih(ppi.sks_maksimal)
+    matakuliahTerpilih(ppi.sks_maksimal, praktikum.batas_praktikum)
   })
   .catch(function (error) {
     // handle error
@@ -12,7 +14,7 @@ axios.get('/api/ppi/sks')
     return window.location.href = '/login'
   })
 
-function matakuliahTerpilih(batas_sks) {
+function matakuliahTerpilih(batas_sks, praktikum_maksimal) {
   window.localStorage.setItem('jumlah_praktikum', 0);
   document.addEventListener('click', function (e) {
     console.log(localStorage.getItem('jumlah_praktikum'))
@@ -21,18 +23,18 @@ function matakuliahTerpilih(batas_sks) {
       if (parseInt(sks) == 1) {
         let jumlah = parseInt(localStorage.getItem('jumlah_praktikum'));
         jumlah += 1;
-        if (jumlah < 3) {
+        if (jumlah <= praktikum_maksimal) {
           window.localStorage.setItem('jumlah_praktikum', jumlah);
         } else {
-          return alert('Maksimal 2 sks matakuliah praktikum')
+          return alert(`Maksimal ${praktikum_maksimal} matakuliah praktikum`)
         }
       }
 
       console.log(window.localStorage.getItem('jumlah_praktikum'))
   
       // jika praktikum lebih dari dua
-      if (parseInt(localStorage.getItem('jumlah_praktikum')) > 2) {
-        return alert('Maksimal 2 sks matakuliah praktikum')
+      if (parseInt(localStorage.getItem('jumlah_praktikum')) > praktikum_maksimal) {
+        return alert(`Maksimal ${praktikum_maksimal} matakuliah praktikum`)
       }
   
       // total sks yang telah dibelanjakan

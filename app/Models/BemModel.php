@@ -105,9 +105,18 @@ class BemModel extends Model
     $result = $this->db->table('jadwal_ppi')->replace($jadwal);
     return $result ? true : false;
   }
-  public function ubahBatasSksPPI($batas_sks_matakuliah)
+
+  // ------- BATAS PRAKTIKUM PPI ------------ //
+  public function getBatasPraktikum()
   {
-    $result = $this->db->table('batas_sks')->replace($batas_sks_matakuliah);
+    return $this->db->table('batas_praktikum')->get()->getResultArray();
+  }
+
+
+
+  public function ubahBatasPraktikum($batas_praktikum)
+  {
+    $result = $this->db->table('batas_praktikum')->replace($batas_praktikum);
     return $result ? true : false;
   }
 
@@ -142,9 +151,7 @@ class BemModel extends Model
   // get tahun angkatan
   public function getAngkatan()
   {
-    // get nama dan stambuk
-
-    $sql_query = "SELECT DISTINCT angkatan FROM mahasiswa";
+    $sql_query = "SELECT DISTINCT angkatan FROM mahasiswa ORDER BY angkatan ASC";
     return $this->db->query($sql_query)->getResultArray();
   }
 

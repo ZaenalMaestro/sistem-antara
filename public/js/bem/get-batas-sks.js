@@ -1,7 +1,7 @@
 axios.get('/api/ppi/sks')
   .then(function (response) {
     // handle success
-    const ppi = response.data[0]
+    const ppi = response.data.batas_sks[0]
 
     getSelector('.matakuliah-maksimal').innerHTML = ppi.matakuliah_maksimal
     getSelector('.sks-maksimal').innerHTML = ppi.sks_maksimal
